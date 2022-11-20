@@ -1,0 +1,20 @@
+name                , value                                                                    , unit   , datatype, dimensions, description, source
+LimCurrent1         , 12                                                                       ,        ,         ,           ,            , Simulink Export
+LimCurrent2         , 10                                                                       ,        ,         ,           ,            , Simulink Export
+LVDCBusNomVoltage   , 700                                                                      , V      ,         ,           ,            , Simulink Export
+LVDCBusMinVoltage   , 450                                                                      , V      ,         ,           ,            , guessed
+SpecLineResistance  , 0.01                                                                     , ?      ,         ,           ,            , Simulink Export
+GeneratorTimeConst  , 30                                                                       , s      ,         ,           ,            , Simulink Export
+ConverterTimeConst  , 0.1                                                                      , s      ,         ,           ,            , Simulink Export
+CombEngRatedSpeed   , 1500                                                                     , rpm    ,         ,           ,            , Simulink Export
+CombEngInertia      , 5000                                                                     , kg*m^2 ,         ,           ,            , Simulink Export
+CombEngSpeedCtrlKp  , 50000                                                                    , W/rpm  ,         ,           ,            , Simulink Export
+CombEngSpeedCtrlKi  , 20000                                                                    , W/rpm/s,         ,           ,            , Simulink Export
+CombEngMaxPower     , 15120000                                                                 , W      ,         ,           ,            , Simulink Export
+LineLen             , 1                                                                        , m      ,         ,           ,            , Simulink Export
+BatterySocVec       , [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1]                                ,        ,         , [2]       ,            , calibrated with waterbus measurements
+BatteryVoltageVec   , [600 609.4 618.8 628.3 637.7 655.2 674.4 682 701.1 726.8 760]            , V      ,         , [2]       ,            , calibrated with waterbus measurements
+BatteryResistanceVec, [0.08 0.0737 0.0674 0.0611 0.0548 0.0487 0.0455 0.0396 0.0472 0.067 0.07], Ohm    ,         , [2]       ,            , calibrated with waterbus measurements
+BatteryAmpereHour   , 46.07                                                                    , hr*A   ,         ,           ,            , picked from single line diagramm 
+BatteryInitialSocPS , [0.91 0.91 0.91]                                                         ,        ,         , [2]       ,            , 
+BatteryInitialSocSB , [0.91 0.91 0.91]                                                         ,        ,         , [2]       ,            , 

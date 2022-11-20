@@ -1,0 +1,11 @@
+*tmp/*
+*.asv
+*.slxc
+slprj/
+spinfo/
+*grt_fmi_rtw/
+*grt_rtw/
+*.autosave
+.ipynb_checkpoints/
+__pycache__/
+*.swp
