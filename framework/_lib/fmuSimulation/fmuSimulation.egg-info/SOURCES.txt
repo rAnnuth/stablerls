@@ -2,8 +2,10 @@ LICENSE.txt
 setup.py
 fmuSimulation/__init__.py
 fmuSimulation/configReader.py
+fmuSimulation/createFMU.py
 fmuSimulation/fmutools.py
 fmuSimulation/gymFMU.py
+fmuSimulation/gymFMUchecker.py
 fmuSimulation/smartParse.py
 fmuSimulation.egg-info/PKG-INFO
 fmuSimulation.egg-info/SOURCES.txt

@@ -3,9 +3,9 @@
 # FMU functions
 #-------------------------------------------------------------------------------------
 # DEBUG = os.getenv("DEBUG", False) is not None
-DEBUG = False
+DEBUG = False 
 # LOG = os.getenv("LOG", False) is not None
-LOG = False
+LOG = False 
 
 import shutil
 from fmpy import read_model_description, extract
@@ -39,7 +39,7 @@ class FMU:
         if DEBUG: print('Initializing FMU')
         self.fmu.instantiate()
         self.fmu.setupExperiment(startTime=self.startTime, tolerance=1e-6, 
-                stopTime=self.stopTime)
+                stopTime=self.stopTime+self.dt)
         self.fmu.enterInitializationMode()
         self.fmu.exitInitializationMode()
         if DEBUG: print('Reading IOs FMU')
@@ -59,12 +59,17 @@ class FMU:
 
     # get IO description of FMU
     def getIO(self):
-        self.input = [x for x in self.description.modelVariables 
+        self.input = [x for x in self.description.modelVariables
                 if x.name.startswith(tuple(['I_','Control']))]
         self.output = [x for x in self.description.modelVariables 
                 if x.name.startswith(tuple(['O_','Measurement']))]
         self.vrs = [x for x in self.description.modelVariables 
                 if not x.name.startswith(tuple(['O_','I_','Control','Measurement']))]
+
+        #put in same order as GUI
+        self.input = self.input[::-1]
+        self.output = self.output[::-1]
+        self.vrs = self.vrs[::-1]
 
         self.Inames = [x.name for x in self.input]
         self.Onames = [x.name for x in self.output]
@@ -86,6 +91,7 @@ class FMU:
         self.fmu.terminate()
         self.fmu.freeInstance()
         shutil.rmtree(self.zipDir, ignore_errors=True)
+        
 
     #-------------------------------------------------------------------------------------
     # getter/setter-functions

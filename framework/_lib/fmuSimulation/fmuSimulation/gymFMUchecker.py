@@ -3,7 +3,10 @@ import numpy as np
 
 class FMUchecker(fmuSimulation.gymFMU.gymFMU):
     def __init__(self, config):
-        super().__init__(config)
+        #super().__init__(config)
+        #super(FMUchecker, self).__init__(config)
+        fmuSimulation.gymFMU.gymFMU.__init__(self, config)
+
         self.time = self.startTime
         self.stepCount = 0
         self.outputs = np.empty([self.totalSteps+1, self.fmu.getNumOutput()])

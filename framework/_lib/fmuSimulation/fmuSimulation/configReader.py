@@ -22,3 +22,11 @@ class configReader:
             res[section] = smartParse(dict(self.parser.items(section)))
         return res
 
+    def getAgent(self):
+        cfg = self.get('Ray')
+        sections = self.getSections()
+        sections.remove('Ray')
+        cfg['env_config'] = self.getMulti(sections)
+        return cfg
+        
+

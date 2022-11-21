@@ -43,7 +43,10 @@ class gymFMU(gym.Env):
 
         # steps
         self.numSteps = int(self.actionInterval/self.dt)
-        self.totalSteps = int((self.stopTime - self.startTime) / self.dt)
+        self.totalSteps = int((self.stopTime - self.startTime) / self.dt) + 1
+
+        if self.totalSteps < self.numSteps:
+            self.numSteps = self.totalSteps - 1
 
         # initialize FMU
         self.fmu = FMU(self.config)
@@ -56,49 +59,43 @@ class gymFMU(gym.Env):
         self.resetIO()
 
         # reset FMU        
+        self.FMUstates = {}
         self.fmu.resetFMU()
-
-        # initial observation
-        self._nextObservation()
-        observation = self.outputs[self.stepCount,:]
-        observation = self.obsProcessing(observation)
-
-        if self.isDiscrete:
-            return observation.astype(np.int64)[0]
-        else:
-            return observation
+        return self._reset() 
 
     def resetIO(self):
         self.inputs = np.empty([self.totalSteps, self.fmu.getNumInput()])
-        self.outputs = np.empty([self.totalSteps+1, self.fmu.getNumOutput()])
-        self.times = np.empty([self.totalSteps+1, 1])
+        self.outputs = np.empty([self.totalSteps, self.fmu.getNumOutput()])
+        self.times = np.empty([self.totalSteps, 1])
         self.times[0] = self.startTime
-        self.stepCount = 0
+        self.stepCount = -1
 
-    def _nextObservation(self):
+    def _nextObservation(self, steps=-1):
         # simulate fmu for iteration
         if DEBUG: print('###########################################')
         if DEBUG: print(f'Starting simulation at simulation time {self.time} [s]')
+        if steps == -1:
+            steps = self.numSteps
 
-        for i in np.arange(self.numSteps):
-            #with contextlib.redirect_stdout(None):
+        for i in np.arange(steps):
             # the inputs could change here
-            self.additionalStepInput()
+            self.FMUstep()
 
             # do one time step in fmu
-            self.FMUstep()
-            self.time += self.dt
-            self.stepCount += 1
-            self.times[self.stepCount] = self.time
-            
+            self._FMUstep()
+
             # save outputs
+            self.times[self.stepCount] = self.time
+            self.inputs[self.stepCount,:] = np.array([self.fmu.fmu.getReal([x.valueReference])[0] for x in self.fmu.getInput()])
             self.outputs[self.stepCount,:] = np.array([self.fmu.fmu.getReal([x.valueReference])[0] for x in self.fmu.getOutput()])
                     
         if DEBUG: print('Simulation for current step done.')
 
-    def FMUstep(self):
+    def _FMUstep(self):
         #TODO self.time oder +stepTime
         self.fmu.fmu.doStep(currentCommunicationPoint=(self.time), communicationStepSize=self.dt)
+        self.stepCount += 1
+        self.time += self.dt
         
     def step(self, action):
         #TODO store on drive?
@@ -107,40 +104,60 @@ class gymFMU(gym.Env):
         self._nextObservation()
         
         # get observation vector
-        observation = self.outputs[self.stepCount,:]
+        observation = self.obsProcessing(self.outputs[self.stepCount,:])
         
         # calculate rewards and set done flag
-        done, reward = self.getReward(action, observation)
-        observation = self.obsProcessing(observation)
+        observation, reward, done = self.getReward(action, observation)
+
+        #if reward < -1e10:
+            #_ = self.reset()
+            #observation, reward, done, _ = self.step(action)
 
         # end of simulation time reached?
-        if self.time +self.dt > self.stopTime:
+        if self.time > self.stopTime:
             done = True
             if LOG: print('Simulation done')
         
         return observation, reward, done, {}
+
         
     def close(self):
         self.fmu.closeFMU()
 
     def obsProcessing(self, observation):        
         return observation 
+
+    # write results to pickle file
+    def exportResults(self):        
+        pass
+
+    def saveRollbackState(self):
+        self.FMUstate[str(self.currentStep)] = [self.fmu.fmu.getFMUstate(),
+                                                self.inputs,
+                                                self.outputs,
+                                                self.times,
+                                                self.stepCount,
+                                                ]
+
+        
+    def makeRollback(self, step):                
+        print('performing rollback')
+        self.fmu.fmu.setFMUstate(state = self.FMUstates[str(step)][0])
+        self.inputs, self.outputs, self.times, self.stepCoutn = self.FMUstates[str(step)][1:]
+        
         
     #-------------------------------------------------------------------------------------
     # getter/setter-functions
     #-------------------------------------------------------------------------------------
         
-    # write results to pickle file
-    def exportResults(self):        
-        pass
 
 # ----------------------------------------------------------------------------
 import _functions
 DEBUG = False
 LOG = False
 
-for name in ['getActionSpace', 'getObservationSpace', 'resetIO', 
-        'getReward', 'getMetric', '_assignAction', 'additionalStepInput', 'exportResults', 'obsProcessing']:
+for name in ['getActionSpace', 'getObservationSpace', 'resetIO', 'FMUstep', '_assignAction',
+        'getReward', 'getMetric', '_reset', 'exportResults', 'obsProcessing']:
     try:
         setattr(gymFMU, name, getattr(_functions, name))
     except:
