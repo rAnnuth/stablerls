@@ -3,7 +3,7 @@ clc
 %clearvars
 Simulink.data.dictionary.closeAll('-discard')
 
-Ts = 1e-2;
+Ts = 1e-3;
 system = 'rlwatertank';
 
 

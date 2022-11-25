@@ -53,6 +53,9 @@ class gymFMU(gym.Env):
         self.observation_space = self.getObservationSpace()
         self.action_space = self.getActionSpace()
 
+        # dict for custom vars
+        self.customVars = {}
+
     def reset(self):        
         self.time = self.startTime 
         self.stepCount = 0

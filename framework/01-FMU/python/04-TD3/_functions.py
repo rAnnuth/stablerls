@@ -27,7 +27,7 @@ def getObservationSpace(self):
 def _reset(self):
 
     self.fmu.fmu.setReal([self.fmu.input[0].valueReference], [0])
-    self.fmu.fmu.setReal([self.fmu.input[1].valueReference], [10+np.random.randn()])
+    self.fmu.fmu.setReal([self.fmu.input[1].valueReference], [self.Href])
     self._nextObservation(1)
     return self.outputs[self.stepCount,:] 
 
