@@ -37,7 +37,7 @@ class customTorchModel(TorchModelV2, nn.Module):
         self.var_list = []
         prev_layer_size = int(np.product(obs_space.shape))
         self._logits = None
-        num_outputs = 2
+        num_outputs = 1
 
         layers.append(nn.Linear(prev_layer_size,num_outputs, bias=False))
 
@@ -65,7 +65,7 @@ class customTorchModel(TorchModelV2, nn.Module):
         obs  = input_dict['obs_flat'].float()
         self._last_flat_in = obs.reshape(obs.shape[0], -1)
         self._features = self._hidden_layers(self._last_flat_in)
-        return self._features, state
+        return obs, state
 
 
     @override(TorchModelV2)

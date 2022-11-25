@@ -37,7 +37,7 @@ class customTorchModel(TorchModelV2, nn.Module):
         self.var_list = []
         prev_layer_size = int(np.product(obs_space.shape))
         self._logits = None
-        num_outputs = 2
+        num_outputs = 1
 
         layers.append(nn.Linear(prev_layer_size,num_outputs, bias=False))
 
@@ -213,6 +213,7 @@ class FullyConnectedNetwork(TorchModelV2, nn.Module):
         logits = self._logits(self._features) if self._logits else self._features
         if self.free_log_std:
             logits = self._append_free_log_std(logits)
+        breakpoint()
         return logits, state
 
     @override(TorchModelV2)

@@ -12,68 +12,6 @@ torch, nn = try_import_torch()
 
 logger = logging.getLogger(__name__)
 
-class customTorchModel(TorchModelV2, nn.Module):
-    def __init__(
-        self,
-        obs_space: gym.spaces.Space,
-        action_space: gym.spaces.Space,
-        num_outputs: int,
-        model_config: ModelConfigDict,
-        name: str,
-    ):
-
-        TorchModelV2.__init__(
-            self, obs_space, action_space, num_outputs, model_config, name
-        )
-        nn.Module.__init__(self)
-        ####
-        print(obs_space)
-        print(action_space)
-        print(num_outputs)
-        print(int(np.product(self.obs_space.shape)))
-        print('xx')
-
-        layers = []
-        self.var_list = []
-        prev_layer_size = int(np.product(obs_space.shape))
-        self._logits = None
-        num_outputs = 2
-
-        layers.append(nn.Linear(prev_layer_size,num_outputs, bias=False))
-
-        # build
-        self._hidden_layers = nn.Sequential(*layers)
-        # Holds the current "base" output (before logits layer).
-        self._features = None
-        # Holds the last input, in case value branch is separate.
-        self._last_flat_in = None
-
-        self._value_branch = SlimFC(
-            in_size=prev_layer_size,
-            out_size=1,
-            initializer=normc_initializer(0.01),
-            activation_fn=None,
-        )
-
-    @override(TorchModelV2)
-    def forward(
-        self,
-        input_dict: Dict[str, TensorType],
-        state: List[TensorType],
-        seq_lens: TensorType,
-        ):
-        obs  = input_dict['obs_flat'].float()
-        self._last_flat_in = obs.reshape(obs.shape[0], -1)
-        self._features = self._hidden_layers(self._last_flat_in)
-        return self._features, state
-
-
-    @override(TorchModelV2)
-    def value_function(self) -> TensorType:
-        assert self._features is not None, "must call forward() first"
-
-        return self._value_branch(self._features).squeeze(1)
-
 
 class FullyConnectedNetwork(TorchModelV2, nn.Module):
     """Generic fully connected network."""
@@ -91,18 +29,18 @@ class FullyConnectedNetwork(TorchModelV2, nn.Module):
         )
         nn.Module.__init__(self)
 
-        hiddens = list(model_config.get("fcnet_hiddens", [])) + list(
+        hiddens2 = list(model_config.get("fcnet_hiddens", [])) + list(
             model_config.get("post_fcnet_hiddens", [])
         )
-        hiddens = [] 
+        hiddens = []
         activation = model_config.get("fcnet_activation")
+        if not model_config.get("fcnet_hiddens", []):
+            activation = model_config.get("post_fcnet_activation")
         no_final_linear = model_config.get("no_final_linear")
-        no_final_linear = True
         self.vf_share_layers = model_config.get("vf_share_layers")
         self.free_log_std = model_config.get("free_log_std")
         # Generate free-floating bias variables for the second half of
         # the outputs.
-
         if self.free_log_std:
             assert num_outputs % 2 == 0, (
                 "num_outputs must be divisible by two",
@@ -115,17 +53,17 @@ class FullyConnectedNetwork(TorchModelV2, nn.Module):
         self._logits = None
 
         # Create layers 0 to second-last.
-        #for size in hiddens[:-1]:
-        #size = 2
-        #layers.append(
-            #SlimFC(
-                #in_size=prev_layer_size,
-                #out_size=size,
-                #initializer=normc_initializer(1.0),
-                #activation_fn=activation,
-            #)
-        #)
-        #prev_layer_size = size
+        for size in hiddens[:-1]:
+            layers.append(
+                SlimFC(
+                    in_size=prev_layer_size,
+                    out_size=size,
+                    initializer=normc_initializer(1.0),
+                    activation_fn=activation,
+                    use_bias=False
+                )
+            )
+            prev_layer_size = size
 
         # The last layer is adjusted to be of size num_outputs, but it's a
         # layer with activation.
@@ -136,6 +74,7 @@ class FullyConnectedNetwork(TorchModelV2, nn.Module):
                     out_size=num_outputs,
                     initializer=normc_initializer(1.0),
                     activation_fn=activation,
+                    use_bias=False
                 )
             )
             prev_layer_size = num_outputs
@@ -149,6 +88,7 @@ class FullyConnectedNetwork(TorchModelV2, nn.Module):
                         out_size=hiddens[-1],
                         initializer=normc_initializer(1.0),
                         activation_fn=activation,
+                        use_bias=False
                     )
                 )
                 prev_layer_size = hiddens[-1]
@@ -158,6 +98,7 @@ class FullyConnectedNetwork(TorchModelV2, nn.Module):
                     out_size=num_outputs,
                     initializer=normc_initializer(0.01),
                     activation_fn=None,
+                    use_bias=False
                 )
             else:
                 self.num_outputs = ([int(np.product(obs_space.shape))] + hiddens[-1:])[
@@ -175,30 +116,31 @@ class FullyConnectedNetwork(TorchModelV2, nn.Module):
             # Build a parallel set of hidden layers for the value net.
             prev_vf_layer_size = int(np.product(obs_space.shape))
             vf_layers = []
-            for size in hiddens:
+            for size in hiddens2:
                 vf_layers.append(
                     SlimFC(
                         in_size=prev_vf_layer_size,
                         out_size=size,
                         activation_fn=activation,
                         initializer=normc_initializer(1.0),
+                        use_bias=False
                     )
                 )
                 prev_vf_layer_size = size
             self._value_branch_separate = nn.Sequential(*vf_layers)
-
+        #from torchsummary import summary
+        #summary(self._hidden_layers, (1,2,1))
         self._value_branch = SlimFC(
             in_size=prev_layer_size,
             out_size=1,
             initializer=normc_initializer(0.01),
             activation_fn=None,
+            use_bias=False
         )
         # Holds the current "base" output (before logits layer).
         self._features = None
         # Holds the last input, in case value branch is separate.
         self._last_flat_in = None
-
-        print(self._value_branch_separate)
 
     @override(TorchModelV2)
     def forward(
@@ -217,9 +159,6 @@ class FullyConnectedNetwork(TorchModelV2, nn.Module):
 
     @override(TorchModelV2)
     def value_function(self) -> TensorType:
-        error
-        import pdb 
-        pdb.set_trace()
         assert self._features is not None, "must call forward() first"
         if self._value_branch_separate:
             return self._value_branch(
@@ -227,4 +166,3 @@ class FullyConnectedNetwork(TorchModelV2, nn.Module):
             ).squeeze(1)
         else:
             return self._value_branch(self._features).squeeze(1)
-
