@@ -27,7 +27,7 @@ def getObservationSpace(self):
 def _reset(self):
 
     self.fmu.fmu.setReal([self.fmu.input[0].valueReference], [0])
-    self.fmu.fmu.setReal([self.fmu.input[1].valueReference], [self.Href])
+    self.fmu.fmu.setReal([self.fmu.input[1].valueReference], [self.Href+np.random.randn()*5])
     self._nextObservation(1)
     return self.outputs[self.stepCount,:] 
 
@@ -39,12 +39,14 @@ def getReward(self, action, observation):
     #error = self.outputs[:,0].astype(np.float64)
     #integral = self.outputs[:,1]
     #uctrls = self.inputs[:,0].astype(np.float64)
-    reward = -(np.abs(observation[0])**2 + 0.01 * np.abs(action)**2)[0]
+    reward = -(observation[0]**2 + 0.01 * action**2)[0]
     done = False
     if action < 0:
         reward += -1e4
         print('negative action')
         done = True
+        import sys
+        sys.exit()
 
     if np.isinf(observation).any() or np.isnan(observation).any():
         #minVal = np.finfo(np.float32).min/1e30
@@ -52,7 +54,9 @@ def getReward(self, action, observation):
         reward += -1e4
         print('inf observation')
         done = True
-
+        import sys
+        sys.exit()
+        
     return observation, reward, done
 
 def getMetric():

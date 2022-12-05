@@ -117,7 +117,7 @@ class gymFMU(gym.Env):
             #observation, reward, done, _ = self.step(action)
 
         # end of simulation time reached?
-        if self.time > self.stopTime:
+        if self.time > self.stopTime + 0.5 * self.dt:
             done = True
             if LOG: print('Simulation done')
         

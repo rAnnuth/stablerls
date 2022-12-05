@@ -33,7 +33,7 @@ class Critic(nn.Module):
 	def __init__(self, state_dim, action_dim):
 		super(Critic, self).__init__()
 
-		# Q1 architecture
+		# Q1 architectureko
 		self.l1 = nn.Linear(state_dim + action_dim, 256)
 		self.l2 = nn.Linear(256, 256)
 		self.l3 = nn.Linear(256, 1)
