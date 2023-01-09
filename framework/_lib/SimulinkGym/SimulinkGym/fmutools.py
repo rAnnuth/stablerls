@@ -1,11 +1,6 @@
-
-#-------------------------------------------------------------------------------------
-# FMU functions
-#-------------------------------------------------------------------------------------
-# DEBUG = os.getenv("DEBUG", False) is not None
-DEBUG = False 
-# LOG = os.getenv("LOG", False) is not None
-LOG = False 
+# Author Robert Annuth - robert.annuth@tuhh.de
+DEBUG = os.getenv("DEBUG", False) is not None
+LOG = os.getenv("LOG", False) is not None
 
 import shutil
 from fmpy import read_model_description, extract

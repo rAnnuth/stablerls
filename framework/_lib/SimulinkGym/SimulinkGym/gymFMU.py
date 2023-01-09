@@ -1,32 +1,21 @@
-# -*- coding: utf-8 -*-
-
-# name: cabinEnv.py
-# description: class definition for a gym environment which uses a fmu to simulate a dc microgrid,
-#               main can be used for testing the environment, microgridCabin class can be used for 
-#               various control strategies but especially to train RL agents, environment contains
-#               two definitions of actions (one is pure Discrete, the other MultiDiscrete)
-# author: Finn Nußbaum (crw3068)
-# version/date: V1.3, 27.09.2022
-
-# ----------------------------------------------------------------------------
-# external libraries
+# Author Robert Annuth - robert.annuth@tuhh.de
 import types, contextlib, json
 import gym
 
 import numpy as np
 from gym import spaces
-from fmuSimulation.fmutools import FMU
-from fmuSimulation.smartParse import smartParse
+from SimulinkGym.fmutools import FMU
+from SimulinkGym.configReader import smartParse
 # ----------------------------------------------------------------------------
 section_names = 'Reinforcement Learning', 'General', 'FMU'
 # ----------------------------------------------------------------------------
+
 class gymFMU(gym.Env):
     '''
     Custom environment for simulation of FMUs with gym interface
     See https://www.gymlibrary.dev/ for information about API and necessary functions.
     '''    
     def __init__(self, config):
-        #TODO Sinnvolle self parameter
         super(gymFMU, self).__init__()
         self.config = config
 
@@ -95,13 +84,11 @@ class gymFMU(gym.Env):
         if DEBUG: print('Simulation for current step done.')
 
     def _FMUstep(self):
-        #TODO self.time oder +stepTime
         self.fmu.fmu.doStep(currentCommunicationPoint=(self.time), communicationStepSize=self.dt)
         self.stepCount += 1
         self.time += self.dt
         
     def step(self, action):
-        #TODO store on drive?
         self._assignAction(action)
 
         self._nextObservation()
@@ -144,29 +131,7 @@ class gymFMU(gym.Env):
 
         
     def makeRollback(self, step):                
-        print('performing rollback')
+        if LOG: print('performing rollback')
         self.fmu.fmu.setFMUstate(state = self.FMUstates[str(step)][0])
         self.inputs, self.outputs, self.times, self.stepCoutn = self.FMUstates[str(step)][1:]
         
-        
-    #-------------------------------------------------------------------------------------
-    # getter/setter-functions
-    #-------------------------------------------------------------------------------------
-        
-
-# ----------------------------------------------------------------------------
-import _functions
-DEBUG = False
-LOG = False
-
-for name in ['getActionSpace', 'getObservationSpace', 'resetIO', 'FMUstep', '_assignAction',
-        'getReward', 'getMetric', '_reset', 'exportResults', 'obsProcessing']:
-    try:
-        setattr(gymFMU, name, getattr(_functions, name))
-    except:
-        print(f'No function for {name} implemented')
-
-
-
-
-

@@ -1,9 +1,17 @@
+# Author Robert Annuth - robert.annuth@tuhh.de
 import matlab.engine
 import sys, os, io
+
+DEBUG = os.getenv("DEBUG", False) is not None
+LOG = os.getenv("LOG", False) is not None
 
 Section = 'FMU'
 
 def createFMU(cfg):
+    """
+    see https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html
+    for the installation of matlab engine
+    """
     # start engine
     eng = matlab.engine.start_matlab('-nosplash -noFigureWindows -r')						
     slxDir = os.path.dirname(cfg[Section]['fmuPath'])

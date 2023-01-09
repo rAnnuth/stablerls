@@ -1,4 +1,4 @@
-from fmuSimulation.smartParse import smartParse
+# Author Robert Annuth - robert.annuth@tuhh.de
 from configparser import ConfigParser
 
 class configReader:
@@ -28,5 +28,19 @@ class configReader:
         sections.remove('Ray')
         cfg['env_config'] = self.getMulti(sections)
         return cfg
-        
 
+def smartParse(obj):
+    if isinstance(obj, dict):
+        return {k: smartParse(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [smartParse(elem) for elem in obj]
+    if isinstance(obj, str):
+        if obj == 'None':
+            return None
+        if obj.isnumeric():
+            return int(obj)
+        if obj.replace('.', '', 1).replace('e', '', 1).replace('-', '').isnumeric():
+            return float(obj)
+        if obj.upper() in ('TRUE', 'FALSE', 'T', 'F'):
+            return obj.upper() in ('TRUE', 'T')
+    return obj

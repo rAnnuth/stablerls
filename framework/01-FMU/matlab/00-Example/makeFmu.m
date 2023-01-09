@@ -1,15 +1,14 @@
 clear all
 clc
 clearvars
+Simulink.data.dictionary.closeAll('-discard')
 
-addpath(genpath('Script'))
-
-Ts = 1e-6;
-system = 'TestGrid';
+Ts = 1e-6; %sampling time of fmu
+system = 'SimulinkModel';
 
 
 open_system(system)
-BusExample
+BusSystem
 set_param(system,'SolverType','Fixed-step')
 set_param(system,'FixedStep',string(Ts))
 

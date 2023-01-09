@@ -1,8 +1,0 @@
-Metadata-Version: 2.1
-Name: fmuSimulation
-Version: 0.0.1
-Summary: Simulate FMUs as GYM environment
-Author: Robert Annuth
-Author-email: robert.annuth@tuhh.de
-License: LICENSE.txt
-License-File: LICENSE.txt
