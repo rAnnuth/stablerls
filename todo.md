@@ -2,6 +2,7 @@
 - [x] Find a name
 - [x] Move code to other repository
 - [ ] Define test cases
+- [ ] Go Gymnasium
 
 **Step 2**:
 - [ ] Document code and check for errors
