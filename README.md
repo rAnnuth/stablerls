@@ -13,6 +13,7 @@ Description ... and probably logo
 - [x] Move code to other repository
 - [ ] Define test cases
 - [x] Go Gymnasium
+- [ ] Use Loggers
 
 **Step 2**:
 - [ ] Document code and check for errors
