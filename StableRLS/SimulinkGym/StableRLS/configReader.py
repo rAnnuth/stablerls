@@ -2,7 +2,7 @@
 from configparser import ConfigParser
 
 
-class configReader:
+class configreader:
     """
     class to read configparser files and get specific sections of the config
     """
@@ -16,24 +16,24 @@ class configReader:
         self.parser = parser
 
     # return list of available sections
-    def getSections(self):
+    def get_sectionnames(self):
         return list(dict(self.parser).keys())
 
     # get one specified section from config
     def get(self, section):
-        return smartParse(dict(self.parser.items(section)))
+        return smart_parse(dict(self.parser.items(section)))
 
     # get multiple sections from config
     # TODO this should also work for one config
-    def getMulti(self, sections):
+    def get_sections(self, sections):
         res = {}
         for section in sections:
-            res[section] = smartParse(dict(self.parser.items(section)))
+            res[section] = smart_parse(dict(self.parser.items(section)))
         return res
 
     # return the Ray config section with correct dict
     # TODO this can be removed
-    def getAgent(self):
+    def get_ray_agent(self):
         cfg = self.get('Ray')
         sections = self.getSections()
         sections.remove('Ray')
@@ -41,7 +41,7 @@ class configReader:
         return cfg
 
 
-def smartParse(obj):
+def smart_parse(obj):
     """
     convert the strings of a (nested) dict to the correct datatype.
 
@@ -53,10 +53,10 @@ def smartParse(obj):
     """
 
     if isinstance(obj, dict):
-        return {k: smartParse(v) for k, v in obj.items()}
+        return {k: smart_parse(v) for k, v in obj.items()}
 
     if isinstance(obj, list):
-        return [smartParse(elem) for elem in obj]
+        return [smart_parse(elem) for elem in obj]
 
     if isinstance(obj, str):
         if obj == 'None':
