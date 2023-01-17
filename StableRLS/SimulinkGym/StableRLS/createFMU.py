@@ -3,7 +3,9 @@ import matlab.engine
 import os
 
 # specify section containing FMU path
-Section = 'FMU'
+# ----------------------------------------------------------------------------
+section_names = 'FMU'
+# ----------------------------------------------------------------------------
 
 
 def createFMU(cfg):
@@ -17,14 +19,14 @@ def createFMU(cfg):
 
     # start matlab engine
     eng = matlab.engine.start_matlab('-nosplash -noFigureWindows -r')
-    slxDir = os.path.dirname(cfg[Section]['fmuPath'])
-    mdl = os.path.splitext(os.path.basename(cfg[Section]['fmuPath']))[0]
+    slxDir = os.path.dirname(cfg[section_names]['fmuPath'])
+    mdl = os.path.splitext(os.path.basename(cfg[section_names]['fmuPath']))[0]
 
     # the code is also available as matlab code /Example/matlab/template/makeFMU.m
     eng.eval(f"cd('{slxDir}')", nargout=0)
     eng.eval(f"mdl = '{mdl}';", nargout=0)
     # dt specifies the step time of the FMU
-    eng.eval(f"Ts = {cfg[Section]['dt']};", nargout=0)
+    eng.eval(f"Ts = {cfg[section_names]['dt']};", nargout=0)
     eng.eval("open_system(mdl)", nargout=0)
     eng.eval("makeBus", nargout=0)
     eng.eval("set_param(mdl,'SolverType','Fixed-step')", nargout=0)

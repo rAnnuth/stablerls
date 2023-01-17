@@ -4,8 +4,8 @@ from fmpy.fmi2 import FMU2Slave
 from fmpy import read_model_description, extract
 import shutil
 import logging
-logger = logging.getLogger(__name__)
 
+logger = logging.getLogger(__name__)
 
 # config sections accessed by this class
 section_names = 'FMU', 'General'
