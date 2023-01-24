@@ -5,7 +5,6 @@ warning ('off','Simulink:Bus:EditTimeBusPropFailureInputPort');
 
 
 bus = {{1}};
-path = 'untitled1';
 top_ports = find_system(path, 'SearchDepth', 1, 'BlockType','Inport');
 num = 1;
 analyzed_port_numbers = [];
@@ -21,7 +20,7 @@ for i = 1 : length(top_ports)
     if ~isempty(name)
         warning(['Unable to set DataType for "%s" due to Matlab limitations. ' ...
             'Please set manually to "%s" or use normal ' ...
-            'inports at the top level'], top_ports{i}, ['Bus: bus' char(string(num + 1))])
+            'inports at the top level\n Use hilite_system("%s") to find the block'], top_ports{i}, ['Bus: bus' char(string(num + 1))], top_ports{i})
     else
         set_param(top_ports{i},'OutDataTypeStr',['Bus: bus' char(string(num + 2))]);
     end
@@ -78,6 +77,9 @@ for i3 = 1 : length(top_ports)
     handle_dest_block = get_param(port_line,'DstBlockHandle');
     handle_dest_port = get_param(port_line,'DstportHandle');
     dst_type = get_param(handle_dest_block,'BlockType');
+    if length(string(dst_type)) > 1
+        dst_type = dst_type{1};
+    end
     if isequal(dst_type,'SubSystem')
         % save name of signal but with bus
         handle = get(handle_dest_port);
