@@ -5,7 +5,7 @@ warning ('off','Simulink:Bus:EditTimeBusPropFailureInputPort');
 
 
 bus = {{1}};
-top_ports = find_system(path, 'SearchDepth', 1, 'BlockType','Inport');
+top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on','FollowLinks','on', 'BlockType','Inport');
 num = 1;
 analyzed_port_numbers = [];
 for i = 1 : length(top_ports)
@@ -53,9 +53,11 @@ end
 function [bus, num] = create_input_bus(path, bus, num, portnumber)
 %subsystems = find_system(path, 'SearchDepth', 1, 'BlockType','SubSystem');
 subsystem_bus = {1};
-top_ports = find_system(path, 'SearchDepth', 1, 'BlockType','Inport');
+top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on','FollowLinks','on', 'BlockType','Inport');
+
 
 bus_name = ['bus' char(string(num))];
+% TODO check if is variant subsystem and modify part
 
 
 top_ports_out = top_ports;
