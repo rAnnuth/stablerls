@@ -11,7 +11,7 @@ num = 1;
 analyzed_port_numbers = [];
 for i = 1 : length(top_ports)
     portnumber = str2double(get_param(top_ports{i},'Port'));
-    if ismember(analyzed_port_numbers,portnumber)
+    if any(ismember(analyzed_port_numbers,portnumber))
         continue
     else
         analyzed_port_numbers(end+1) = portnumber;
@@ -22,28 +22,16 @@ for i = 1 : length(top_ports)
         warning(['Unable to set DataType for "%s" due to Matlab limitations. ' ...
             'Please set manually to "%s" or use normal ' ...
             'inports at the top level'], top_ports{i}, ['Bus: bus' char(string(num + 1))])
-            [bus, num] = create_input_bus(path, bus, num + 1, portnumber);
     else
-        set_param([top_ports{i}],'OutDataTypeStr',['Bus: bus' char(string(num + 1))]);
-        port_handle = get_param(top_ports{i},'PortHandles');
-        port_line = get_param(port_handle.Outport,'Line');
-        handle_dest_block = get_param(port_line,'DstBlockHandle');
-        handle_dest_port = get_param(port_line,'DstportHandle');
-        dst_type = get_param(handle_dest_block,'BlockType');
-        if ~isequal(dst_type,'SubSystem')
-            error('Please pack your system inside a SubSystem to generate the bus')
-        end
-        % save name of signal but with bus
-        handle = get(handle_dest_port);
-        subsystem_portnumber = handle.PortNumber;
-        dst_block = get_param(handle_dest_block,'Name');
-
-        [bus, num] = create_input_bus([path '/' dst_block], bus, num + 1, subsystem_portnumber);
-
+        set_param(top_ports{i},'OutDataTypeStr',['Bus: bus' char(string(num + 2))]);
     end
+
+    [bus, num] = create_input_bus(path, bus, num + 1, portnumber);
+
 
 end
 
+bus = skip_bus_connections(bus, path);
 % write result to dict
 DDName = 'BusSystem.sldd';
 Simulink.data.dictionary.closeAll('-discard')
@@ -72,6 +60,7 @@ bus_name = ['bus' char(string(num))];
 
 
 top_ports_out = top_ports;
+skip = false;
 for i3 = 1 : length(top_ports)
     port_conn = get_param(top_ports{i3}, 'PortConnectivity');
     % only consider inports store this as list and delete afterwards
@@ -93,8 +82,13 @@ for i3 = 1 : length(top_ports)
         % save name of signal but with bus
         handle = get(handle_dest_port);
         subsystem_portnumber = handle.PortNumber;
-        name = get_name(top_ports{i3});
+        [name, bus_port]= get_name(top_ports{i3});
+        if ~bus_port
+            skip = true;
+        end
         subsystem_bus{end+1} = {name ['Bus: bus' char(string(num+1))]};
+
+
         dst_block = get_param(handle_dest_block,'Name');
         if length(string(dst_block)) > 1
             dst_block = dst_block{1};
@@ -114,17 +108,25 @@ if ~isempty(top_ports_out)
     end
 end
 bus{end+1} = subsystem_bus(2:end);
-bus{1}{end+1} = {bus_name};
+if skip
+    bus{1}{end+1} = {bus_name, skip};
+else
+    bus{1}{end+1} = {bus_name};
+end
 end
 
 %%
 
 
-function name = get_name(path)
+function [name, bus_port] = get_name(path)
 name = get_param(path,'Element');
+
 if isempty(name)
     name = strsplit(path, '/');
     name = name{end};
+    bus_port = false;
+else
+    bus_port = true;
 end
 end
 %
@@ -189,3 +191,41 @@ end
 out = Simulink.Bus;
 out.Elements = elems;
 end
+
+function bus = skip_bus_connections(bus, path)
+len = cellfun(@(x) length(x), bus{1});
+index = (len > 1);
+top_ports = find_system(path, 'SearchDepth', 1, 'BlockType','Inport');
+
+for i = 2 : length(bus)
+    if (~index(i) || ~iscell(bus{i}))
+        continue
+    end
+    source = ['Bus: ' bus{1}{i}{1}];
+    target = bus{i}{1}{2};
+
+    for i2 = 2 : length(bus)
+        for i3 = 1 : length(bus{i2})
+            if length(bus{i2}{i3}) < 2
+                continue
+            end
+            if isequal(bus{i2}{i3}{2}, source)
+                bus{i2}{i3}{2} = target;
+                for i4 = 1 : length(top_ports)
+                    if isequal(get_param(top_ports{i4}, 'OutDataTypeStr'), source)
+                        name = get_param(top_ports{i4},'Element');
+                        if isempty(name)
+                            set_param(top_ports{i4},'OutDataTypeStr', target);
+                        end
+                    end
+                end
+
+            end
+        end
+    end
+end
+end
+
+
+
+
