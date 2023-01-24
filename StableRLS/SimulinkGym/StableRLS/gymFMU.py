@@ -25,32 +25,27 @@ class stableRLS(gym.Env):
     Attributes
     ----------
     config : dict
-        first name of the person
+        Dictionary containing all config variables
     steps_between_actions : int
-        family name of the person
+        Amount of FMU steps between agent actions (min 1)
     steps_simulation: int
-        age of the person
-    action_interval : int
-        xxx
+        Total steps of the simulation
     fmu : class fmutools
-        xxx
-    observation_space : 
-        xxx
-    action_space :
-    xxx
-
+        FMU simulation object 
+    observation_space : gymnasium.space
+        observation space
+    action_space : gymnasium.space
+        action space
 
 
     Methods
     -------
-
     get_action_space():
         Returns action space of the environment.
     get_observation_space():
         Returns observation space of the environment.
     reset(seed=None):
         Reset function for internal variables and FMU.
-
     reset_(seed=None):
         Reset function which can be modified by the user.
     resetIO():
@@ -67,13 +62,15 @@ class stableRLS(gym.Env):
         Calculate reward for an action.
     close():
         Close FMU and clean up.
-
-    export_results(self):
-    save_rollbackstate(self):
-    perform_rollback(self, step):
+    export_results():
+        Enables users to export results.
+    save_rollbackstate():
+        Save environment state enabling rollbacks.
+    perform_rollback(step):
+        Perform rollback and return to previous environment state.
     """
-    #observation_processing(self, observation):
-    #FMUstep(self):
+    # observation_processing(self, observation):
+    # FMUstep(self):
 
 # ----------------------------------------------------------------------------
 # Initialization
@@ -224,7 +221,7 @@ class stableRLS(gym.Env):
             terminated = True
             logger.info('Simulation done')
 
-        return observation, reward, terminated, truncated, info  
+        return observation, reward, terminated, truncated, info
 
 # ----------------------------------------------------------------------------
 # Close / Rollback
@@ -258,11 +255,11 @@ class stableRLS(gym.Env):
 # ----------------------------------------------------------------------------
 # Other
 # ----------------------------------------------------------------------------
-def FMUstep(self):
-    #use self.time to access simulation time and change input here
-    #store in self.Inputs here
-    #np.nditer() solves problems!
+def FMUstep_(self):
+    # use self.time to access simulation time and change input here
+    # np.nditer() solves problems!
     pass
+
 
 def exportResults(self):
     pass
