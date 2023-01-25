@@ -1,73 +1,110 @@
-function getports(path)
-% delete and open datastroe
+% Author Robert Annuth - robert.annuth@tuhh.de
+
+function getports(model)
+% getports Creats input port for simulinkmodels.
+%   getports('my_model')
+%   the resulting bus structure is stored in "BusSystem.sldd"
+%   please add the datastore to the simulink model.
+%   Matlab provides no functionality for building the input bus!
+
+% since the bus is unknown warning will occur > turning them off
 warning ('off','Simulink:BusElPorts:SigHierPropOutputDoesNotMatchInput');
 warning ('off','Simulink:Bus:EditTimeBusPropFailureInputPort');
 
-
+% bus will contain all bus elements found in the system
 bus = {{1}};
-top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on','FollowLinks','on', 'BlockType','Inport');
+% path will reflect the position of the iterative bus building process
+path = model;
+
+% find all inports
+top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on',...
+                        'FollowLinks','on', 'BlockType','Inport');
+
+% variable to numerate busses
 num = 1;
+% keep track of analyzed busses since bus elements will have the same port number
 analyzed_port_numbers = [];
+
+% looping all ports found
 for i = 1 : length(top_ports)
     portnumber = str2double(get_param(top_ports{i},'Port'));
+    % only continue if port number is new
     if any(ismember(analyzed_port_numbers,portnumber))
         continue
     else
         analyzed_port_numbers(end+1) = portnumber;
     end
-    %recursive iteration through signal path
+
+    % check if we found a input port or bus element
+    % we can only set the datatype for input ports
+    % for bus elements this has to be done manually
     name = get_param(top_ports{i},'Element');
     if ~isempty(name)
         warning(['Unable to set DataType for "%s" due to Matlab limitations. ' ...
             'Please set manually to "%s" or use normal ' ...
-            'inports at the top level\n Use hilite_system("%s") to find the block'], top_ports{i}, ['Bus: bus' char(string(num + 1))], top_ports{i})
+            'inports at the top level\n Use hilite_system("%s") to find the block'], ...
+            top_ports{i}, ['Bus: bus' char(string(num + 1))], top_ports{i})
     else
         set_param(top_ports{i},'OutDataTypeStr',['Bus: bus' char(string(num + 2))]);
     end
 
+    % recursive iteration through signal path
     [bus, num] = create_input_bus(path, bus, num + 1, portnumber);
-
-
 end
 
+% we need to skip some bus connections since bus elments and 
+% input ports behave differently
 bus = skip_bus_connections(bus, path);
-% write result to dict
+
+% write result to datastore
 DDName = 'BusSystem.sldd';
 Simulink.data.dictionary.closeAll('-discard')
+% remove existing datastore to avoid conflicts
 if isfile(DDName)
     delete('BusSystem.sldd')
 end
+
+% create, open and write datastore
 DataDict = Simulink.data.dictionary.create(DDName);
-
 DataObj = getSection(DataDict,'Design Data');
-
 for i = 2 : length(bus)
     dataWriter(DataObj, {{getElems(bus{i}), bus{1}{i}{1}}})
 end
 saveChanges(DataDict);
 
+% enabling warnings again
+warning ('on','Simulink:BusElPorts:SigHierPropOutputDoesNotMatchInput');
+warning ('on','Simulink:Bus:EditTimeBusPropFailureInputPort');
 end
-
-
 
 function [bus, num] = create_input_bus(path, bus, num, portnumber)
+% this function is called recursive while iterating through the bus
 %subsystems = find_system(path, 'SearchDepth', 1, 'BlockType','SubSystem');
-subsystem_bus = {1};
-top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on','FollowLinks','on', 'BlockType','Inport');
 
-
-bus_name = ['bus' char(string(num))];
-% TODO check if is variant subsystem and modify part
-if (isfield(get_param(path, 'ObjectParameters'), 'Variant') && isequal(get_param(path, 'Variant'), 'on'))
+% variant subsystems behave different and we need to modify the path
+% to search inside the correct subsystem
+if (isfield(get_param(path, 'ObjectParameters'), 'Variant') ...
+    && isequal(get_param(path, 'Variant'), 'on'))
     path = get_param(path,'CompiledActiveChoiceBlock');
-    top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on','FollowLinks','on', 'BlockType','Inport');
 end
-top_ports_out = top_ports;
-skip = false;
-for i3 = 1 : length(top_ports)
-    port_conn = get_param(top_ports{i3}, 'PortConnectivity');
-    % only consider inports store this as list and delete afterwards
 
+% variable to store the bus at current path in model
+subsystem_bus = {1};
+top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on',...
+                        'FollowLinks','on', 'BlockType','Inport');
+
+% create name since num will change during execution
+bus_name = ['bus' char(string(num))];
+
+% variable to keep track of ports considered
+top_ports_out = top_ports;
+% flag to purge bus later
+skip = false;
+
+% iterate all input ports at path
+for i3 = 1 : length(top_ports)
+    % continue if wrong blocktype, port has wrong portnumber, port is not connected
+    port_conn = get_param(top_ports{i3}, 'PortConnectivity');
     if (~isequal(get_param(top_ports{i3}, 'BlockType'), 'Inport') || ...
             ~isequal(str2double(get_param(top_ports{i3}, 'Port')), portnumber) || ...
             isempty(port_conn.DstBlock))
@@ -76,6 +113,7 @@ for i3 = 1 : length(top_ports)
     end
 
     % check if destination is subsystem
+    % we have to follow the line to the destination
     port_handle = get_param(top_ports{i3},'PortHandles');
     port_line = get_param(port_handle.Outport,'Line');
     handle_dest_block = get_param(port_line,'DstBlockHandle');
@@ -84,33 +122,49 @@ for i3 = 1 : length(top_ports)
     if length(string(dst_type)) > 1
         dst_type = dst_type{1};
     end
+    
+    % if destination is a subsystem
     if isequal(dst_type,'SubSystem')
-        %todo if dst_type is bus_selector
 
-        % save name of signal but with bus
+        % get name of buselement and port numbers 
         handle = get(handle_dest_port);
         subsystem_portnumber = handle.PortNumber;
         [name, bus_port]= get_name(top_ports{i3});
+
+        % skip connection if we have no bus elment port
         if ~bus_port
             skip = true;
         end
+        
+        % store information about the bus in cell array
         subsystem_bus{end+1} = {name ['Bus: bus' char(string(num+1))]};
 
-
+        % determine destination block to modify path
         dst_block = get_param(handle_dest_block,'Name');
+        % warning if we connect the signal to multiple systems
         if length(string(dst_block)) > 1
             dst_block = dst_block{1};
-            warning('Found signal connected to multiple blocks at %s. Verify if all destination blocks take same input bussystem. Different inputs will cause errors!', [path '/' dst_block])
+            warning('Found signal connected to multiple blocks at %s. ' ...
+             'Verify if all destination blocks take same input bussystem. ' ...
+             'Different inputs will cause errors!', [path '/' dst_block])
         end
+        % remove the bus from port list
         top_ports_out(strcmp(top_ports_out, top_ports{i3})) = [];
+        
+        % build the bus for connected subsystem
         [bus, num] = create_input_bus([path '/' dst_block], bus, num+1, subsystem_portnumber);
     
+    % check if connected block is BusSelector 
+    % bus selectors are only allowed on the lowest level 
+    % and should be replaced with bus elements!
     elseif isequal(dst_type,'BusSelector')
+        % get information about port and bus selector signal
         [name, bus_port]= get_name(top_ports{i3});
-
         dst_block = get_param(handle_dest_block,'Name');
         signal = get_param([path '/' dst_block], 'OutputSignalNames');
         signal = {signal{1}(2:end-1)};
+
+        % handle input ports different and create bus elements
         if ~bus_port
             subsystem_bus{end+1} = signal;
         else
@@ -118,20 +172,26 @@ for i3 = 1 : length(top_ports)
             bus{1}{end+1} = {['Bus: bus' char(string(num+1))]};
             bus{end+1} = {signal};
         end
+        
+        % remove the bus from port list
         top_ports_out(strcmp(top_ports_out, top_ports{i3})) = [];        
         num = num + 1;        
     end
 end
 
-
-
+% all ports remaining in top_ports_out are signals directly connnected to blocks
 if ~isempty(top_ports_out)
+    % iterathe through signals and create bus elements for each
     for i4 = 1 : length(top_ports_out)
         name = get_name(top_ports_out{i4});
         subsystem_bus{end+1} = {name};
     end
 end
+
+% finally store the bus of the subsystem in the bus variable
 bus{end+1} = subsystem_bus(2:end);
+
+% handle the skip flag if set
 if skip
     bus{1}{end+1} = {bus_name, skip};
 else
@@ -140,11 +200,11 @@ end
 end
 
 %%
-
-
 function [name, bus_port] = get_name(path)
+% get_name returns the name of a input port and a boolean if its a bus element
 name = get_param(path,'Element');
 
+% if name is empty its a input port
 if isempty(name)
     name = strsplit(path, '/');
     name = name{end};
@@ -153,15 +213,12 @@ else
     bus_port = true;
 end
 end
-%
-% dataWriter(DataObj,{{Example,'Example'},...
-%                     {Control,'Control'},...
-%                     })
-% saveChanges(DataDict);
 
+%TODO check if order is correct
 function dataWriter(DataObj,Data)
-
+% dataWrite helper function to write data to data store
 for i = 1 : length(Data)
+    % make sure element is not already in store
     try
         iObj = getEntry(DataObj,Data{i}{2});
         deleteEntry(iObj)
@@ -170,27 +227,15 @@ for i = 1 : length(Data)
 end
 end
 
-function [subsystem_portnumber, dst_block] = get_port_info(port)
-port_handle = get_param(port,'PortHandles');
-port_line = get_param(port_handle.Outport,'Line');
-handle_dest_block = get_param(port_line,'DstBlockHandle');
-handle_dest_port = get_param(port_line,'DstportHandle');
-dst_block = get_param(handle_dest_block,'Name');
-% check if type is block
-handle = get(handle_dest_port);
-subsystem_portnumber = handle.PortNumber;
-end
-
-function portnumber = get_port_number(port)
-port_handle = get_param(port,'PortHandles');
-handle = get(port_handle.Outport);
-portnumber = handle.PortNumber;
-end
-
 function out = getElems(Name)
+% getElems convert bus cell array to bus elements
+
+% flip to order bus correctly
 Name=fliplr(Name);
 counter = 1;
 for i = length(Name) : -1 : 1
+    % its also possible to specify the bus by hand and use the syntax
+    % bus[1:20] to create bus1, bus2... bus20 but this is not used in this function
     if ~isempty(strfind(Name{i}{1},'['))
         lim = regexp(Name{i}{1},'\d+','match');
         bname = regexp(Name{i}{1},'[a-zA-Z]+','match');
@@ -203,6 +248,7 @@ for i = length(Name) : -1 : 1
             end
             counter = counter + 1;
         end
+    % get the elements contained in Name
     else
         elems(counter) = Simulink.BusElement;
         elems(counter).Name = Name{i}{1};
@@ -212,44 +258,66 @@ for i = length(Name) : -1 : 1
         counter = counter + 1;
     end
 end
+% convert the bus elements to a bus
 out = Simulink.Bus;
 out.Elements = elems;
 end
 
 function bus = skip_bus_connections(bus, path)
+% input ports behave differently than bus elements. Input ports only pass on
+% the bus while bus elements access/ require a own bus element. Since the two
+% port types are often mixed in models they have to be handled individually 
+% skip_bus_connections skips one bus connection if a bus element is connected
+%       to a input port inside a subsystem
+
+% if the length is large 1 the skip flag is set
 len = cellfun(@(x) length(x), bus{1});
 index = (len > 1);
+
+% get the ports of highest level since we dont want to ignore them
 top_ports = find_system(path, 'SearchDepth', 1, 'BlockType','Inport');
 
 for i = 2 : length(bus)
+    % only contine if skip flag is set
     if (~index(i) || ~iscell(bus{i}))
         continue
     end
+
+    % determine which connections should be replaced
+    % busx > source > target (before)
+    % busx > target          (after)
     source = ['Bus: ' bus{1}{i}{1}];
     target = bus{i}{1}{2};
 
     for i2 = 2 : length(bus)
         for i3 = 1 : length(bus{i2})
+            % if the length is smaller 2 its no bus 
             if length(bus{i2}{i3}) < 2
                 continue
             end
+            % if we find a bus pointing to source (busx above)
             if isequal(bus{i2}{i3}{2}, source)
+                % replace source with target
                 bus{i2}{i3}{2} = target;
-                for i4 = 1 : length(top_ports)
-                    if isequal(get_param(top_ports{i4}, 'OutDataTypeStr'), source)
-                        name = get_param(top_ports{i4},'Element');
-                        if isempty(name)
-                            set_param(top_ports{i4},'OutDataTypeStr', target);
-                        end
-                    end
-                end
 
+            end
+        end
+    end
+    % if a top bus points to the source element we have to rename the datatype
+    for i4 = 1 : length(top_ports)
+        if isequal(get_param(top_ports{i4}, 'OutDataTypeStr'), source)
+            name = get_param(top_ports{i4},'Element');
+            % if its a input port we can rename it else the user has to 
+            if isempty(name)
+                set_param(top_ports{i4},'OutDataTypeStr', target);
+            else
+                warning(['I had to rename the Bus! Ignore the name above for the following port! '...
+                    'Unable to set DataType for "%s" due to Matlab limitations. ' ...
+                    'Please set manually to "%s" or use normal ' ...
+                    'inports at the top level\n Use hilite_system("%s") to find the block'], ...
+                    top_ports{i4}, target, top_ports{i4})
             end
         end
     end
 end
 end
-
-
-
-
