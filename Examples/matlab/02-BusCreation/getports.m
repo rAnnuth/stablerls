@@ -58,8 +58,10 @@ top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on','FollowLink
 
 bus_name = ['bus' char(string(num))];
 % TODO check if is variant subsystem and modify part
-
-
+if (isfield(get_param(path, 'ObjectParameters'), 'Variant') && isequal(get_param(path, 'Variant'), 'on'))
+    path = get_param(path,'CompiledActiveChoiceBlock');
+    top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on','FollowLinks','on', 'BlockType','Inport');
+end
 top_ports_out = top_ports;
 skip = false;
 for i3 = 1 : length(top_ports)
@@ -83,6 +85,8 @@ for i3 = 1 : length(top_ports)
         dst_type = dst_type{1};
     end
     if isequal(dst_type,'SubSystem')
+        %todo if dst_type is bus_selector
+
         % save name of signal but with bus
         handle = get(handle_dest_port);
         subsystem_portnumber = handle.PortNumber;
@@ -100,6 +104,22 @@ for i3 = 1 : length(top_ports)
         end
         top_ports_out(strcmp(top_ports_out, top_ports{i3})) = [];
         [bus, num] = create_input_bus([path '/' dst_block], bus, num+1, subsystem_portnumber);
+    
+    elseif isequal(dst_type,'BusSelector')
+        [name, bus_port]= get_name(top_ports{i3});
+
+        dst_block = get_param(handle_dest_block,'Name');
+        signal = get_param([path '/' dst_block], 'OutputSignalNames');
+        signal = {signal{1}(2:end-1)};
+        if ~bus_port
+            subsystem_bus{end+1} = signal;
+        else
+            subsystem_bus{end+1} = {name ['Bus: bus' char(string(num+1))]};
+            bus{1}{end+1} = {['Bus: bus' char(string(num+1))]};
+            bus{end+1} = {signal};
+        end
+        top_ports_out(strcmp(top_ports_out, top_ports{i3})) = [];        
+        num = num + 1;        
     end
 end
 
