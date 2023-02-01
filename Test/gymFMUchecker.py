@@ -34,7 +34,3 @@ class FMUchecker(fmuSimulation.gymFMU.gymFMU):
 
     def checkAction(self, action):
         return self.getActionSpace().contains(action)
-
-
-    #def checkActionSpace(self):
-
