@@ -5,12 +5,30 @@ from configparser import ConfigParser
 class configreader:
     """
     class to read configparser files and get specific sections of the config
+
+    Attributes:
+    -------
+        None
+
+
+    Methods
+    -------
+    __init__(config_name):
+        Reads config specified by config_name.
+    get_sectionnames():
+        Returns all section names of config.
+    get(section):
+        Get one specific section.
+    get_sections(sections):
+        Get multiple sections specified as list.
+
+    #get_ray_agent(self):
     """
 
-    def __init__(self, config):
+    def __init__(self, config_name):
         parser = ConfigParser()
         parser.optionxform = str  # case sensitive
-        found = parser.read(config)
+        found = parser.read(config_name)
         if not found:
             raise ValueError('No config file found!')
         self.parser = parser

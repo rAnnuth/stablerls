@@ -13,13 +13,16 @@ section_names = 'FMU', 'General'
 
 class FMU:
     """
-    this class handels the interaction with the FMU object to seperate it from the gymnasium environment
+    This class handels the interaction with the FMU object to seperate it from the gymnasium environment.
+    I should not be neccessary to modify or interact with this.
     """
 
     def __init__(self, config):
+        # make parameters of config file available as class parameters
         for name in section_names:
             self.__dict__.update(config.get(name))
 
+        # this is the default fmpy procedure
         self.readFMU()
         logger.debug('Initializing FMU')
         self.fmu.instantiate()
@@ -56,6 +59,7 @@ class FMU:
 
     # get IO description of FMU
     def getIO(self):
+        # TODO this should be generic
         self.input = [x for x in self.description.modelVariables
                       if x.name.startswith(tuple(['I_', 'Control']))]
         self.output = [x for x in self.description.modelVariables
@@ -63,21 +67,21 @@ class FMU:
         self.vars = [x for x in self.description.modelVariables
                      if not x.name.startswith(tuple(['O_', 'I_', 'Control', 'Measurement']))]
 
-        # put in same order as GUI
+        # put in correct order as GUI
         self.input = self.input[::-1]
         self.output = self.output[::-1]
         self.vars = self.vars[::-1]
 
-        self.Inames = [x.name for x in self.input]
-        self.Onames = [x.name for x in self.output]
+        self.input_names = [x.name for x in self.input]
+        self.output_names = [x.name for x in self.output]
 
-        logger.debug('\nFound Inputs:')
+        logger.info('\nFound Inputs:')
         for i, x in enumerate(self.input):
             logger.debug('{}: {}'.format(i, x))
-        logger.debug('\nFound Outputs:')
+        logger.info('\nFound Outputs:')
         for i, x in enumerate(self.output):
             logger.debug('{}: {}'.format(i, x))
-        logger.debug('\nFound Vars:')
+        logger.info('\nFound Vars:')
         for i, x in enumerate(self.vars):
             logger.debug('{}: {}'.format(i, x))
 
