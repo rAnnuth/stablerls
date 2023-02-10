@@ -45,8 +45,8 @@ class FMU:
 
     # initialize FMU
     def initFMU(self):
-        self.fmu.setupExperiment(startTime=self.startTime, tolerance=1e-6,
-                                 stopTime=self.stopTime+self.dt)
+        self.fmu.setupExperiment(startTime=self.start_time, tolerance=1e-6,
+                                 stopTime=self.stop_time+self.dt)
         # set initial inputs
         self.fmu.enterInitializationMode()
         self.fmu.exitInitializationMode()
@@ -59,30 +59,27 @@ class FMU:
 
     # get IO description of FMU
     def getIO(self):
-        # TODO this should be generic
+        self.output = [x.variable for x in self.description.outputs]
         self.input = [x for x in self.description.modelVariables
-                      if x.name.startswith(tuple(['I_', 'Control']))]
-        self.output = [x for x in self.description.modelVariables
-                       if x.name.startswith(tuple(['O_', 'Measurement']))]
-        self.vars = [x for x in self.description.modelVariables
-                     if not x.name.startswith(tuple(['O_', 'I_', 'Control', 'Measurement']))]
+                        if x not in self.output]
+        # remove time variable since we dont want to set it
+        for i, x in enumerate(self.input):
+            if x.name == 'time':
+                self.input.pop(i)
+                break
 
         # put in correct order as GUI
         self.input = self.input[::-1]
         self.output = self.output[::-1]
-        self.vars = self.vars[::-1]
 
         self.input_names = [x.name for x in self.input]
         self.output_names = [x.name for x in self.output]
 
-        logger.info('\nFound Inputs:')
-        for i, x in enumerate(self.input):
+        logger.info('Found Inputs access with corresponding number:')
+        for i, x in enumerate(self.input_names):
             logger.debug('{}: {}'.format(i, x))
-        logger.info('\nFound Outputs:')
-        for i, x in enumerate(self.output):
-            logger.debug('{}: {}'.format(i, x))
-        logger.info('\nFound Vars:')
-        for i, x in enumerate(self.vars):
+        logger.info('Found Outputs access with corresponding number:')
+        for i, x in enumerate(self.output_names):
             logger.debug('{}: {}'.format(i, x))
 
     # terminate FMU after simulation
@@ -97,13 +94,13 @@ class FMU:
     # -------------------------------------------------------------------------------------
 
     def getInput(self):
-        return self.input
+        return self.input_names
 
     def getNumInput(self):
         return int(len(self.input))
 
     def getOutput(self):
-        return self.output
+        return self.output_names
 
     def getNumOutput(self):
         return int(len(self.output))

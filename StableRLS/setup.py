@@ -12,6 +12,7 @@ setuptools.setup(
       "numpy",
       "fmpy",
       "gymnasium",
+      "pytest-ordering",
       "matlabengine",
   ],
 )
