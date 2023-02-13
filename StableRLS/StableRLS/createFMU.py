@@ -35,21 +35,14 @@ def createFMU(cfg):
     eng.eval(f"Ts = {cfg.get(section_names)['dt']};", nargout=0)
     # open the system and create bus structure
     eng.eval("open_system(mdl)", nargout=0)
-    eng.eval("getports(mdl)", nargout=0)
     eng.eval("set_param(mdl,'DataDictionary','BusSystem.sldd');", nargout=0)
+    eng.eval("getports(mdl)", nargout=0)
 
     # set the solver configuration
     eng.eval("set_param(mdl,'SolverType','Fixed-step')", nargout=0)
     eng.eval("set_param(mdl,'FixedStep',string(Ts))", nargout=0)
 
-    # let matlab create the output bus
-    eng.eval(
-        "set_param([mdl '/Measurement'],'OutDataTypeStr','Inherit: auto');", nargout=0)
-    eng.eval(
-        "busInfo = Simulink.Bus.createObject(mdl ,[mdl '/Measurement']);", nargout=0)
-    eng.eval(
-        "set_param([mdl '/Measurement'], 'OutDataTypeStr',['Bus: ' busInfo.busName]);", nargout=0)
-
+    # start the fmu creation process and quit
     eng.eval(
         "exportToFMU2CS(mdl, 'CreateModelAfterGeneratingFMU', 'off', 'AddIcon', 'off');", nargout=0)
     eng.eval("Simulink.data.dictionary.closeAll('-discard')", nargout=0)
