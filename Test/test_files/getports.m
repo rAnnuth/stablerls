@@ -1,5 +1,4 @@
 % Author Robert Annuth - robert.annuth@tuhh.de
-% TODO Goto blocks not supported
 
 function getports(model)
 % getports Creats input port for simulinkmodels.
@@ -11,7 +10,7 @@ function getports(model)
 % since the bus is unknown warning will occur > turning them off
 warning ('off','Simulink:BusElPorts:SigHierPropOutputDoesNotMatchInput');
 warning ('off','Simulink:Bus:EditTimeBusPropFailureInputPort');
-
+warning ('off','Simulink:utility:slUtilityCompBusCannotUseSignalNameForBusName');
 % bus will contain all bus elements found in the system
 bus = {{1}};
 % path will reflect the position of the iterative bus building process
@@ -87,9 +86,32 @@ for i = 2 : length(bus)
 end
 saveChanges(DataDict);
 
+%%
+% now we can continue with the ouptut bus
+% let matlab calculate the output bus
+top_ports = find_system(model, 'SearchDepth', 1,'LookUnderMasks','on',...
+    'FollowLinks','on', 'BlockType','Outport');
+
+% reset bus types to allow matlab the compilation
+for i = 1 : length(top_ports)
+    set_param(top_ports{i},'OutDataTypeStr','Inherit: auto');
+end
+
+% create bus for each port they are automatically stored in the data
+% dictionary
+for i = 1 : length(top_ports)
+    busInfo = Simulink.Bus.createObject(model, top_ports{i});
+    % set datatype to outport but only if this is a bus
+    if ~isempty(busInfo.busName)
+        set_param(top_ports{i},'OutDataTypeStr',['Bus: ' busInfo.busName]);
+    end
+end
+
 % enabling warnings again
 warning ('on','Simulink:BusElPorts:SigHierPropOutputDoesNotMatchInput');
 warning ('on','Simulink:Bus:EditTimeBusPropFailureInputPort');
+warning ('on','Simulink:utility:slUtilityCompBusCannotUseSignalNameForBusName');
+
 end
 
 function [bus, num] = create_input_bus(path, bus, num, portnumber)
@@ -387,12 +409,14 @@ i = 2;
 while i < bus_len
     index = cellfun(@(x) isequal(x,bus{i}), bus);
     index(i) = 0;
+    % if true we have identical busses
     if any(index)
         % remove dublicates
         bus(index) = [];
         % resolve missing links
         removed_busses = bus{1}(index);
-        removed_busses = cellfun(@(x) {{['Bus: ' x{1}]}},removed_busses);
+        % get a list of all removed busses
+        removed_busses = cellfun(@(x) {{['Bus: ' x{1}]}}, removed_busses);
         replacement_bus = bus{1}(i);
         replacement_bus = {{['Bus: ' replacement_bus{1}{1}]}};
         bus{1}(index) = [];
@@ -407,6 +431,29 @@ while i < bus_len
                 if any(cellfun(@(x) isequal(x,bus{i2}{i3}(2)), removed_busses))
                     % replace source
                     bus{i2}{i3}{2} = replacement_bus{1}{1};
+                end
+            end
+        end
+        % finally check if top port accesses removed bus
+        for i2 = 1 : length(top_ports)
+            port_datatype = {get_param(top_ports{i2}, 'OutDataTypeStr')};
+            if any(cellfun(@(x) isequal(x, port_datatype), removed_busses))
+                % check if we found a input port or bus element
+                % we can only set the datatype for input ports
+                % for bus elements this has to be done manually
+                if isequal(get_param(top_ports{i2},'BlockDescription'), ...
+                        ['Select elements of a bus or the entire bus, ' ...
+                        'signal, or message from the input port.'])
+
+                    warning(['Sorry! I had to rename the Bus again! ' ...
+                        'Unable to set DataType for "%s" due to Matlab ' ...
+                        'limitations. Please set manually to "%s" or use normal ' ...
+                        'inports at the top level\n Use hilite_system("%s") ' ...
+                        'to find the block'], ...
+                        top_ports{i2}, replacement_bus{1}{1}, top_ports{i2})
+                    x = input('Please change the Name and press enter');
+                else
+                    set_param(top_ports{i2},'OutDataTypeStr', replacement_bus{1}{1});
                 end
             end
         end
