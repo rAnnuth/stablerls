@@ -1,0 +1,1356 @@
+2023-02-10 12:20:53,262 DEBUG:Starting to read FMU
+2023-02-10 12:20:53,262 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 12:20:53,265 DEBUG:Success creating FMU object
+2023-02-10 12:20:53,265 INFO:Unzipped in /tmp/tmp1eto1rfz
+2023-02-10 12:20:53,265 DEBUG:Initializing FMU
+2023-02-10 12:20:53,265 DEBUG:Reading IOs FMU
+2023-02-10 12:20:53,265 INFO:
+Found Inputs:
+2023-02-10 12:20:53,265 INFO:
+Found Outputs:
+2023-02-10 12:20:53,265 DEBUG:0: ScalarVariable(name='Measurement.integrator', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 12:20:53,265 DEBUG:1: ScalarVariable(name='Measurement.add', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 12:20:53,265 INFO:
+Found Vars:
+2023-02-10 12:20:53,265 DEBUG:0: ScalarVariable(name='time', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 12:20:53,265 DEBUG:1: ScalarVariable(name='BusElementIn', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 12:20:53,265 DEBUG:2: ScalarVariable(name='Input.In1', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 13:47:34,382 DEBUG:Starting to read FMU
+2023-02-10 13:47:34,382 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 13:47:34,384 DEBUG:Success creating FMU object
+2023-02-10 13:47:34,384 INFO:Unzipped in /tmp/tmptdapa78x
+2023-02-10 13:47:34,384 DEBUG:Initializing FMU
+2023-02-10 13:47:34,384 DEBUG:Reading IOs FMU
+2023-02-10 13:47:34,384 INFO:
+Found Inputs:
+2023-02-10 13:47:34,384 INFO:
+Found Outputs:
+2023-02-10 13:47:34,385 DEBUG:0: ScalarVariable(name='Measurement.integrator', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 13:47:34,385 DEBUG:1: ScalarVariable(name='Measurement.add', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 13:47:34,385 INFO:
+Found Vars:
+2023-02-10 13:47:34,385 DEBUG:0: ScalarVariable(name='time', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 13:47:34,385 DEBUG:1: ScalarVariable(name='BusElementIn', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 13:47:34,385 DEBUG:2: ScalarVariable(name='Input.In1', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 14:05:29,470 DEBUG:Initializing FMU
+2023-02-10 14:19:44,964 DEBUG:Starting to read FMU
+2023-02-10 14:19:44,964 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:19:44,966 DEBUG:Success creating FMU object
+2023-02-10 14:19:44,966 INFO:Unzipped in /tmp/tmpqu6iy_h5
+2023-02-10 14:19:44,966 DEBUG:Initializing FMU
+2023-02-10 14:19:44,966 DEBUG:Reading IOs FMU
+2023-02-10 14:19:44,966 INFO:
+Found Inputs:
+2023-02-10 14:19:44,966 INFO:
+Found Outputs:
+2023-02-10 14:19:44,966 DEBUG:0: ScalarVariable(name='Measurement.integrator', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 14:19:44,966 DEBUG:1: ScalarVariable(name='Measurement.add', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 14:19:44,966 INFO:
+Found Vars:
+2023-02-10 14:19:44,966 DEBUG:0: ScalarVariable(name='time', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 14:19:44,966 DEBUG:1: ScalarVariable(name='BusElementIn', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 14:19:44,966 DEBUG:2: ScalarVariable(name='Input.In1', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 14:19:46,012 DEBUG:Initializing FMU
+2023-02-10 14:19:57,552 DEBUG:Starting to read FMU
+2023-02-10 14:19:57,553 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:19:57,558 DEBUG:Success creating FMU object
+2023-02-10 14:19:57,558 INFO:Unzipped in /tmp/tmp5ovjy1e5
+2023-02-10 14:19:57,558 DEBUG:Initializing FMU
+2023-02-10 14:19:57,558 DEBUG:Reading IOs FMU
+2023-02-10 14:22:30,560 DEBUG:Starting to read FMU
+2023-02-10 14:22:30,560 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:22:30,567 DEBUG:Success creating FMU object
+2023-02-10 14:22:30,567 INFO:Unzipped in /tmp/tmpsshym3_r
+2023-02-10 14:22:30,567 DEBUG:Initializing FMU
+2023-02-10 14:22:30,567 DEBUG:Reading IOs FMU
+2023-02-10 14:22:30,567 INFO:Found Inputs access with corresponding number:
+2023-02-10 14:22:30,567 DEBUG:0: time
+2023-02-10 14:22:30,567 DEBUG:1: BusElementIn
+2023-02-10 14:22:30,567 DEBUG:2: Input.In1
+2023-02-10 14:22:30,567 INFO:Found Outputs access with corresponding number:
+2023-02-10 14:22:30,567 DEBUG:0: ScalarVariable(name='Measurement.integrator', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 14:22:30,567 DEBUG:1: ScalarVariable(name='Measurement.add', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 14:25:23,396 DEBUG:Starting to read FMU
+2023-02-10 14:25:23,396 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:25:23,403 DEBUG:Success creating FMU object
+2023-02-10 14:25:23,403 INFO:Unzipped in /tmp/tmphwsj5z6u
+2023-02-10 14:25:23,403 DEBUG:Initializing FMU
+2023-02-10 14:25:23,403 DEBUG:Reading IOs FMU
+2023-02-10 14:25:23,403 INFO:Found Inputs access with corresponding number:
+2023-02-10 14:25:23,403 DEBUG:0: BusElementIn
+2023-02-10 14:25:23,403 DEBUG:1: Input.In1
+2023-02-10 14:25:23,403 INFO:Found Outputs access with corresponding number:
+2023-02-10 14:25:23,403 DEBUG:0: ScalarVariable(name='Measurement.integrator', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 14:25:23,403 DEBUG:1: ScalarVariable(name='Measurement.add', type='Real', clocks=[], dimensions=[], dimensionValueReferences=[])
+2023-02-10 14:25:24,760 DEBUG:Initializing FMU
+2023-02-10 14:27:06,122 DEBUG:Starting to read FMU
+2023-02-10 14:27:06,123 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:27:06,129 DEBUG:Success creating FMU object
+2023-02-10 14:27:06,129 INFO:Unzipped in /tmp/tmp3dank6mm
+2023-02-10 14:27:06,129 DEBUG:Initializing FMU
+2023-02-10 14:27:06,129 DEBUG:Reading IOs FMU
+2023-02-10 14:27:06,129 INFO:Found Inputs access with corresponding number:
+2023-02-10 14:27:06,129 DEBUG:0: BusElementIn
+2023-02-10 14:27:06,129 DEBUG:1: Input.In1
+2023-02-10 14:27:06,129 INFO:Found Outputs access with corresponding number:
+2023-02-10 14:27:06,129 DEBUG:0: Measurement.integrator
+2023-02-10 14:27:06,129 DEBUG:1: Measurement.add
+2023-02-10 14:27:06,905 DEBUG:Initializing FMU
+2023-02-10 14:27:06,905 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:29:22,316 DEBUG:Starting to read FMU
+2023-02-10 14:29:22,316 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:29:22,323 DEBUG:Success creating FMU object
+2023-02-10 14:29:22,323 INFO:Unzipped in /tmp/tmphptkeuv3
+2023-02-10 14:29:22,323 DEBUG:Initializing FMU
+2023-02-10 14:29:22,323 DEBUG:Reading IOs FMU
+2023-02-10 14:29:22,323 INFO:Found Inputs access with corresponding number:
+2023-02-10 14:29:22,323 DEBUG:0: BusElementIn
+2023-02-10 14:29:22,323 DEBUG:1: Input.In1
+2023-02-10 14:29:22,323 INFO:Found Outputs access with corresponding number:
+2023-02-10 14:29:22,323 DEBUG:0: Measurement.integrator
+2023-02-10 14:29:22,323 DEBUG:1: Measurement.add
+2023-02-10 14:29:23,350 DEBUG:Initializing FMU
+2023-02-10 14:29:23,351 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:30:09,614 DEBUG:Starting to read FMU
+2023-02-10 14:30:09,614 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:30:09,620 DEBUG:Success creating FMU object
+2023-02-10 14:30:09,620 INFO:Unzipped in /tmp/tmp4il4gj_p
+2023-02-10 14:30:09,620 DEBUG:Initializing FMU
+2023-02-10 14:30:09,620 DEBUG:Reading IOs FMU
+2023-02-10 14:30:09,620 INFO:Found Inputs access with corresponding number:
+2023-02-10 14:30:09,620 DEBUG:0: BusElementIn
+2023-02-10 14:30:09,620 DEBUG:1: Input.In1
+2023-02-10 14:30:09,620 INFO:Found Outputs access with corresponding number:
+2023-02-10 14:30:09,620 DEBUG:0: Measurement.integrator
+2023-02-10 14:30:09,620 DEBUG:1: Measurement.add
+2023-02-10 14:30:10,299 DEBUG:Initializing FMU
+2023-02-10 14:30:10,300 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:30:10,314 DEBUG:Simulation for current step done.
+2023-02-10 14:30:42,403 DEBUG:Initializing FMU
+2023-02-10 14:30:42,404 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:30:42,418 DEBUG:Simulation for current step done.
+2023-02-10 14:31:32,274 DEBUG:Starting to read FMU
+2023-02-10 14:31:32,275 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:31:32,281 DEBUG:Success creating FMU object
+2023-02-10 14:31:32,281 INFO:Unzipped in /tmp/tmp2m7pxiqy
+2023-02-10 14:31:32,281 DEBUG:Initializing FMU
+2023-02-10 14:31:32,281 DEBUG:Reading IOs FMU
+2023-02-10 14:31:32,281 INFO:Found Inputs access with corresponding number:
+2023-02-10 14:31:32,281 DEBUG:0: BusElementIn
+2023-02-10 14:31:32,281 DEBUG:1: Input.In1
+2023-02-10 14:31:32,281 INFO:Found Outputs access with corresponding number:
+2023-02-10 14:31:32,281 DEBUG:0: Measurement.integrator
+2023-02-10 14:31:32,281 DEBUG:1: Measurement.add
+2023-02-10 14:31:32,944 DEBUG:Initializing FMU
+2023-02-10 14:31:32,944 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:31:32,959 DEBUG:Simulation for current step done.
+2023-02-10 14:31:32,959 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 14:31:33,233 DEBUG:Simulation for current step done.
+2023-02-10 14:31:33,233 DEBUG:Starting simulation at simulation time 10.5 [s]
+2023-02-10 14:32:34,827 DEBUG:Initializing FMU
+2023-02-10 14:32:34,827 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:32:34,841 DEBUG:Simulation for current step done.
+2023-02-10 14:32:34,842 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 14:32:35,115 DEBUG:Simulation for current step done.
+2023-02-10 14:32:35,115 DEBUG:Starting simulation at simulation time 10.5 [s]
+2023-02-10 14:32:44,236 DEBUG:Initializing FMU
+2023-02-10 14:32:44,236 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:32:44,251 DEBUG:Simulation for current step done.
+2023-02-10 14:32:44,251 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 14:32:44,525 DEBUG:Simulation for current step done.
+2023-02-10 14:32:44,525 DEBUG:Starting simulation at simulation time 10.5 [s]
+2023-02-10 14:32:53,025 DEBUG:Starting to read FMU
+2023-02-10 14:32:53,025 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:32:53,032 DEBUG:Success creating FMU object
+2023-02-10 14:32:53,032 INFO:Unzipped in /tmp/tmpykprgl4t
+2023-02-10 14:32:53,032 DEBUG:Initializing FMU
+2023-02-10 14:32:53,032 DEBUG:Reading IOs FMU
+2023-02-10 14:32:53,032 INFO:Found Inputs access with corresponding number:
+2023-02-10 14:32:53,032 DEBUG:0: BusElementIn
+2023-02-10 14:32:53,032 DEBUG:1: Input.In1
+2023-02-10 14:32:53,032 INFO:Found Outputs access with corresponding number:
+2023-02-10 14:32:53,032 DEBUG:0: Measurement.integrator
+2023-02-10 14:32:53,032 DEBUG:1: Measurement.add
+2023-02-10 14:32:53,983 DEBUG:Initializing FMU
+2023-02-10 14:32:53,983 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:32:54,000 DEBUG:Simulation for current step done.
+2023-02-10 14:32:54,000 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 14:32:54,275 DEBUG:Simulation for current step done.
+2023-02-10 14:32:54,276 DEBUG:Starting simulation at simulation time 10.5 [s]
+2023-02-10 14:33:38,545 DEBUG:Initializing FMU
+2023-02-10 14:33:38,546 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:33:38,561 DEBUG:Simulation for current step done.
+2023-02-10 14:33:38,562 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 14:33:38,575 DEBUG:Simulation for current step done.
+2023-02-10 14:33:38,575 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 14:33:38,589 DEBUG:Simulation for current step done.
+2023-02-10 14:33:38,590 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 14:33:38,604 DEBUG:Simulation for current step done.
+2023-02-10 14:33:38,604 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 14:33:38,618 DEBUG:Simulation for current step done.
+2023-02-10 14:33:38,618 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 14:33:38,631 DEBUG:Simulation for current step done.
+2023-02-10 14:33:38,631 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 14:33:38,645 DEBUG:Simulation for current step done.
+2023-02-10 14:33:38,645 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 14:33:38,659 DEBUG:Simulation for current step done.
+2023-02-10 14:33:38,659 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 14:33:38,672 DEBUG:Simulation for current step done.
+2023-02-10 14:33:38,672 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 14:33:38,686 DEBUG:Simulation for current step done.
+2023-02-10 14:41:29,868 DEBUG:Initializing FMU
+2023-02-10 14:41:29,869 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:41:29,884 DEBUG:Simulation for current step done.
+2023-02-10 14:41:52,641 DEBUG:Initializing FMU
+2023-02-10 14:41:52,641 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:41:52,655 DEBUG:Simulation for current step done.
+2023-02-10 14:41:52,655 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 14:41:52,669 DEBUG:Simulation for current step done.
+2023-02-10 14:41:52,669 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 14:41:52,683 DEBUG:Simulation for current step done.
+2023-02-10 14:41:52,683 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 14:41:52,698 DEBUG:Simulation for current step done.
+2023-02-10 14:41:52,698 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 14:41:52,712 DEBUG:Simulation for current step done.
+2023-02-10 14:41:52,712 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 14:41:52,726 DEBUG:Simulation for current step done.
+2023-02-10 14:41:52,726 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 14:41:52,740 DEBUG:Simulation for current step done.
+2023-02-10 14:41:52,740 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 14:41:52,754 DEBUG:Simulation for current step done.
+2023-02-10 14:41:52,754 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 14:41:52,767 DEBUG:Simulation for current step done.
+2023-02-10 14:41:52,767 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 14:41:52,781 DEBUG:Simulation for current step done.
+2023-02-10 14:42:24,737 DEBUG:Starting to read FMU
+2023-02-10 14:42:24,737 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:42:24,744 DEBUG:Success creating FMU object
+2023-02-10 14:42:24,744 INFO:Unzipped in /tmp/tmp7ezyvqun
+2023-02-10 14:42:24,744 DEBUG:Initializing FMU
+2023-02-10 14:42:24,744 DEBUG:Reading IOs FMU
+2023-02-10 14:42:24,744 INFO:Found Inputs access with corresponding number:
+2023-02-10 14:42:24,744 DEBUG:0: BusElementIn
+2023-02-10 14:42:24,744 DEBUG:1: Input.In1
+2023-02-10 14:42:24,744 INFO:Found Outputs access with corresponding number:
+2023-02-10 14:42:24,744 DEBUG:0: Measurement.integrator
+2023-02-10 14:42:24,744 DEBUG:1: Measurement.add
+2023-02-10 14:42:25,613 DEBUG:Initializing FMU
+2023-02-10 14:42:25,614 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 14:42:25,628 DEBUG:Simulation for current step done.
+2023-02-10 14:42:25,628 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 14:42:25,642 DEBUG:Simulation for current step done.
+2023-02-10 14:42:25,642 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 14:42:25,656 DEBUG:Simulation for current step done.
+2023-02-10 14:42:25,656 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 14:42:25,670 DEBUG:Simulation for current step done.
+2023-02-10 14:42:25,670 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 14:42:25,684 DEBUG:Simulation for current step done.
+2023-02-10 14:42:25,684 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 14:42:25,698 DEBUG:Simulation for current step done.
+2023-02-10 14:42:25,698 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 14:42:25,713 DEBUG:Simulation for current step done.
+2023-02-10 14:42:25,713 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 14:42:25,726 DEBUG:Simulation for current step done.
+2023-02-10 14:42:25,726 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 14:42:25,740 DEBUG:Simulation for current step done.
+2023-02-10 14:42:25,740 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 14:42:25,754 DEBUG:Simulation for current step done.
+2023-02-10 14:58:06,609 DEBUG:Starting to read FMU
+2023-02-10 14:58:06,609 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 14:58:06,615 DEBUG:Success creating FMU object
+2023-02-10 14:58:06,615 INFO:Unzipped in /tmp/tmphxiy1894
+2023-02-10 14:58:06,615 DEBUG:Initializing FMU
+2023-02-10 14:58:06,615 DEBUG:Reading IOs FMU
+2023-02-10 14:58:06,615 INFO:Found Inputs access with corresponding number:
+2023-02-10 14:58:06,615 DEBUG:0: BusElementIn
+2023-02-10 14:58:06,615 DEBUG:1: Input.In1
+2023-02-10 14:58:06,615 INFO:Found Outputs access with corresponding number:
+2023-02-10 14:58:06,615 DEBUG:0: Measurement.integrator
+2023-02-10 14:58:06,615 DEBUG:1: Measurement.add
+2023-02-10 15:02:59,526 DEBUG:Starting to read FMU
+2023-02-10 15:02:59,527 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 15:02:59,532 DEBUG:Success creating FMU object
+2023-02-10 15:02:59,532 INFO:Unzipped in /tmp/tmp0o8dbaox
+2023-02-10 15:02:59,532 DEBUG:Initializing FMU
+2023-02-10 15:02:59,532 DEBUG:Reading IOs FMU
+2023-02-10 15:02:59,532 INFO:Found Inputs access with corresponding number:
+2023-02-10 15:02:59,532 DEBUG:0: BusElementIn
+2023-02-10 15:02:59,532 DEBUG:1: Input.In1
+2023-02-10 15:02:59,532 INFO:Found Outputs access with corresponding number:
+2023-02-10 15:02:59,532 DEBUG:0: Measurement.integrator
+2023-02-10 15:02:59,532 DEBUG:1: Measurement.add
+2023-02-10 15:03:00,307 DEBUG:Initializing FMU
+2023-02-10 15:03:00,308 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 15:03:00,322 DEBUG:Simulation for current step done.
+2023-02-10 15:03:00,322 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 15:03:00,336 DEBUG:Simulation for current step done.
+2023-02-10 15:03:00,336 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 15:03:00,350 DEBUG:Simulation for current step done.
+2023-02-10 15:03:00,350 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 15:03:00,364 DEBUG:Simulation for current step done.
+2023-02-10 15:03:00,364 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 15:03:00,378 DEBUG:Simulation for current step done.
+2023-02-10 15:03:00,378 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 15:03:00,392 DEBUG:Simulation for current step done.
+2023-02-10 15:03:00,392 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 15:03:00,405 DEBUG:Simulation for current step done.
+2023-02-10 15:03:00,405 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 15:03:00,419 DEBUG:Simulation for current step done.
+2023-02-10 15:03:00,419 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 15:03:00,433 DEBUG:Simulation for current step done.
+2023-02-10 15:03:00,433 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 15:03:00,446 DEBUG:Simulation for current step done.
+2023-02-10 15:04:55,693 DEBUG:Initializing FMU
+2023-02-10 15:04:55,694 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 15:04:55,709 DEBUG:Simulation for current step done.
+2023-02-10 15:04:55,709 ERROR:The actions are not within the action space
+2023-02-10 15:04:55,709 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 15:04:55,984 DEBUG:Simulation for current step done.
+2023-02-10 15:12:24,762 DEBUG:Initializing FMU
+2023-02-10 15:12:24,762 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 15:12:24,777 DEBUG:Simulation for current step done.
+2023-02-10 15:12:24,777 ERROR:The actions are not within the action space
+2023-02-10 15:12:24,777 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 15:12:25,051 DEBUG:Simulation for current step done.
+2023-02-10 15:21:36,667 DEBUG:Initializing FMU
+2023-02-10 15:21:36,667 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 15:21:36,681 DEBUG:Simulation for current step done.
+2023-02-10 15:21:36,682 ERROR:The actions are not within the action space
+2023-02-10 15:21:36,682 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 15:21:36,963 DEBUG:Simulation for current step done.
+2023-02-10 15:23:34,240 DEBUG:Starting to read FMU
+2023-02-10 15:23:34,240 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 15:23:34,247 DEBUG:Success creating FMU object
+2023-02-10 15:23:34,247 INFO:Unzipped in /tmp/tmpuwte_5ji
+2023-02-10 15:23:34,247 DEBUG:Initializing FMU
+2023-02-10 15:23:34,247 DEBUG:Reading IOs FMU
+2023-02-10 15:23:34,247 INFO:Found Inputs access with corresponding number:
+2023-02-10 15:23:34,247 DEBUG:0: BusElementIn
+2023-02-10 15:23:34,247 DEBUG:1: Input.In1
+2023-02-10 15:23:34,247 INFO:Found Outputs access with corresponding number:
+2023-02-10 15:23:34,247 DEBUG:0: Measurement.integrator
+2023-02-10 15:23:34,247 DEBUG:1: Measurement.add
+2023-02-10 15:23:35,719 DEBUG:Initializing FMU
+2023-02-10 15:23:35,719 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 15:23:35,733 DEBUG:Simulation for current step done.
+2023-02-10 15:23:35,734 ERROR:The actions are not within the action space
+2023-02-10 15:23:35,734 ERROR:[2 3]
+2023-02-10 15:23:35,734 ERROR:0.5
+2023-02-10 15:23:35,734 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 15:23:36,011 DEBUG:Simulation for current step done.
+2023-02-10 15:24:17,891 DEBUG:Starting to read FMU
+2023-02-10 15:24:17,891 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 15:24:17,897 DEBUG:Success creating FMU object
+2023-02-10 15:24:17,897 INFO:Unzipped in /tmp/tmptc2srd2n
+2023-02-10 15:24:17,897 DEBUG:Initializing FMU
+2023-02-10 15:24:17,897 DEBUG:Reading IOs FMU
+2023-02-10 15:24:17,897 INFO:Found Inputs access with corresponding number:
+2023-02-10 15:24:17,897 DEBUG:0: BusElementIn
+2023-02-10 15:24:17,897 DEBUG:1: Input.In1
+2023-02-10 15:24:17,897 INFO:Found Outputs access with corresponding number:
+2023-02-10 15:24:17,897 DEBUG:0: Measurement.integrator
+2023-02-10 15:24:17,897 DEBUG:1: Measurement.add
+2023-02-10 15:24:19,353 DEBUG:Initializing FMU
+2023-02-10 15:24:19,354 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 15:24:19,368 DEBUG:Simulation for current step done.
+2023-02-10 15:24:19,369 ERROR:The actions are not within the action space
+2023-02-10 15:24:19,369 ERROR:[2 3]
+2023-02-10 15:24:19,369 ERROR:0.5
+2023-02-10 15:24:19,369 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 15:24:19,642 DEBUG:Simulation for current step done.
+2023-02-10 15:25:19,185 DEBUG:Starting to read FMU
+2023-02-10 15:25:19,186 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 15:25:19,191 DEBUG:Success creating FMU object
+2023-02-10 15:25:19,191 INFO:Unzipped in /tmp/tmpameqeno9
+2023-02-10 15:25:19,191 DEBUG:Initializing FMU
+2023-02-10 15:25:19,192 DEBUG:Reading IOs FMU
+2023-02-10 15:25:19,192 INFO:Found Inputs access with corresponding number:
+2023-02-10 15:25:19,192 DEBUG:0: BusElementIn
+2023-02-10 15:25:19,192 DEBUG:1: Input.In1
+2023-02-10 15:25:19,192 INFO:Found Outputs access with corresponding number:
+2023-02-10 15:25:19,192 DEBUG:0: Measurement.integrator
+2023-02-10 15:25:19,192 DEBUG:1: Measurement.add
+2023-02-10 15:25:19,986 DEBUG:Initializing FMU
+2023-02-10 15:25:19,986 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 15:25:20,002 DEBUG:Simulation for current step done.
+2023-02-10 15:25:20,002 ERROR:The actions are not within the action space
+2023-02-10 15:25:20,002 ERROR:[2 3]
+2023-02-10 15:25:20,002 ERROR:0.5
+2023-02-10 15:25:20,002 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 15:25:20,277 DEBUG:Simulation for current step done.
+2023-02-10 15:27:48,425 DEBUG:Initializing FMU
+2023-02-10 15:27:48,426 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 15:27:48,442 DEBUG:Simulation for current step done.
+2023-02-10 15:27:48,442 ERROR:The actions are not within the action space
+2023-02-10 15:27:48,442 ERROR:[2 3]
+2023-02-10 15:27:48,442 ERROR:0.5
+2023-02-10 15:27:48,442 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 15:27:48,718 DEBUG:Simulation for current step done.
+2023-02-10 15:27:54,020 DEBUG:Starting to read FMU
+2023-02-10 15:27:54,020 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 15:27:54,026 DEBUG:Success creating FMU object
+2023-02-10 15:27:54,026 INFO:Unzipped in /tmp/tmpikwnxfbl
+2023-02-10 15:27:54,027 DEBUG:Initializing FMU
+2023-02-10 15:27:54,027 DEBUG:Reading IOs FMU
+2023-02-10 15:27:54,027 INFO:Found Inputs access with corresponding number:
+2023-02-10 15:27:54,027 DEBUG:0: BusElementIn
+2023-02-10 15:27:54,027 DEBUG:1: Input.In1
+2023-02-10 15:27:54,027 INFO:Found Outputs access with corresponding number:
+2023-02-10 15:27:54,027 DEBUG:0: Measurement.integrator
+2023-02-10 15:27:54,027 DEBUG:1: Measurement.add
+2023-02-10 15:27:55,016 DEBUG:Initializing FMU
+2023-02-10 15:27:55,017 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 15:27:55,031 DEBUG:Simulation for current step done.
+2023-02-10 15:27:55,031 ERROR:The actions are not within the action space
+2023-02-10 15:27:55,031 ERROR:[2 3]
+2023-02-10 15:27:55,031 ERROR:0.5
+2023-02-10 15:27:55,031 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 15:27:55,306 DEBUG:Simulation for current step done.
+2023-02-10 15:27:55,306 INFO:Simulation done
+2023-02-10 16:06:38,710 DEBUG:Initializing FMU
+2023-02-10 16:06:38,710 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:06:38,725 DEBUG:Simulation for current step done.
+2023-02-10 16:06:38,725 ERROR:The actions are not within the action space
+2023-02-10 16:06:38,725 ERROR:[2 3]
+2023-02-10 16:06:38,725 ERROR:0.5
+2023-02-10 16:06:38,725 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:06:38,997 DEBUG:Simulation for current step done.
+2023-02-10 16:06:38,997 INFO:Simulation done
+2023-02-10 16:06:45,859 DEBUG:Starting to read FMU
+2023-02-10 16:06:45,860 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 16:06:45,866 DEBUG:Success creating FMU object
+2023-02-10 16:06:45,866 INFO:Unzipped in /tmp/tmp6n71vg_z
+2023-02-10 16:06:45,866 DEBUG:Initializing FMU
+2023-02-10 16:06:45,866 DEBUG:Reading IOs FMU
+2023-02-10 16:06:45,866 INFO:Found Inputs access with corresponding number:
+2023-02-10 16:06:45,866 DEBUG:0: BusElementIn
+2023-02-10 16:06:45,866 DEBUG:1: Input.In1
+2023-02-10 16:06:45,866 INFO:Found Outputs access with corresponding number:
+2023-02-10 16:06:45,866 DEBUG:0: Measurement.integrator
+2023-02-10 16:06:45,866 DEBUG:1: Measurement.add
+2023-02-10 16:06:46,799 DEBUG:Initializing FMU
+2023-02-10 16:06:46,799 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:06:46,814 DEBUG:Simulation for current step done.
+2023-02-10 16:06:46,814 ERROR:The actions are not within the action space
+2023-02-10 16:06:46,814 ERROR:[2 3]
+2023-02-10 16:06:46,814 ERROR:0.5
+2023-02-10 16:06:46,814 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:06:47,092 DEBUG:Simulation for current step done.
+2023-02-10 16:06:47,092 INFO:Simulation done
+2023-02-10 16:06:58,302 DEBUG:Initializing FMU
+2023-02-10 16:06:58,302 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:06:58,316 DEBUG:Simulation for current step done.
+2023-02-10 16:06:58,316 ERROR:The actions are not within the action space
+2023-02-10 16:06:58,316 ERROR:[2 3]
+2023-02-10 16:06:58,317 ERROR:0.5
+2023-02-10 16:06:58,317 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:06:58,591 DEBUG:Simulation for current step done.
+2023-02-10 16:06:58,592 INFO:Simulation done
+2023-02-10 16:07:49,861 DEBUG:Initializing FMU
+2023-02-10 16:07:49,861 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:07:49,876 DEBUG:Simulation for current step done.
+2023-02-10 16:07:49,876 ERROR:The actions are not within the action space
+2023-02-10 16:07:49,876 ERROR:[2 3]
+2023-02-10 16:07:49,876 ERROR:0.5
+2023-02-10 16:07:49,876 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:07:50,151 DEBUG:Simulation for current step done.
+2023-02-10 16:07:50,151 INFO:Simulation done
+2023-02-10 16:08:14,150 DEBUG:Initializing FMU
+2023-02-10 16:08:14,150 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:08:14,165 DEBUG:Simulation for current step done.
+2023-02-10 16:08:14,165 ERROR:The actions are not within the action space
+2023-02-10 16:08:14,165 ERROR:[2 3]
+2023-02-10 16:08:14,165 ERROR:0.5
+2023-02-10 16:08:14,165 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:08:14,440 DEBUG:Simulation for current step done.
+2023-02-10 16:08:14,440 INFO:Simulation done
+2023-02-10 16:08:25,231 DEBUG:Initializing FMU
+2023-02-10 16:08:25,232 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:08:25,248 DEBUG:Simulation for current step done.
+2023-02-10 16:08:25,248 ERROR:The actions are not within the action space
+2023-02-10 16:08:25,248 ERROR:[2 3]
+2023-02-10 16:08:25,248 ERROR:0.5
+2023-02-10 16:08:25,248 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:08:25,521 DEBUG:Simulation for current step done.
+2023-02-10 16:08:25,521 INFO:Simulation done
+2023-02-10 16:09:36,442 DEBUG:Starting to read FMU
+2023-02-10 16:09:36,442 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 16:09:36,449 DEBUG:Success creating FMU object
+2023-02-10 16:09:36,449 INFO:Unzipped in /tmp/tmpo8txerh8
+2023-02-10 16:09:36,449 DEBUG:Initializing FMU
+2023-02-10 16:09:36,449 DEBUG:Reading IOs FMU
+2023-02-10 16:09:36,449 INFO:Found Inputs access with corresponding number:
+2023-02-10 16:09:36,449 DEBUG:0: BusElementIn
+2023-02-10 16:09:36,449 DEBUG:1: Input.In1
+2023-02-10 16:09:36,449 INFO:Found Outputs access with corresponding number:
+2023-02-10 16:09:36,449 DEBUG:0: Measurement.integrator
+2023-02-10 16:09:36,449 DEBUG:1: Measurement.add
+2023-02-10 16:09:37,277 DEBUG:Initializing FMU
+2023-02-10 16:09:37,277 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:09:37,292 DEBUG:Simulation for current step done.
+2023-02-10 16:09:37,292 ERROR:The actions are not within the action space
+2023-02-10 16:09:37,292 ERROR:[2 3]
+2023-02-10 16:09:37,292 ERROR:0.5
+2023-02-10 16:09:37,292 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:09:37,307 DEBUG:Simulation for current step done.
+2023-02-10 16:10:53,946 DEBUG:Starting to read FMU
+2023-02-10 16:10:53,946 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 16:10:53,952 DEBUG:Success creating FMU object
+2023-02-10 16:10:53,952 INFO:Unzipped in /tmp/tmpfi3my9af
+2023-02-10 16:10:53,952 DEBUG:Initializing FMU
+2023-02-10 16:10:53,952 DEBUG:Reading IOs FMU
+2023-02-10 16:10:53,952 INFO:Found Inputs access with corresponding number:
+2023-02-10 16:10:53,952 DEBUG:0: BusElementIn
+2023-02-10 16:10:53,952 DEBUG:1: Input.In1
+2023-02-10 16:10:53,952 INFO:Found Outputs access with corresponding number:
+2023-02-10 16:10:53,952 DEBUG:0: Measurement.integrator
+2023-02-10 16:10:53,952 DEBUG:1: Measurement.add
+2023-02-10 16:10:54,947 DEBUG:Initializing FMU
+2023-02-10 16:10:54,947 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:10:54,961 DEBUG:Simulation for current step done.
+2023-02-10 16:10:54,961 ERROR:The actions are not within the action space
+2023-02-10 16:10:54,961 ERROR:[2 3]
+2023-02-10 16:10:54,962 ERROR:0.5
+2023-02-10 16:10:54,962 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:10:54,976 DEBUG:Simulation for current step done.
+2023-02-10 16:11:36,865 DEBUG:Starting to read FMU
+2023-02-10 16:11:36,865 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 16:11:36,871 DEBUG:Success creating FMU object
+2023-02-10 16:11:36,871 INFO:Unzipped in /tmp/tmpmqbo4coi
+2023-02-10 16:11:36,871 DEBUG:Initializing FMU
+2023-02-10 16:11:36,871 DEBUG:Reading IOs FMU
+2023-02-10 16:11:36,872 INFO:Found Inputs access with corresponding number:
+2023-02-10 16:11:36,872 DEBUG:0: BusElementIn
+2023-02-10 16:11:36,872 DEBUG:1: Input.In1
+2023-02-10 16:11:36,872 INFO:Found Outputs access with corresponding number:
+2023-02-10 16:11:36,872 DEBUG:0: Measurement.integrator
+2023-02-10 16:11:36,872 DEBUG:1: Measurement.add
+2023-02-10 16:11:38,618 DEBUG:Initializing FMU
+2023-02-10 16:11:38,619 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:11:38,633 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,633 ERROR:The actions are not within the action space
+2023-02-10 16:11:38,633 ERROR:[2 3]
+2023-02-10 16:11:38,633 ERROR:0.5
+2023-02-10 16:11:38,633 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:11:38,647 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,647 ERROR:The actions are not within the action space
+2023-02-10 16:11:38,647 ERROR:[2 3]
+2023-02-10 16:11:38,647 ERROR:1.0
+2023-02-10 16:11:38,647 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 16:11:38,662 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,662 ERROR:The actions are not within the action space
+2023-02-10 16:11:38,662 ERROR:[2 3]
+2023-02-10 16:11:38,662 ERROR:1.5
+2023-02-10 16:11:38,662 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 16:11:38,676 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,676 ERROR:The actions are not within the action space
+2023-02-10 16:11:38,676 ERROR:[2 3]
+2023-02-10 16:11:38,676 ERROR:2.0
+2023-02-10 16:11:38,676 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 16:11:38,690 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,690 ERROR:The actions are not within the action space
+2023-02-10 16:11:38,690 ERROR:[2 3]
+2023-02-10 16:11:38,690 ERROR:2.5
+2023-02-10 16:11:38,690 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 16:11:38,704 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,704 ERROR:The actions are not within the action space
+2023-02-10 16:11:38,704 ERROR:[2 3]
+2023-02-10 16:11:38,704 ERROR:3.0
+2023-02-10 16:11:38,704 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 16:11:38,718 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,718 ERROR:The actions are not within the action space
+2023-02-10 16:11:38,718 ERROR:[2 3]
+2023-02-10 16:11:38,719 ERROR:3.5
+2023-02-10 16:11:38,719 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 16:11:38,732 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,733 ERROR:The actions are not within the action space
+2023-02-10 16:11:38,733 ERROR:[2 3]
+2023-02-10 16:11:38,733 ERROR:4.0
+2023-02-10 16:11:38,733 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 16:11:38,746 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,747 ERROR:The actions are not within the action space
+2023-02-10 16:11:38,747 ERROR:[2 3]
+2023-02-10 16:11:38,747 ERROR:4.5
+2023-02-10 16:11:38,747 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 16:11:38,761 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,761 ERROR:The actions are not within the action space
+2023-02-10 16:11:38,761 ERROR:[2 3]
+2023-02-10 16:11:38,761 ERROR:5.0
+2023-02-10 16:11:38,761 DEBUG:Starting simulation at simulation time 5.0 [s]
+2023-02-10 16:11:38,774 DEBUG:Simulation for current step done.
+2023-02-10 16:11:38,774 INFO:Creating rollback state at timestep 10
+2023-02-10 16:12:29,123 DEBUG:Starting to read FMU
+2023-02-10 16:12:29,123 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 16:12:29,130 DEBUG:Success creating FMU object
+2023-02-10 16:12:29,130 INFO:Unzipped in /tmp/tmpkzgay0ma
+2023-02-10 16:12:29,130 DEBUG:Initializing FMU
+2023-02-10 16:12:29,130 DEBUG:Reading IOs FMU
+2023-02-10 16:12:29,130 INFO:Found Inputs access with corresponding number:
+2023-02-10 16:12:29,130 DEBUG:0: BusElementIn
+2023-02-10 16:12:29,130 DEBUG:1: Input.In1
+2023-02-10 16:12:29,130 INFO:Found Outputs access with corresponding number:
+2023-02-10 16:12:29,130 DEBUG:0: Measurement.integrator
+2023-02-10 16:12:29,130 DEBUG:1: Measurement.add
+2023-02-10 16:12:29,826 DEBUG:Initializing FMU
+2023-02-10 16:12:29,826 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:12:29,840 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,841 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,841 ERROR:[2 3]
+2023-02-10 16:12:29,841 ERROR:0.5
+2023-02-10 16:12:29,841 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:12:29,855 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,855 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,855 ERROR:[2 3]
+2023-02-10 16:12:29,855 ERROR:1.0
+2023-02-10 16:12:29,855 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 16:12:29,869 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,869 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,869 ERROR:[2 3]
+2023-02-10 16:12:29,870 ERROR:1.5
+2023-02-10 16:12:29,870 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 16:12:29,883 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,883 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,883 ERROR:[2 3]
+2023-02-10 16:12:29,884 ERROR:2.0
+2023-02-10 16:12:29,884 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 16:12:29,897 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,898 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,898 ERROR:[2 3]
+2023-02-10 16:12:29,898 ERROR:2.5
+2023-02-10 16:12:29,898 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 16:12:29,911 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,912 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,912 ERROR:[2 3]
+2023-02-10 16:12:29,912 ERROR:3.0
+2023-02-10 16:12:29,912 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 16:12:29,926 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,926 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,926 ERROR:[2 3]
+2023-02-10 16:12:29,926 ERROR:3.5
+2023-02-10 16:12:29,926 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 16:12:29,940 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,940 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,940 ERROR:[2 3]
+2023-02-10 16:12:29,940 ERROR:4.0
+2023-02-10 16:12:29,940 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 16:12:29,954 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,954 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,954 ERROR:[2 3]
+2023-02-10 16:12:29,954 ERROR:4.5
+2023-02-10 16:12:29,954 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 16:12:29,968 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,968 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,968 ERROR:[2 3]
+2023-02-10 16:12:29,968 ERROR:5.0
+2023-02-10 16:12:29,968 DEBUG:Starting simulation at simulation time 5.0 [s]
+2023-02-10 16:12:29,982 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,982 INFO:Creating rollback state at timestep 10
+2023-02-10 16:12:29,982 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,982 ERROR:[2 3]
+2023-02-10 16:12:29,982 ERROR:5.5
+2023-02-10 16:12:29,982 DEBUG:Starting simulation at simulation time 5.5 [s]
+2023-02-10 16:12:29,996 DEBUG:Simulation for current step done.
+2023-02-10 16:12:29,996 ERROR:The actions are not within the action space
+2023-02-10 16:12:29,996 ERROR:[2 3]
+2023-02-10 16:12:29,996 ERROR:6.0
+2023-02-10 16:12:29,996 DEBUG:Starting simulation at simulation time 6.0 [s]
+2023-02-10 16:12:30,010 DEBUG:Simulation for current step done.
+2023-02-10 16:12:30,010 ERROR:The actions are not within the action space
+2023-02-10 16:12:30,010 ERROR:[2 3]
+2023-02-10 16:12:30,010 ERROR:6.5
+2023-02-10 16:12:30,010 DEBUG:Starting simulation at simulation time 6.5 [s]
+2023-02-10 16:12:30,023 DEBUG:Simulation for current step done.
+2023-02-10 16:12:30,023 ERROR:The actions are not within the action space
+2023-02-10 16:12:30,023 ERROR:[2 3]
+2023-02-10 16:12:30,023 ERROR:7.0
+2023-02-10 16:12:30,023 DEBUG:Starting simulation at simulation time 7.0 [s]
+2023-02-10 16:12:30,037 DEBUG:Simulation for current step done.
+2023-02-10 16:12:30,037 ERROR:The actions are not within the action space
+2023-02-10 16:12:30,037 ERROR:[2 3]
+2023-02-10 16:12:30,037 ERROR:7.5
+2023-02-10 16:12:30,037 DEBUG:Starting simulation at simulation time 7.5 [s]
+2023-02-10 16:12:30,051 DEBUG:Simulation for current step done.
+2023-02-10 16:12:30,051 ERROR:The actions are not within the action space
+2023-02-10 16:12:30,051 ERROR:[2 3]
+2023-02-10 16:12:30,051 ERROR:8.0
+2023-02-10 16:12:30,051 DEBUG:Starting simulation at simulation time 8.0 [s]
+2023-02-10 16:12:30,065 DEBUG:Simulation for current step done.
+2023-02-10 16:12:30,065 ERROR:The actions are not within the action space
+2023-02-10 16:12:30,065 ERROR:[2 3]
+2023-02-10 16:12:30,065 ERROR:8.5
+2023-02-10 16:12:30,065 DEBUG:Starting simulation at simulation time 8.5 [s]
+2023-02-10 16:12:30,078 DEBUG:Simulation for current step done.
+2023-02-10 16:12:30,078 ERROR:The actions are not within the action space
+2023-02-10 16:12:30,078 ERROR:[2 3]
+2023-02-10 16:12:30,078 ERROR:9.0
+2023-02-10 16:12:30,078 DEBUG:Starting simulation at simulation time 9.0 [s]
+2023-02-10 16:12:30,092 DEBUG:Simulation for current step done.
+2023-02-10 16:12:30,092 ERROR:The actions are not within the action space
+2023-02-10 16:12:30,092 ERROR:[2 3]
+2023-02-10 16:12:30,092 ERROR:9.5
+2023-02-10 16:12:30,092 DEBUG:Starting simulation at simulation time 9.5 [s]
+2023-02-10 16:12:30,106 DEBUG:Simulation for current step done.
+2023-02-10 16:12:30,106 ERROR:The actions are not within the action space
+2023-02-10 16:12:30,106 ERROR:[2 3]
+2023-02-10 16:12:30,106 ERROR:10.0
+2023-02-10 16:12:30,106 DEBUG:Starting simulation at simulation time 10.0 [s]
+2023-02-10 16:12:30,119 DEBUG:Simulation for current step done.
+2023-02-10 16:12:30,119 INFO:Simulation done
+2023-02-10 16:13:00,784 INFO:Performing rollback to the state at step 10
+2023-02-10 16:13:18,504 ERROR:The actions are not within the action space
+2023-02-10 16:13:18,504 ERROR:[2 3]
+2023-02-10 16:13:18,504 ERROR:10.5
+2023-02-10 16:13:18,505 DEBUG:Starting simulation at simulation time 10.5 [s]
+2023-02-10 16:13:18,519 DEBUG:Simulation for current step done.
+2023-02-10 16:13:18,519 INFO:Simulation done
+2023-02-10 16:13:20,488 ERROR:The actions are not within the action space
+2023-02-10 16:13:20,488 ERROR:[2 3]
+2023-02-10 16:13:20,488 ERROR:11.0
+2023-02-10 16:13:20,488 DEBUG:Starting simulation at simulation time 11.0 [s]
+2023-02-10 16:13:20,503 DEBUG:Simulation for current step done.
+2023-02-10 16:13:20,503 INFO:Simulation done
+2023-02-10 16:13:21,567 ERROR:The actions are not within the action space
+2023-02-10 16:13:21,567 ERROR:[2 3]
+2023-02-10 16:13:21,568 ERROR:11.5
+2023-02-10 16:13:21,568 DEBUG:Starting simulation at simulation time 11.5 [s]
+2023-02-10 16:13:21,582 DEBUG:Simulation for current step done.
+2023-02-10 16:13:21,730 INFO:Simulation done
+2023-02-10 16:13:22,765 ERROR:The actions are not within the action space
+2023-02-10 16:13:22,765 ERROR:[2 3]
+2023-02-10 16:13:22,765 ERROR:12.0
+2023-02-10 16:13:22,765 DEBUG:Starting simulation at simulation time 12.0 [s]
+2023-02-10 16:13:22,779 DEBUG:Simulation for current step done.
+2023-02-10 16:13:22,779 INFO:Simulation done
+2023-02-10 16:13:24,813 ERROR:The actions are not within the action space
+2023-02-10 16:13:24,813 ERROR:[2 3]
+2023-02-10 16:13:24,813 ERROR:12.5
+2023-02-10 16:13:24,813 DEBUG:Starting simulation at simulation time 12.5 [s]
+2023-02-10 16:13:24,827 DEBUG:Simulation for current step done.
+2023-02-10 16:13:24,827 INFO:Simulation done
+2023-02-10 16:13:28,406 ERROR:The actions are not within the action space
+2023-02-10 16:13:28,406 ERROR:[2 3]
+2023-02-10 16:13:28,406 ERROR:13.0
+2023-02-10 16:13:28,406 DEBUG:Starting simulation at simulation time 13.0 [s]
+2023-02-10 16:13:28,421 DEBUG:Simulation for current step done.
+2023-02-10 16:13:28,421 INFO:Simulation done
+2023-02-10 16:13:30,242 ERROR:The actions are not within the action space
+2023-02-10 16:13:30,242 ERROR:[2 3]
+2023-02-10 16:13:30,242 ERROR:13.5
+2023-02-10 16:13:30,242 DEBUG:Starting simulation at simulation time 13.5 [s]
+2023-02-10 16:13:30,256 DEBUG:Simulation for current step done.
+2023-02-10 16:13:30,257 INFO:Simulation done
+2023-02-10 16:13:31,940 ERROR:The actions are not within the action space
+2023-02-10 16:13:31,941 ERROR:[2 3]
+2023-02-10 16:13:31,941 ERROR:14.0
+2023-02-10 16:13:31,941 DEBUG:Starting simulation at simulation time 14.0 [s]
+2023-02-10 16:13:31,955 DEBUG:Simulation for current step done.
+2023-02-10 16:13:31,955 INFO:Simulation done
+2023-02-10 16:28:20,640 DEBUG:Initializing FMU
+2023-02-10 16:28:20,641 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:28:20,655 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,656 ERROR:The actions are not within the action space
+2023-02-10 16:28:20,656 ERROR:[2 3]
+2023-02-10 16:28:20,656 ERROR:0.5
+2023-02-10 16:28:20,656 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:28:20,670 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,670 ERROR:The actions are not within the action space
+2023-02-10 16:28:20,670 ERROR:[2 3]
+2023-02-10 16:28:20,670 ERROR:1.0
+2023-02-10 16:28:20,670 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 16:28:20,684 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,684 ERROR:The actions are not within the action space
+2023-02-10 16:28:20,684 ERROR:[2 3]
+2023-02-10 16:28:20,684 ERROR:1.5
+2023-02-10 16:28:20,684 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 16:28:20,698 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,698 ERROR:The actions are not within the action space
+2023-02-10 16:28:20,698 ERROR:[2 3]
+2023-02-10 16:28:20,698 ERROR:2.0
+2023-02-10 16:28:20,698 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 16:28:20,713 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,713 ERROR:The actions are not within the action space
+2023-02-10 16:28:20,713 ERROR:[2 3]
+2023-02-10 16:28:20,713 ERROR:2.5
+2023-02-10 16:28:20,713 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 16:28:20,726 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,726 ERROR:The actions are not within the action space
+2023-02-10 16:28:20,726 ERROR:[2 3]
+2023-02-10 16:28:20,726 ERROR:3.0
+2023-02-10 16:28:20,726 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 16:28:20,741 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,741 ERROR:The actions are not within the action space
+2023-02-10 16:28:20,741 ERROR:[2 3]
+2023-02-10 16:28:20,741 ERROR:3.5
+2023-02-10 16:28:20,741 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 16:28:20,754 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,754 ERROR:The actions are not within the action space
+2023-02-10 16:28:20,754 ERROR:[2 3]
+2023-02-10 16:28:20,754 ERROR:4.0
+2023-02-10 16:28:20,754 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 16:28:20,768 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,768 ERROR:The actions are not within the action space
+2023-02-10 16:28:20,768 ERROR:[2 3]
+2023-02-10 16:28:20,768 ERROR:4.5
+2023-02-10 16:28:20,768 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 16:28:20,782 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,782 ERROR:The actions are not within the action space
+2023-02-10 16:28:20,782 ERROR:[2 3]
+2023-02-10 16:28:20,782 ERROR:5.0
+2023-02-10 16:28:20,782 DEBUG:Starting simulation at simulation time 5.0 [s]
+2023-02-10 16:28:20,795 DEBUG:Simulation for current step done.
+2023-02-10 16:28:20,795 INFO:Creating rollback state at timestep 10
+2023-02-10 16:29:00,277 DEBUG:Starting to read FMU
+2023-02-10 16:29:00,277 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 16:29:00,285 DEBUG:Success creating FMU object
+2023-02-10 16:29:00,285 INFO:Unzipped in /tmp/tmppboxf717
+2023-02-10 16:29:00,285 DEBUG:Initializing FMU
+2023-02-10 16:29:00,285 DEBUG:Reading IOs FMU
+2023-02-10 16:29:00,285 INFO:Found Inputs access with corresponding number:
+2023-02-10 16:29:00,285 DEBUG:0: BusElementIn
+2023-02-10 16:29:00,285 DEBUG:1: Input.In1
+2023-02-10 16:29:00,285 INFO:Found Outputs access with corresponding number:
+2023-02-10 16:29:00,285 DEBUG:0: Measurement.integrator
+2023-02-10 16:29:00,285 DEBUG:1: Measurement.add
+2023-02-10 16:29:01,157 DEBUG:Initializing FMU
+2023-02-10 16:29:01,158 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:29:01,173 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,173 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,173 ERROR:[2 3]
+2023-02-10 16:29:01,173 ERROR:0.5
+2023-02-10 16:29:01,173 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:29:01,187 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,187 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,187 ERROR:[2 3]
+2023-02-10 16:29:01,188 ERROR:1.0
+2023-02-10 16:29:01,188 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 16:29:01,202 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,202 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,202 ERROR:[2 3]
+2023-02-10 16:29:01,202 ERROR:1.5
+2023-02-10 16:29:01,202 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 16:29:01,216 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,216 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,216 ERROR:[2 3]
+2023-02-10 16:29:01,216 ERROR:2.0
+2023-02-10 16:29:01,216 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 16:29:01,230 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,230 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,230 ERROR:[2 3]
+2023-02-10 16:29:01,230 ERROR:2.5
+2023-02-10 16:29:01,230 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 16:29:01,244 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,244 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,244 ERROR:[2 3]
+2023-02-10 16:29:01,244 ERROR:3.0
+2023-02-10 16:29:01,244 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 16:29:01,258 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,258 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,258 ERROR:[2 3]
+2023-02-10 16:29:01,258 ERROR:3.5
+2023-02-10 16:29:01,258 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 16:29:01,272 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,272 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,272 ERROR:[2 3]
+2023-02-10 16:29:01,272 ERROR:4.0
+2023-02-10 16:29:01,272 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 16:29:01,286 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,286 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,286 ERROR:[2 3]
+2023-02-10 16:29:01,286 ERROR:4.5
+2023-02-10 16:29:01,286 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 16:29:01,300 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,300 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,300 ERROR:[2 3]
+2023-02-10 16:29:01,300 ERROR:5.0
+2023-02-10 16:29:01,300 DEBUG:Starting simulation at simulation time 5.0 [s]
+2023-02-10 16:29:01,314 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,314 INFO:Creating rollback state at timestep 10
+2023-02-10 16:29:01,314 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,314 ERROR:[2 3]
+2023-02-10 16:29:01,314 ERROR:5.5
+2023-02-10 16:29:01,314 DEBUG:Starting simulation at simulation time 5.5 [s]
+2023-02-10 16:29:01,328 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,328 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,328 ERROR:[2 3]
+2023-02-10 16:29:01,328 ERROR:6.0
+2023-02-10 16:29:01,328 DEBUG:Starting simulation at simulation time 6.0 [s]
+2023-02-10 16:29:01,342 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,342 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,342 ERROR:[2 3]
+2023-02-10 16:29:01,342 ERROR:6.5
+2023-02-10 16:29:01,342 DEBUG:Starting simulation at simulation time 6.5 [s]
+2023-02-10 16:29:01,356 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,356 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,356 ERROR:[2 3]
+2023-02-10 16:29:01,356 ERROR:7.0
+2023-02-10 16:29:01,356 DEBUG:Starting simulation at simulation time 7.0 [s]
+2023-02-10 16:29:01,369 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,369 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,369 ERROR:[2 3]
+2023-02-10 16:29:01,370 ERROR:7.5
+2023-02-10 16:29:01,370 DEBUG:Starting simulation at simulation time 7.5 [s]
+2023-02-10 16:29:01,383 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,383 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,383 ERROR:[2 3]
+2023-02-10 16:29:01,383 ERROR:8.0
+2023-02-10 16:29:01,383 DEBUG:Starting simulation at simulation time 8.0 [s]
+2023-02-10 16:29:01,397 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,397 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,397 ERROR:[2 3]
+2023-02-10 16:29:01,397 ERROR:8.5
+2023-02-10 16:29:01,397 DEBUG:Starting simulation at simulation time 8.5 [s]
+2023-02-10 16:29:01,411 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,411 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,411 ERROR:[2 3]
+2023-02-10 16:29:01,411 ERROR:9.0
+2023-02-10 16:29:01,411 DEBUG:Starting simulation at simulation time 9.0 [s]
+2023-02-10 16:29:01,424 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,424 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,424 ERROR:[2 3]
+2023-02-10 16:29:01,424 ERROR:9.5
+2023-02-10 16:29:01,424 DEBUG:Starting simulation at simulation time 9.5 [s]
+2023-02-10 16:29:01,438 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,438 ERROR:The actions are not within the action space
+2023-02-10 16:29:01,438 ERROR:[2 3]
+2023-02-10 16:29:01,438 ERROR:10.0
+2023-02-10 16:29:01,438 DEBUG:Starting simulation at simulation time 10.0 [s]
+2023-02-10 16:29:01,452 DEBUG:Simulation for current step done.
+2023-02-10 16:29:01,452 INFO:Simulation done
+2023-02-10 16:29:12,519 DEBUG:Initializing FMU
+2023-02-10 16:29:12,519 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:29:12,534 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,534 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,534 ERROR:[2 3]
+2023-02-10 16:29:12,534 ERROR:0.5
+2023-02-10 16:29:12,534 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:29:12,548 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,548 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,548 ERROR:[2 3]
+2023-02-10 16:29:12,549 ERROR:1.0
+2023-02-10 16:29:12,549 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 16:29:12,563 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,563 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,563 ERROR:[2 3]
+2023-02-10 16:29:12,563 ERROR:1.5
+2023-02-10 16:29:12,563 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 16:29:12,577 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,577 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,577 ERROR:[2 3]
+2023-02-10 16:29:12,577 ERROR:2.0
+2023-02-10 16:29:12,577 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 16:29:12,591 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,591 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,591 ERROR:[2 3]
+2023-02-10 16:29:12,591 ERROR:2.5
+2023-02-10 16:29:12,591 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 16:29:12,605 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,605 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,605 ERROR:[2 3]
+2023-02-10 16:29:12,605 ERROR:3.0
+2023-02-10 16:29:12,605 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 16:29:12,619 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,619 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,619 ERROR:[2 3]
+2023-02-10 16:29:12,619 ERROR:3.5
+2023-02-10 16:29:12,619 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 16:29:12,633 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,633 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,633 ERROR:[2 3]
+2023-02-10 16:29:12,633 ERROR:4.0
+2023-02-10 16:29:12,633 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 16:29:12,647 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,647 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,647 ERROR:[2 3]
+2023-02-10 16:29:12,647 ERROR:4.5
+2023-02-10 16:29:12,647 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 16:29:12,661 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,661 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,661 ERROR:[2 3]
+2023-02-10 16:29:12,661 ERROR:5.0
+2023-02-10 16:29:12,661 DEBUG:Starting simulation at simulation time 5.0 [s]
+2023-02-10 16:29:12,675 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,675 INFO:Creating rollback state at timestep 10
+2023-02-10 16:29:12,675 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,675 ERROR:[2 3]
+2023-02-10 16:29:12,675 ERROR:5.5
+2023-02-10 16:29:12,676 DEBUG:Starting simulation at simulation time 5.5 [s]
+2023-02-10 16:29:12,689 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,689 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,689 ERROR:[2 3]
+2023-02-10 16:29:12,690 ERROR:6.0
+2023-02-10 16:29:12,690 DEBUG:Starting simulation at simulation time 6.0 [s]
+2023-02-10 16:29:12,704 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,704 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,704 ERROR:[2 3]
+2023-02-10 16:29:12,704 ERROR:6.5
+2023-02-10 16:29:12,704 DEBUG:Starting simulation at simulation time 6.5 [s]
+2023-02-10 16:29:12,718 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,718 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,718 ERROR:[2 3]
+2023-02-10 16:29:12,718 ERROR:7.0
+2023-02-10 16:29:12,718 DEBUG:Starting simulation at simulation time 7.0 [s]
+2023-02-10 16:29:12,732 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,732 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,732 ERROR:[2 3]
+2023-02-10 16:29:12,732 ERROR:7.5
+2023-02-10 16:29:12,732 DEBUG:Starting simulation at simulation time 7.5 [s]
+2023-02-10 16:29:12,746 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,746 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,746 ERROR:[2 3]
+2023-02-10 16:29:12,746 ERROR:8.0
+2023-02-10 16:29:12,746 DEBUG:Starting simulation at simulation time 8.0 [s]
+2023-02-10 16:29:12,760 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,760 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,760 ERROR:[2 3]
+2023-02-10 16:29:12,760 ERROR:8.5
+2023-02-10 16:29:12,761 DEBUG:Starting simulation at simulation time 8.5 [s]
+2023-02-10 16:29:12,774 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,774 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,774 ERROR:[2 3]
+2023-02-10 16:29:12,774 ERROR:9.0
+2023-02-10 16:29:12,774 DEBUG:Starting simulation at simulation time 9.0 [s]
+2023-02-10 16:29:12,787 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,787 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,787 ERROR:[2 3]
+2023-02-10 16:29:12,787 ERROR:9.5
+2023-02-10 16:29:12,787 DEBUG:Starting simulation at simulation time 9.5 [s]
+2023-02-10 16:29:12,801 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,801 ERROR:The actions are not within the action space
+2023-02-10 16:29:12,801 ERROR:[2 3]
+2023-02-10 16:29:12,801 ERROR:10.0
+2023-02-10 16:29:12,801 DEBUG:Starting simulation at simulation time 10.0 [s]
+2023-02-10 16:29:12,814 DEBUG:Simulation for current step done.
+2023-02-10 16:29:12,814 INFO:Simulation done
+2023-02-10 16:29:25,430 INFO:Performing rollback to the state at step 10
+2023-02-10 16:29:45,821 DEBUG:Starting to read FMU
+2023-02-10 16:29:45,821 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 16:29:45,828 DEBUG:Success creating FMU object
+2023-02-10 16:29:45,828 INFO:Unzipped in /tmp/tmpzfl6vtup
+2023-02-10 16:29:45,828 DEBUG:Initializing FMU
+2023-02-10 16:29:45,828 DEBUG:Reading IOs FMU
+2023-02-10 16:29:45,828 INFO:Found Inputs access with corresponding number:
+2023-02-10 16:29:45,828 DEBUG:0: BusElementIn
+2023-02-10 16:29:45,828 DEBUG:1: Input.In1
+2023-02-10 16:29:45,828 INFO:Found Outputs access with corresponding number:
+2023-02-10 16:29:45,828 DEBUG:0: Measurement.integrator
+2023-02-10 16:29:45,828 DEBUG:1: Measurement.add
+2023-02-10 16:29:46,528 DEBUG:Initializing FMU
+2023-02-10 16:29:46,528 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:29:46,542 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,542 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,543 ERROR:[2 3]
+2023-02-10 16:29:46,543 ERROR:0.5
+2023-02-10 16:29:46,543 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:29:46,557 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,557 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,557 ERROR:[2 3]
+2023-02-10 16:29:46,557 ERROR:1.0
+2023-02-10 16:29:46,557 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 16:29:46,571 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,571 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,571 ERROR:[2 3]
+2023-02-10 16:29:46,572 ERROR:1.5
+2023-02-10 16:29:46,572 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 16:29:46,586 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,586 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,586 ERROR:[2 3]
+2023-02-10 16:29:46,586 ERROR:2.0
+2023-02-10 16:29:46,586 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 16:29:46,600 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,600 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,600 ERROR:[2 3]
+2023-02-10 16:29:46,600 ERROR:2.5
+2023-02-10 16:29:46,600 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 16:29:46,614 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,614 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,614 ERROR:[2 3]
+2023-02-10 16:29:46,614 ERROR:3.0
+2023-02-10 16:29:46,614 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 16:29:46,628 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,628 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,628 ERROR:[2 3]
+2023-02-10 16:29:46,628 ERROR:3.5
+2023-02-10 16:29:46,628 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 16:29:46,641 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,641 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,641 ERROR:[2 3]
+2023-02-10 16:29:46,642 ERROR:4.0
+2023-02-10 16:29:46,642 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 16:29:46,656 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,656 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,656 ERROR:[2 3]
+2023-02-10 16:29:46,656 ERROR:4.5
+2023-02-10 16:29:46,656 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 16:29:46,669 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,669 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,669 ERROR:[2 3]
+2023-02-10 16:29:46,670 ERROR:5.0
+2023-02-10 16:29:46,670 DEBUG:Starting simulation at simulation time 5.0 [s]
+2023-02-10 16:29:46,683 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,684 INFO:Creating rollback state at timestep 10
+2023-02-10 16:29:46,684 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,684 ERROR:[2 3]
+2023-02-10 16:29:46,684 ERROR:5.5
+2023-02-10 16:29:46,684 DEBUG:Starting simulation at simulation time 5.5 [s]
+2023-02-10 16:29:46,698 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,698 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,698 ERROR:[2 3]
+2023-02-10 16:29:46,698 ERROR:6.0
+2023-02-10 16:29:46,698 DEBUG:Starting simulation at simulation time 6.0 [s]
+2023-02-10 16:29:46,712 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,712 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,712 ERROR:[2 3]
+2023-02-10 16:29:46,712 ERROR:6.5
+2023-02-10 16:29:46,712 DEBUG:Starting simulation at simulation time 6.5 [s]
+2023-02-10 16:29:46,725 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,725 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,725 ERROR:[2 3]
+2023-02-10 16:29:46,725 ERROR:7.0
+2023-02-10 16:29:46,725 DEBUG:Starting simulation at simulation time 7.0 [s]
+2023-02-10 16:29:46,739 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,739 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,739 ERROR:[2 3]
+2023-02-10 16:29:46,739 ERROR:7.5
+2023-02-10 16:29:46,739 DEBUG:Starting simulation at simulation time 7.5 [s]
+2023-02-10 16:29:46,753 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,753 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,753 ERROR:[2 3]
+2023-02-10 16:29:46,753 ERROR:8.0
+2023-02-10 16:29:46,753 DEBUG:Starting simulation at simulation time 8.0 [s]
+2023-02-10 16:29:46,766 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,766 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,766 ERROR:[2 3]
+2023-02-10 16:29:46,766 ERROR:8.5
+2023-02-10 16:29:46,766 DEBUG:Starting simulation at simulation time 8.5 [s]
+2023-02-10 16:29:46,779 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,779 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,779 ERROR:[2 3]
+2023-02-10 16:29:46,779 ERROR:9.0
+2023-02-10 16:29:46,779 DEBUG:Starting simulation at simulation time 9.0 [s]
+2023-02-10 16:29:46,793 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,793 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,793 ERROR:[2 3]
+2023-02-10 16:29:46,793 ERROR:9.5
+2023-02-10 16:29:46,793 DEBUG:Starting simulation at simulation time 9.5 [s]
+2023-02-10 16:29:46,806 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,806 ERROR:The actions are not within the action space
+2023-02-10 16:29:46,806 ERROR:[2 3]
+2023-02-10 16:29:46,806 ERROR:10.0
+2023-02-10 16:29:46,806 DEBUG:Starting simulation at simulation time 10.0 [s]
+2023-02-10 16:29:46,820 DEBUG:Simulation for current step done.
+2023-02-10 16:29:46,820 INFO:Simulation done
+2023-02-10 16:29:50,810 INFO:Performing rollback to the state at step 10
+2023-02-10 16:31:49,403 DEBUG:Starting to read FMU
+2023-02-10 16:31:49,403 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 16:31:49,408 DEBUG:Success creating FMU object
+2023-02-10 16:31:49,408 INFO:Unzipped in /tmp/tmpgh4pfuoj
+2023-02-10 16:31:49,409 DEBUG:Initializing FMU
+2023-02-10 16:31:49,409 DEBUG:Reading IOs FMU
+2023-02-10 16:31:49,409 INFO:Found Inputs access with corresponding number:
+2023-02-10 16:31:49,409 DEBUG:0: BusElementIn
+2023-02-10 16:31:49,409 DEBUG:1: Input.In1
+2023-02-10 16:31:49,409 INFO:Found Outputs access with corresponding number:
+2023-02-10 16:31:49,409 DEBUG:0: Measurement.integrator
+2023-02-10 16:31:49,409 DEBUG:1: Measurement.add
+2023-02-10 16:31:50,297 DEBUG:Initializing FMU
+2023-02-10 16:31:50,297 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:31:50,312 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,312 ERROR:The actions are not within the action space
+2023-02-10 16:31:50,312 ERROR:[2 3]
+2023-02-10 16:31:50,312 ERROR:0.5
+2023-02-10 16:31:50,312 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:31:50,326 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,326 ERROR:The actions are not within the action space
+2023-02-10 16:31:50,326 ERROR:[2 3]
+2023-02-10 16:31:50,326 ERROR:1.0
+2023-02-10 16:31:50,326 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 16:31:50,340 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,340 ERROR:The actions are not within the action space
+2023-02-10 16:31:50,340 ERROR:[2 3]
+2023-02-10 16:31:50,340 ERROR:1.5
+2023-02-10 16:31:50,340 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 16:31:50,355 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,355 ERROR:The actions are not within the action space
+2023-02-10 16:31:50,355 ERROR:[2 3]
+2023-02-10 16:31:50,355 ERROR:2.0
+2023-02-10 16:31:50,355 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 16:31:50,369 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,369 ERROR:The actions are not within the action space
+2023-02-10 16:31:50,369 ERROR:[2 3]
+2023-02-10 16:31:50,369 ERROR:2.5
+2023-02-10 16:31:50,369 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 16:31:50,383 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,383 ERROR:The actions are not within the action space
+2023-02-10 16:31:50,383 ERROR:[2 3]
+2023-02-10 16:31:50,383 ERROR:3.0
+2023-02-10 16:31:50,383 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 16:31:50,397 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,397 ERROR:The actions are not within the action space
+2023-02-10 16:31:50,397 ERROR:[2 3]
+2023-02-10 16:31:50,397 ERROR:3.5
+2023-02-10 16:31:50,397 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 16:31:50,411 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,411 ERROR:The actions are not within the action space
+2023-02-10 16:31:50,411 ERROR:[2 3]
+2023-02-10 16:31:50,411 ERROR:4.0
+2023-02-10 16:31:50,411 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 16:31:50,426 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,426 ERROR:The actions are not within the action space
+2023-02-10 16:31:50,426 ERROR:[2 3]
+2023-02-10 16:31:50,426 ERROR:4.5
+2023-02-10 16:31:50,426 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 16:31:50,440 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,440 ERROR:The actions are not within the action space
+2023-02-10 16:31:50,440 ERROR:[2 3]
+2023-02-10 16:31:50,440 ERROR:5.0
+2023-02-10 16:31:50,440 DEBUG:Starting simulation at simulation time 5.0 [s]
+2023-02-10 16:31:50,454 DEBUG:Simulation for current step done.
+2023-02-10 16:31:50,454 INFO:Creating rollback state at timestep 10
+2023-02-10 16:32:11,753 DEBUG:Starting to read FMU
+2023-02-10 16:32:11,753 INFO:Using: test_files/SimulinkModel.fmu
+2023-02-10 16:32:11,758 DEBUG:Success creating FMU object
+2023-02-10 16:32:11,758 INFO:Unzipped in /tmp/tmpi45c21e8
+2023-02-10 16:32:11,758 DEBUG:Initializing FMU
+2023-02-10 16:32:11,759 DEBUG:Reading IOs FMU
+2023-02-10 16:32:11,759 INFO:Found Inputs access with corresponding number:
+2023-02-10 16:32:11,759 DEBUG:0: BusElementIn
+2023-02-10 16:32:11,759 DEBUG:1: Input.In1
+2023-02-10 16:32:11,759 INFO:Found Outputs access with corresponding number:
+2023-02-10 16:32:11,759 DEBUG:0: Measurement.integrator
+2023-02-10 16:32:11,759 DEBUG:1: Measurement.add
+2023-02-10 16:32:12,437 DEBUG:Initializing FMU
+2023-02-10 16:32:12,437 DEBUG:Starting simulation at simulation time 0 [s]
+2023-02-10 16:32:12,451 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,451 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,451 ERROR:[2 3]
+2023-02-10 16:32:12,451 ERROR:0.5
+2023-02-10 16:32:12,451 DEBUG:Starting simulation at simulation time 0.5 [s]
+2023-02-10 16:32:12,465 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,465 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,465 ERROR:[2 3]
+2023-02-10 16:32:12,466 ERROR:1.0
+2023-02-10 16:32:12,466 DEBUG:Starting simulation at simulation time 1.0 [s]
+2023-02-10 16:32:12,480 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,480 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,480 ERROR:[2 3]
+2023-02-10 16:32:12,480 ERROR:1.5
+2023-02-10 16:32:12,480 DEBUG:Starting simulation at simulation time 1.5 [s]
+2023-02-10 16:32:12,494 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,494 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,494 ERROR:[2 3]
+2023-02-10 16:32:12,494 ERROR:2.0
+2023-02-10 16:32:12,494 DEBUG:Starting simulation at simulation time 2.0 [s]
+2023-02-10 16:32:12,508 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,508 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,508 ERROR:[2 3]
+2023-02-10 16:32:12,508 ERROR:2.5
+2023-02-10 16:32:12,508 DEBUG:Starting simulation at simulation time 2.5 [s]
+2023-02-10 16:32:12,522 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,522 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,522 ERROR:[2 3]
+2023-02-10 16:32:12,522 ERROR:3.0
+2023-02-10 16:32:12,522 DEBUG:Starting simulation at simulation time 3.0 [s]
+2023-02-10 16:32:12,536 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,536 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,536 ERROR:[2 3]
+2023-02-10 16:32:12,536 ERROR:3.5
+2023-02-10 16:32:12,536 DEBUG:Starting simulation at simulation time 3.5 [s]
+2023-02-10 16:32:12,550 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,550 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,550 ERROR:[2 3]
+2023-02-10 16:32:12,550 ERROR:4.0
+2023-02-10 16:32:12,550 DEBUG:Starting simulation at simulation time 4.0 [s]
+2023-02-10 16:32:12,564 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,564 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,564 ERROR:[2 3]
+2023-02-10 16:32:12,564 ERROR:4.5
+2023-02-10 16:32:12,564 DEBUG:Starting simulation at simulation time 4.5 [s]
+2023-02-10 16:32:12,578 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,578 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,578 ERROR:[2 3]
+2023-02-10 16:32:12,578 ERROR:5.0
+2023-02-10 16:32:12,578 DEBUG:Starting simulation at simulation time 5.0 [s]
+2023-02-10 16:32:12,592 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,592 INFO:Creating rollback state at timestep 10
+2023-02-10 16:32:12,593 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,593 ERROR:[2 3]
+2023-02-10 16:32:12,593 ERROR:5.5
+2023-02-10 16:32:12,593 DEBUG:Starting simulation at simulation time 5.5 [s]
+2023-02-10 16:32:12,606 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,606 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,606 ERROR:[2 3]
+2023-02-10 16:32:12,606 ERROR:6.0
+2023-02-10 16:32:12,606 DEBUG:Starting simulation at simulation time 6.0 [s]
+2023-02-10 16:32:12,620 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,620 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,620 ERROR:[2 3]
+2023-02-10 16:32:12,620 ERROR:6.5
+2023-02-10 16:32:12,620 DEBUG:Starting simulation at simulation time 6.5 [s]
+2023-02-10 16:32:12,634 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,634 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,634 ERROR:[2 3]
+2023-02-10 16:32:12,634 ERROR:7.0
+2023-02-10 16:32:12,634 DEBUG:Starting simulation at simulation time 7.0 [s]
+2023-02-10 16:32:12,647 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,647 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,648 ERROR:[2 3]
+2023-02-10 16:32:12,648 ERROR:7.5
+2023-02-10 16:32:12,648 DEBUG:Starting simulation at simulation time 7.5 [s]
+2023-02-10 16:32:12,661 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,661 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,661 ERROR:[2 3]
+2023-02-10 16:32:12,661 ERROR:8.0
+2023-02-10 16:32:12,661 DEBUG:Starting simulation at simulation time 8.0 [s]
+2023-02-10 16:32:12,675 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,675 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,675 ERROR:[2 3]
+2023-02-10 16:32:12,675 ERROR:8.5
+2023-02-10 16:32:12,675 DEBUG:Starting simulation at simulation time 8.5 [s]
+2023-02-10 16:32:12,689 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,689 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,689 ERROR:[2 3]
+2023-02-10 16:32:12,689 ERROR:9.0
+2023-02-10 16:32:12,689 DEBUG:Starting simulation at simulation time 9.0 [s]
+2023-02-10 16:32:12,703 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,703 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,703 ERROR:[2 3]
+2023-02-10 16:32:12,703 ERROR:9.5
+2023-02-10 16:32:12,703 DEBUG:Starting simulation at simulation time 9.5 [s]
+2023-02-10 16:32:12,717 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,717 ERROR:The actions are not within the action space
+2023-02-10 16:32:12,717 ERROR:[2 3]
+2023-02-10 16:32:12,717 ERROR:10.0
+2023-02-10 16:32:12,717 DEBUG:Starting simulation at simulation time 10.0 [s]
+2023-02-10 16:32:12,731 DEBUG:Simulation for current step done.
+2023-02-10 16:32:12,731 INFO:Simulation done
+2023-02-10 16:32:30,901 INFO:Performing rollback to the state at step 10
+2023-02-10 16:32:35,915 ERROR:The actions are not within the action space
+2023-02-10 16:32:35,915 ERROR:[2 3]
+2023-02-10 16:32:35,915 ERROR:10.5
+2023-02-10 16:32:35,915 DEBUG:Starting simulation at simulation time 10.5 [s]
+2023-02-10 16:32:35,930 DEBUG:Simulation for current step done.
+2023-02-10 16:32:35,930 INFO:Simulation done
+2023-02-10 16:32:51,293 ERROR:The actions are not within the action space
+2023-02-10 16:32:51,293 ERROR:[2 3]
+2023-02-10 16:32:51,293 ERROR:11.0
+2023-02-10 16:32:51,293 DEBUG:Starting simulation at simulation time 11.0 [s]
+2023-02-10 16:32:51,307 DEBUG:Simulation for current step done.
+2023-02-10 16:32:51,307 INFO:Simulation done
+2023-02-10 16:32:52,882 ERROR:The actions are not within the action space
+2023-02-10 16:32:52,882 ERROR:[2 3]
+2023-02-10 16:32:52,882 ERROR:11.5
+2023-02-10 16:32:52,882 DEBUG:Starting simulation at simulation time 11.5 [s]
+2023-02-10 16:32:52,896 DEBUG:Simulation for current step done.
+2023-02-10 16:32:52,896 INFO:Simulation done
+2023-02-10 16:32:54,164 ERROR:The actions are not within the action space
+2023-02-10 16:32:54,164 ERROR:[2 3]
+2023-02-10 16:32:54,164 ERROR:12.0
+2023-02-10 16:32:54,165 DEBUG:Starting simulation at simulation time 12.0 [s]
+2023-02-10 16:32:54,180 DEBUG:Simulation for current step done.
+2023-02-10 16:32:54,180 INFO:Simulation done
+2023-02-10 16:32:58,657 ERROR:The actions are not within the action space
+2023-02-10 16:32:58,657 ERROR:[2 3]
+2023-02-10 16:32:58,657 ERROR:12.5
+2023-02-10 16:32:58,657 DEBUG:Starting simulation at simulation time 12.5 [s]
+2023-02-10 16:32:58,672 DEBUG:Simulation for current step done.
+2023-02-10 16:32:58,672 INFO:Simulation done
