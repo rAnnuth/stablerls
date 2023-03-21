@@ -10,6 +10,7 @@ Description ... and probably logo
 - Test: Verify functionality
 
 ## TODO
+- [ ] Add sphinx version to package
 **Step 1**:
 - [x] Find a name
 - [x] Move code to other repository
