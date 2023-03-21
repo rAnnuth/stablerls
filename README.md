@@ -1,4 +1,6 @@
 # StableRLS 
+[![Documentation Status](https://readthedocs.org/projects/stablerls/badge/?version=latest)](https://stablerls.readthedocs.io/en/latest/?badge=latest)
+
 ####Stable Reinforcement Learning for Simulink
 Description ... and probably logo
 
