@@ -11,6 +11,7 @@ Description ... and probably logo
 
 ## TODO
 - [ ] Add sphinx version to package
+
 **Step 1**:
 - [x] Find a name
 - [x] Move code to other repository
@@ -28,3 +29,15 @@ Description ... and probably logo
 
 **Step 4**:
 - [ ] [https://joss.theoj.org/about](https://joss.theoj.org/about) Submit
+
+
+```
+sphinx-autobuild docs/ docs/build/html
+
+[project.optional-dependencies]
+doc = [
+    "sphinx ~=4.5.0",
+    "myst-parser",
+    "furo",
+]
+```

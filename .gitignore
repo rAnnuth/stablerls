@@ -10,3 +10,4 @@ spinfo/
 __pycache__/
 *.swp
 *.egg-info
+_build/
