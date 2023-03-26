@@ -18,96 +18,44 @@ section_names = 'Reinforcement Learning', 'General', 'FMU'
 
 
 class StableRLS(gym.Env):
-    """
-    Custom environment for simulation of FMUs with gymnasium interface
+    """Custom environment for simulation of FMUs with gymnasium interface
     See https://https://gymnasium.farama.org/ for information about API and 
     necessary functions. The attributes and methods are sorted by decreasing 
     importance for user implementation. Instanitate this class for the RL agent.
 
     Short Guide
-    -----------
+
     1. Create Simulink FMU using the README guide
     2. Create config with all relevant information
     3. Create child class and define
 
-        Required:
-        - Your custom reward function
+    Required:
 
-        Optional:
-        - Restrict the observation or action space
-        - You could define special observation postprocessing 
-        - You can specify additional environment inputs beside 
-          the agents action
-        - Export your results
-        - Define rollback situations
+    - Your custom reward function
+
+    Optional:
+
+    - Restrict the observation or action space
+    - You could define special observation postprocessing 
+    - You can specify additional environment inputs beside the agents action
+
+    - Export your results
+    - Define rollback situations
 
     4. Let the agent do its job!
-
 
     Attributes
     ----------
     config : dict
         Dictionary containing all config variables.
-    steps_between_actions : int
-        Amount of FMU (environment) steps between agent actions (min 1).
-    steps_simulation : int
-        Total steps of the simulation.
-    fmu : class fmutools
-        FMU simulation object .
-    observation_space : gymnasium.space
-        Observation space.
-    action_space : gymnasium.space
-        Action space.
-    FMUstate : list
-        Containing all saved FMU states for rollbacks.
-    seed : int
-        The seed can be used for non deterministic implementations but is not 
-        considered for the FMU, since the simulation is fully deterministic.
-
-
-    Methods
-    -------
-    __init__(config):
-        Initialize class with config dictionary.
-    get_action_space():
-        Returns action space of the environment.
-    get_observation_space():
-        Returns observation space of the environment.
-    reset(seed=None):
-        Reset function for internal variables and FMU.
-    reset_(seed=None):
-        Reset function which can be modified by the user.
-    resetIO():
-        Resetting inputs and outputs of the FMU.
-    step(action):
-        Step function for the RL algorithm.
-    _next_observation(steps=-1):
-        Simulate FMU until next action is required.
-    _FMUstep():
-        Calculate next FMU state.
-    FMUstep_():
-        During the FMU simulation the environment could have internal dynamics 
-        modelled in python. Those can be set here.
-    assignAction_(action):
-        Assign action of the agent to the FMU.
-    get_reward(observation, action):
-        Calculate reward for an action.
-    close():
-        Close FMU and clean up.
-    export_results():
-        Enables users to export results.
-    save_rollbackstate():
-        Save environment state enabling rollbacks.
-    perform_rollback(step):
-        Perform rollback and return to previous environment state.
-
-    def obs_processing(self, observation):
     """
 
 # ----------------------------------------------------------------------------
 # Initialization
 # ----------------------------------------------------------------------------
     def __init__(self, config):
+        """Constructor method
+        """
         super(StableRLS, self).__init__()
         self.config = config
 
@@ -142,35 +90,26 @@ class StableRLS(gym.Env):
         self.info = {}
 
     def get_action_space(self):
-        """
-        The space is defined with respect to the loaded FMU but can be restricted.
-
-        Returns
-        Parameters
-        ----------
-        additional : str, optional
-            More info to be displayed (default is None)
+        """The space is defined with respect to the loaded FMU but can be restricted.
 
         Returns
         -------
         space : gymnasium.space
-            Space defining action space of the agent
-        """
-
+            Returns the unbound action space defined by the FMU
+        """        
         low = np.arange(len(self.fmu.input)).astype(np.float32)
         low[:] = np.inf
         high = low * -1
         return gym.spaces.Box(low, high)
 
     def get_observation_space(self):
-        """
-        The space is defined with respect to the loaded FMU but can be restricted.
+        """The space is defined with respect to the loaded FMU but can be restricted.
 
         Returns
         -------
         space : gymnasium.space
-            Space defining observation space of the agent
-        """
+            Returns the unbound observation space defined by the FMU
+        """        
         low = np.arange(len(self.fmu.output)).astype(np.float32)
         low[:] = np.inf
         high = low * -1
@@ -180,8 +119,7 @@ class StableRLS(gym.Env):
 # Reset
 # ----------------------------------------------------------------------------
     def reset(self, seed=None):
-        """
-        Default reset function for gymnasium class
+        """ Default reset function for gymnasium class
 
         Parameters
         ----------
@@ -189,7 +127,15 @@ class StableRLS(gym.Env):
             The seed is not used for the FMU since those calculations are deterministic 
             but could be used by the user e.g. for weather models interacting with 
             the FMU during the simulation
-        """
+
+        Returns
+        -------
+
+        observation : gymnasium.space
+            Observation created during reset call (defined behavior by gym)
+        info : dict
+            Info dict is currently not used and is empty but is required by gym
+        """        
         self.seed = seed
         self.time = self.start_time
         self.step_count = 0
@@ -241,6 +187,14 @@ class StableRLS(gym.Env):
 # Step
 # ----------------------------------------------------------------------------
     def step(self, action):
+        """_summary_
+
+        Args:
+            action (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         # assign actions to FMU input
         self.assignAction(action)
 
@@ -365,6 +319,7 @@ class StableRLS(gym.Env):
                                                 ]
 
     def perform_rollback(self, step):
+
         """
         currently matlabs limited export capabilities prevent rollbacks
         if they enable this at any time this will work
@@ -380,5 +335,4 @@ class StableRLS(gym.Env):
         # free memory
         self.fmu.fmu.freeFMUstate(deserialized_state)
         #self.fmu.fmu.setFMUstate(state=self.FMU_states[str(step)][0])
-        self.inputs, self.outputs, self.times, self.step_count= self.FMU_states[str(
-            step)][2:]
+        self.inputs, self.outputs, self.times, self.step_count= self.FMU_states[str(step)][2:]
