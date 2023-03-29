@@ -3,7 +3,7 @@
 
 ```{toctree}
 :caption: 'Contents:'
-:maxdepth: 2
+:maxdepth: 1
 gymFMU.md
 fmutools.md
 createFMU.md
