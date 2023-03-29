@@ -1,7 +1,8 @@
 # gymFMU
 
 ```{eval-rst}
-.. automodule:: StableRLS.gymFMU
-:imported-members:
-:members:
+.. autoclass:: StableRLS.gymFMU.StableRLS
+    :undoc-members:
+    :show-inheritance:
+    :members: 
 ```

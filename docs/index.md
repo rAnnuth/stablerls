@@ -16,9 +16,7 @@ This project is under heavy development. Come back soon!
 :caption: 'Contents:'
 :maxdepth: 2
 source/install.md
-source/gymFMU.md
-source/fmutools.md
-source/test.md
+source/API_Reference.md
 ```
 
 %# Indices and tables
