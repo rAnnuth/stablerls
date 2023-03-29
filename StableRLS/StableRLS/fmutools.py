@@ -15,9 +15,17 @@ class FMU:
     """
     This class handels the interaction with the FMU object to seperate it from the gymnasium environment.
     I should not be neccessary to modify or interact with this.
+
+    Attributes
+    ----------
+    config : dict
+        Dictionary containing all config variables.
+
     """
 
     def __init__(self, config):
+        """Constructor method
+        """
         # make parameters of config file available as class parameters
         for name in section_names:
             self.__dict__.update(config.get(name))
@@ -30,8 +38,10 @@ class FMU:
         logger.debug('Reading IOs FMU')
         self.getIO()
 
-    # unzip and open FMU
+    # 
     def readFMU(self):
+        """Unzip and open FMU file
+        """
         logger.debug('Starting to read FMU')
         logger.info('Using: {}'.format(self.fmuPath))
         self.description = read_model_description(self.fmuPath)
@@ -45,6 +55,8 @@ class FMU:
 
     # initialize FMU
     def initFMU(self):
+        """Fmpy requires to setup an experiment before the simulation can be started
+        """
         self.fmu.setupExperiment(startTime=self.start_time, tolerance=1e-6,
                                  stopTime=self.stop_time+self.dt)
         # set initial inputs
@@ -53,12 +65,16 @@ class FMU:
 
     # reset FMU to initial state
     def resetFMU(self):
+        """Reset the FMU to the inital state
+        """
         logger.debug('Initializing FMU')
         self.fmu.reset()
         self.initFMU()
 
     # get IO description of FMU
     def getIO(self):
+        """Read all available inputs and outputs of the FMU
+        """
         self.output = [x.variable for x in self.description.outputs]
         self.input = [x for x in self.description.modelVariables
                         if x not in self.output]
@@ -82,8 +98,9 @@ class FMU:
         for i, x in enumerate(self.output_names):
             logger.debug('{}: {}'.format(i, x))
 
-    # terminate FMU after simulation
     def closeFMU(self):
+        """Terminate FMU after simulation
+        """
         logger.info('Close fmu and try deleting unzipdir')
         self.fmu.terminate()
         self.fmu.freeInstance()
