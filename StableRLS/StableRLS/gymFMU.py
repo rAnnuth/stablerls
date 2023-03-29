@@ -1,4 +1,4 @@
-# Author Robert Annuth - robert.annuth@tuhh.de
+#Author Robert Annuth - robert.annuth@tuhh.de
 import types
 import contextlib
 import json
@@ -20,14 +20,13 @@ section_names = 'Reinforcement Learning', 'General', 'FMU'
 class StableRLS(gym.Env):
     """Custom environment for simulation of FMUs with gymnasium interface
     See https://https://gymnasium.farama.org/ for information about API and 
-    necessary functions. The attributes and methods are sorted by decreasing 
-    importance for user implementation. Instanitate this class for the RL agent.
+    necessary functions. Instanitate this class for the RL agent.
 
     Short Guide
 
     1. Create Simulink FMU using the README guide
-    2. Create config with all relevant information
-    3. Create child class and define
+    2. Create -file-.cfg (config) with all relevant information
+    3. Create child class and let the agent do its job! 
 
     Required:
 
@@ -41,8 +40,6 @@ class StableRLS(gym.Env):
 
     - Export your results
     - Define rollback situations
-
-    4. Let the agent do its job!
 
     Attributes
     ----------
@@ -96,7 +93,7 @@ class StableRLS(gym.Env):
         -------
         space : gymnasium.space
             Returns the unbound action space defined by the FMU
-        """        
+        """
         low = np.arange(len(self.fmu.input)).astype(np.float32)
         low[:] = np.inf
         high = low * -1
@@ -109,7 +106,7 @@ class StableRLS(gym.Env):
         -------
         space : gymnasium.space
             Returns the unbound observation space defined by the FMU
-        """        
+        """
         low = np.arange(len(self.fmu.output)).astype(np.float32)
         low[:] = np.inf
         high = low * -1
@@ -119,7 +116,7 @@ class StableRLS(gym.Env):
 # Reset
 # ----------------------------------------------------------------------------
     def reset(self, seed=None):
-        """ Default reset function for gymnasium class
+        """Default reset function for gymnasium class
 
         Parameters
         ----------
@@ -130,16 +127,15 @@ class StableRLS(gym.Env):
 
         Returns
         -------
-
         observation : gymnasium.space
             Observation created during reset call (defined behavior by gym)
         info : dict
-            Info dict is currently not used and is empty but is required by gym
-        """        
+            Info dict is currently not used and empty but is required by gym
+        """
         self.seed = seed
         self.time = self.start_time
         self.step_count = 0
-        self.resetIO()
+        self._resetIO()
 
         # reset FMU
         self.FMU_states = {}
@@ -148,9 +144,8 @@ class StableRLS(gym.Env):
         # and allows customization
         return self.reset_(seed)
 
-    def resetIO(self):
-        """
-        Resetting lists contianing the inputs / outputs and actions of each step 
+    def _resetIO(self):
+        """Resetting lists contianing the inputs / outputs and actions of each step 
         and the internal variables.
         """
         self.inputs = np.empty([self.steps_simulation, self.fmu.getNumInput()])
@@ -161,25 +156,27 @@ class StableRLS(gym.Env):
         self.step_count = -1
 
     def reset_(self, seed=None):
-        """
-        This internal reset function provides an interface to modify the 
+        """This internal reset function provides an interface to modify the 
         environment at every reset. You can overwrite this!
         The code could also depend on the seed and it is possible to modify the 
         returned observation.
-        
+
         The default behavior is to simulate the initial step and return all observed values. 
         However, the inputs are not reset therefore 
 
         Parameters
         ----------
         seed : int, optional
-            see reset function
+            The seed is not used for the FMU since those calculations are deterministic 
+            but could be used by the user e.g. for weather models interacting with 
+            the FMU during the simulation
         """
         if self.reset_inputs:
-            # set all inputs to zero
+            # set all inputs to zero for consistent simulation results
             for x in self.fmu.input:
                 self.fmu.fmu.setReal([x.valueReference], [0])
 
+        # get the first observation as specified by gymnaisum
         self._next_observation(steps=1)
         return self.outputs[self.step_count, :]
 
@@ -187,13 +184,33 @@ class StableRLS(gym.Env):
 # Step
 # ----------------------------------------------------------------------------
     def step(self, action):
-        """_summary_
+        """Run one timestep of the environment's dynamics using the agent actions.
+        (Adapted from gymnasium documentation v0.28.1)
 
-        Args:
-            action (_type_): _description_
+        Parameters
+        ----------
+        action : list
+            An action provided by the agent to update the environment state.
 
-        Returns:
-            _type_: _description_
+        Returns
+        ----------
+        observation : ObsType
+            An element of the environment's `observation_space` as the next observation due to the agent actions.
+            An example is a numpy array containing the positions and velocities of the pole in CartPole.
+        reward : SupportsFloat 
+            The reward as a result of taking the action.  terminated (bool): Whether the agent reaches the terminal 
+            state (as defined under the MDP of the task) which can be positive or negative. An example is reaching 
+            the goal state or moving into the lava from the Sutton and Barton, Gridworld. If true, the user needs to call :meth:`reset`.
+        truncated : bool
+            Whether the truncation condition outside the scope of the MDP is satisfied. Typically, this is 
+            a timelimit, but could also be used to indicate an agent physically going out of bounds. Can 
+            be used to end the episode prematurely before a terminal state is reached. If true, the user needs to call :meth:`reset`.
+        info : dict 
+            Contains auxiliary diagnostic information (helpful for debugging, learning, and logging).
+            This might, for instance, contain: metrics that describe the agent's performance state, variables that are
+            hidden from observations, or individual reward terms that are combined to produce the total reward.
+            In OpenAI Gym <v26, it contains "TimeLimit.truncated" to distinguish truncation and termination,
+            however this is deprecated in favour of returning terminated and truncated variables.
         """
         # assign actions to FMU input
         self.assignAction(action)
@@ -204,8 +221,8 @@ class StableRLS(gym.Env):
         # get observation vector / outputs of the FMU
         observation = self.obs_processing(self.outputs[self.step_count, :])
 
-        # calculate rewards and set done flag
-        reward, truncated, info = self.get_reward(action, observation)
+        # calculate rewards and if needed set truncated flag
+        reward, terminated, truncated, info = self.get_reward(action, observation)
         terminated = False
 
         # end of simulation time reached?
@@ -216,6 +233,13 @@ class StableRLS(gym.Env):
         return observation, reward, terminated, truncated, info
 
     def assignAction(self, action):
+        """Assign actions to the inputs of the FMU/ environment
+
+        Parameters
+        ----------
+        action : list
+            An action provided by the agent to update the environment state.
+        """
         # assign actions to inputs
         # check if actions are within action space
         if not self.action_space.contains(action):
@@ -228,7 +252,16 @@ class StableRLS(gym.Env):
             self.fmu.fmu.setReal([self.fmu.input[i].valueReference], [val])
 
     def _next_observation(self, steps=-1):
-        # simulate fmu for the specified amount of steps 
+        """It might be required to run the simulation for multiple steps between the inteactions of the agent.
+        By default the agent only observes state after the last of the simulation.
+
+        Parameters
+        ----------
+        steps : int, optional
+            Number of steps the FMU model should run
+        """
+
+        # simulate fmu for the specified amount of steps
         logging.debug(
             f'Starting simulation at simulation time {self.time} [s]')
 
@@ -238,7 +271,7 @@ class StableRLS(gym.Env):
 
         for _ in np.arange(steps):
             # inputs of the FMU can changed independend of the agent
-            self.FMUstep_()
+            self.FMU_external_input()
 
             # simulate FMU for one timestep (dt)
             self._FMUstep()
@@ -253,57 +286,86 @@ class StableRLS(gym.Env):
         logging.debug('Simulation for current step done.')
 
     def _FMUstep(self):
+        """This internal step function handles the interaction with the FMU
+        """
         self.fmu.fmu.doStep(currentCommunicationPoint=(
             self.time), communicationStepSize=self.dt)
         self.step_count += 1
         self.time += self.dt
-    
-    def FMUstep_(self):
-        """
-        This function is called before each FMU step. Here you can set FMU inputs
+
+    def FMU_external_input(self):
+        """This function is called before each FMU step. Here you can set FMU inputs
         independent of the agent action. This could be used e.g. for weather data
         influencing the FMU simulation
-        
+
         Use the code below to access the FMU inputs.
         self.fmu.fmu.setReal([self.fmu.input[0].valueReference], [value])
         """
         pass
-    
+
     def obs_processing(self, observation):
-        """
-        If the agend is supposed to observe modified values the simulated values
+        """If the agend is supposed to observe modified values the simulated values
         can be modified here before the reward calculation
+
+        Parameters
+        ----------
+        observation : ObsType
+            The observation by the FMU/ environment 
+
+        Returns
+        -------
+        observation : ObsType
+            Per default only returns the input but by overwriting the function custom requirements can be met
         """
         return observation
 
     def get_reward(self, observation, action):
+        """The reward function depends on the specifig usecase and must be specified by the user
+
+        Parameters
+        ----------
+        observation : ObsType
+            The modified observation by the FMU/ environment (:meth:`obs_processing`)
+
+        action: ActionType
+            The inital action lead to the observed state of the FMU/ environment
+
+        Returns
+        -------
+        reward : float 
+            Calculated reward for the given action and observation
+        terminated : bool
+            Set flag if episode should be terminated. It is automatically terminated if the maximum time is reached
+        truncated : bool
+            Set flag if the agent is truncated
+        info : dict
+            Info dict which is empty by default
+        """
         info = {}
         reward = 1
         terminated = False
         truncated = False
-        return reward, truncated, info
+        return reward, terminated, truncated, info
 
 
 # ----------------------------------------------------------------------------
 # Close / Export / Rollback
 # ----------------------------------------------------------------------------
 
+
     def close(self):
-        """
-        Close FMU and clean up temporary data
+        """Close FMU and clean up temporary data. This sould be called after the simulation ends.
         """
         self.fmu.closeFMU()
 
     def export_results(self):
-        """
-        This can be used to export results 
+        """This function can be overwritten to acess and export results of the agent.
         """
         pass
 
-    def save_rollbackstate(self):
-        """
-        currently matlabs limited export capabilities prevent rollbacks
-        if they enable this at any time this will work
+    def _save_rollbackstate(self):
+        """Currently matlabs limited export capabilities prevent rollbacks if they enable 
+        this at any time this will work. Therefore, the function is currently marked as private.
         """
         logging.info(f'Creating rollback state at timestep {self.step_count}')
         # get the current state
@@ -311,28 +373,28 @@ class StableRLS(gym.Env):
         # serialize the state
         serialized_state = self.fmu.fmu.serializeFMUstate(state)
         self.FMU_states[str(self.step_count)] = [state,
-                                                serialized_state,
-                                                self.inputs.copy(),
-                                                self.outputs.copy(),
-                                                self.times.copy(),
-                                                self.step_count,
-                                                ]
+                                                 serialized_state,
+                                                 self.inputs.copy(),
+                                                 self.outputs.copy(),
+                                                 self.times.copy(),
+                                                 self.step_count,
+                                                 ]
 
-    def perform_rollback(self, step):
-
-        """
-        currently matlabs limited export capabilities prevent rollbacks
-        if they enable this at any time this will work
+    def _perform_rollback(self, step):
+        """Currently matlabs limited export capabilities prevent rollbacks if they enable 
+        this at any time this will work. Therefore, the function is currently marked as private.
         """
         logger.info(f'Performing rollback to the state at step {step}')
-        logger.info('If MATLAB created this FMU the rollback did not affect the FMU state')
+        logger.info(
+            'If MATLAB created this FMU the rollback did not affect the FMU state')
         # de-serialize the state
-        deserialized_state = self.fmu.fmu.deSerializeFMUstate( \
-        self.FMU_states[str(step)][1],
-        self.FMU_states[str(step)][0])
+        deserialized_state = self.fmu.fmu.deSerializeFMUstate(
+            self.FMU_states[str(step)][1],
+            self.FMU_states[str(step)][0])
         # set the state
         self.fmu.fmu.setFMUstate(deserialized_state)
         # free memory
         self.fmu.fmu.freeFMUstate(deserialized_state)
-        #self.fmu.fmu.setFMUstate(state=self.FMU_states[str(step)][0])
-        self.inputs, self.outputs, self.times, self.step_count= self.FMU_states[str(step)][2:]
+        # self.fmu.fmu.setFMUstate(state=self.FMU_states[str(step)][0])
+        self.inputs, self.outputs, self.times, self.step_count = self.FMU_states[str(
+            step)][2:]
