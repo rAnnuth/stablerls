@@ -8,6 +8,8 @@ setuptools.setup(
   packages= setuptools.find_packages(),
   license='LICENSE.txt',
   description='Simulate Simulink FMUs as Gymnasium environment',
+  url='https://github.com/rAnnuth/stablerls',
+  keywords='simulation RL reinforcement learning simulink matlab FMU'
   install_requires=[
       "numpy",
       "fmpy",
