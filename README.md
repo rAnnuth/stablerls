@@ -3,10 +3,9 @@
 <h2 align="center">Stable Reinforcement Learning for Simulink</h2>
 
 <p align="center">
-<a href="https://readthedocs.org/projects/stablerls/badge/?version=latest"><img alt="Documentation Status" src="https://stablerls.readthedocs.io/en/latest/?badge=latest"></a>
+<a href="https://stablerls.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/stablerls/badge/?version=latest"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 </p>
-
 ## Structure 
 - Examples: Usage examples of the package
 - StableRLS: Main package
