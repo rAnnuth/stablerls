@@ -8,7 +8,7 @@ class configreader:
     Attributes:
     -------
     config_name : string
-        Path to config that should be read 
+        Path to config that should be read
     """
 
     def __init__(self, config_name):
@@ -16,7 +16,7 @@ class configreader:
         parser.optionxform = str  # case sensitive
         found = parser.read(config_name)
         if not found:
-            raise ValueError('No config file found!')
+            raise ValueError("No config file found!")
         self.parser = parser
 
     def get_sectionnames(self):
@@ -41,7 +41,7 @@ class configreader:
         Returns
         -------
         sections : list
-            list parameters within the section 
+            list parameters within the section
         """
         return smart_parse(dict(self.parser.items(section)))
 
@@ -57,8 +57,8 @@ class configreader:
 
         Returns
         -------
-        sections : dict 
-            dict of sections with their corresponding parameters 
+        sections : dict
+            dict of sections with their corresponding parameters
         """
         res = {}
         for section in sections:
@@ -68,10 +68,10 @@ class configreader:
     # return the Ray config section with correct dict
     # TODO this can be removed
     def get_ray_agent(self):
-        cfg = self.get('Ray')
+        cfg = self.get("Ray")
         sections = self.getSections()
-        sections.remove('Ray')
-        cfg['env_config'] = self.getMulti(sections)
+        sections.remove("Ray")
+        cfg["env_config"] = self.getMulti(sections)
         return cfg
 
 
@@ -85,7 +85,7 @@ def smart_parse(obj):
 
     Returns
     -------
-    result : dictionary 
+    result : dictionary
         dictionary containing the correct datatype
     """
 
@@ -96,12 +96,12 @@ def smart_parse(obj):
         return [smart_parse(elem) for elem in obj]
 
     if isinstance(obj, str):
-        if obj == 'None':
+        if obj == "None":
             return None
         if obj.isnumeric():
             return int(obj)
-        if obj.replace('.', '', 1).replace('e', '', 1).replace('-', '').isnumeric():
+        if obj.replace(".", "", 1).replace("e", "", 1).replace("-", "").isnumeric():
             return float(obj)
-        if obj.upper() in ('TRUE', 'FALSE', 'T', 'F'):
-            return obj.upper() in ('TRUE', 'T')
+        if obj.upper() in ("TRUE", "FALSE", "T", "F"):
+            return obj.upper() in ("TRUE", "T")
     return obj
