@@ -1,8 +1,11 @@
-# StableRLS 
-[![Documentation Status](https://readthedocs.org/projects/stablerls/badge/?version=latest)](https://stablerls.readthedocs.io/en/latest/?badge=latest)
+![](icon.png)
 
-####Stable Reinforcement Learning for Simulink
-Description ... and probably logo
+<h2 align="center">Stable Reinforcement Learning for Simulink</h2>
+
+<p align="center">
+<a href="https://readthedocs.org/projects/stablerls/badge/?version=latest"><img alt="Documentation Status" src="https://stablerls.readthedocs.io/en/latest/?badge=latest"></a>
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+</p>
 
 ## Structure 
 - Examples: Usage examples of the package
@@ -32,6 +35,7 @@ Description ... and probably logo
 
 
 ```
+Action Status, Coverage Status
 sphinx-autobuild docs/ docs/build/html
 
 [project.optional-dependencies]
