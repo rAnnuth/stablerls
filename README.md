@@ -37,7 +37,7 @@ We decided to exclude the typical machine learning frameworks (PyTorch, Tensorfl
 
 
 ## Building the documentation
-Run `sphinx-autobuild docs/ docs/build/html` from the main directory and open the documentation [locally](localhost:8006) on port 8000. The page is updated automatically after any file of the documentation is changed.
+Run `sphinx-autobuild docs/ docs/build/html` from the main directory and open the documentation `localhost:8000` on port 8000. The page is updated automatically after any file of the documentation is changed.
 
 ## Make this public
 - [ ] [https://joss.theoj.org/about](https://joss.theoj.org/about) Submit
