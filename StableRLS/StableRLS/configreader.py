@@ -3,26 +3,12 @@ from configparser import ConfigParser
 
 
 class configreader:
-    """
-    class to read configparser files and get specific sections of the config
+    """Class to read configparser files and get specific sections of the config
 
     Attributes:
     -------
-        None
-
-
-    Methods
-    -------
-    __init__(config_name):
-        Reads config specified by config_name.
-    get_sectionnames():
-        Returns all section names of config.
-    get(section):
-        Get one specific section.
-    get_sections(sections):
-        Get multiple sections specified as list.
-
-    #get_ray_agent(self):
+    config_name : string
+        Path to config that should be read 
     """
 
     def __init__(self, config_name):
@@ -33,17 +19,47 @@ class configreader:
             raise ValueError('No config file found!')
         self.parser = parser
 
-    # return list of available sections
     def get_sectionnames(self):
+        """Returns a list of all available sections
+
+        Returns
+        -------
+        sections : list
+            list of available sections
+        """
         return list(dict(self.parser).keys())
 
     # get one specified section from config
     def get(self, section):
+        """Returns the paramerters of one specific section
+
+        Parameters
+        -------
+        section : string
+            Specified section for returned parameters
+
+        Returns
+        -------
+        sections : list
+            list parameters within the section 
+        """
         return smart_parse(dict(self.parser.items(section)))
 
     # get multiple sections from config
     # TODO this should also work for one config
     def get_sections(self, sections):
+        """Returns the paramerters of multiple sections
+
+        Parameters
+        -------
+        sections : list
+            Specified sections for returned parameters
+
+        Returns
+        -------
+        sections : dict 
+            dict of sections with their corresponding parameters 
+        """
         res = {}
         for section in sections:
             res[section] = smart_parse(dict(self.parser.items(section)))
@@ -60,14 +76,17 @@ class configreader:
 
 
 def smart_parse(obj):
-    """
-    convert the strings of a (nested) dict to the correct datatype.
+    """Convert the strings of a (nested) dict to the correct datatype.
 
-    Parameters:
-        obj (dict): dictionary containing strings as values
+    Parameters
+    -------
+    obj : dict
+        dictionary containing strings as values
 
-    Returns:
-        dict: dictionary containing the correct datatype
+    Returns
+    -------
+    result : dictionary 
+        dictionary containing the correct datatype
     """
 
     if isinstance(obj, dict):

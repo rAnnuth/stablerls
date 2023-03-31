@@ -129,8 +129,6 @@ class StableRLS(gym.Env):
         -------
         observation : gymnasium.space
             Observation created during reset call (defined behavior by gym)
-        info : dict
-            Info dict is currently not used and empty but is required by gym
         """
         self.seed = seed
         self.time = self.start_time

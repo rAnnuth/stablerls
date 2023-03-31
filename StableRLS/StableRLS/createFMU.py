@@ -9,14 +9,18 @@ section_names = 'FMU'
 
 
 def createFMU(cfg):
-    """
-    see https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html
-    for the installation of matlab engine
+    """See https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html
+    for the installation of matlab engine. The engine is required to run this function.
+
+    The function searches for a simulink model defined in the config dict and compiles it into an FMU. 
 
     Parameters:
-        dict: dictionary containing the keys 'fmuPath', 'dt' within the section specified above
+    ------
+    cfg: dict 
+        Dictionary containing the keys 'fmuPath', 'dt' within the section specified above
+        (default is 'FMU')
     """
-    # get current folder
+    # get current folder because we need the 'getports.m' function later
     script_folder = os.path.dirname(os.path.abspath(__file__))
 
     # start matlab engine
