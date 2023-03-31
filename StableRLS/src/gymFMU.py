@@ -228,7 +228,6 @@ class StableRLS(gym.Env):
 
         # calculate rewards and if needed set truncated flag
         reward, terminated, truncated, info = self.get_reward(action, observation)
-        terminated = False
 
         # end of simulation time reached?
         if self.time > self.stop_time + 0.5 * self.dt:
