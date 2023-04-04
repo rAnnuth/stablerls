@@ -4,8 +4,8 @@ import contextlib
 import json
 import gymnasium as gym
 import numpy as np
-from StableRLS.fmutools import FMU
-from StableRLS.configreader import smart_parse
+from stablerls.fmutools import FMU
+from stablerls.configreader import smart_parse
 import logging
 
 logger = logging.getLogger(__name__)
@@ -56,6 +56,16 @@ class StableRLS(gym.Env):
         # make parameters of config file available as class parameters
         for name in section_names:
             self.__dict__.update(config.get(name))
+        # add missing parameters
+        # by default the agent chosses one action per timestep
+        if not hasattr(self, "action_interval"):
+            self.action_interval = self.dt
+        # set start time of the simulation
+        if not hasattr(self, "start_time"):
+            self.start_time = 0
+        # specify if the inputs are set to zero at each reset() call
+        if not hasattr(self, "reset_inputs"):
+            self.reset_inputs = True
 
         # check config settings for simulation time
         if round((self.stop_time - self.start_time) % self.dt, 9) != 0:
@@ -208,8 +218,9 @@ class StableRLS(gym.Env):
             satisfied. Typically, this is a timelimit, but could also be used 
             to indicate an agent physically going out of bounds. Can be used to 
             end the episode prematurely before a terminal state is reached. If 
-            true, the user needs to call :meth:`reset`.  info : dict Contains 
-            auxiliary diagnostic information (helpful for debugging, learning, 
+            true, the user needs to call :meth:`reset`.  
+        info : dict 
+            Contains auxiliary diagnostic information (helpful for debugging, learning, 
             and logging).  This might, for instance, contain: metrics that describe 
             the agent's performance state, variables that are hidden from observations, 
             or individual reward terms that are combined to produce the total reward.  

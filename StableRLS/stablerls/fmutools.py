@@ -28,6 +28,11 @@ class FMU:
         # make parameters of config file available as class parameters
         for name in section_names:
             self.__dict__.update(config.get(name))
+        # add missing parameters
+        if not hasattr(self, "tolerance"):
+            self.tolerance = 1e-6
+        if not hasattr(self, "start_time"):
+            self.start_time = 0
 
         # this is the default fmpy procedure
         self.readFMU()

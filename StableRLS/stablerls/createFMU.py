@@ -8,29 +8,34 @@ section_names = "FMU"
 # ----------------------------------------------------------------------------
 
 
-def createFMU(cfg):
+def createFMU(cfg, simulink_model):
     """See https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html
     for the installation of matlab engine. The engine is required to run this function.
 
-    The function searches for a simulink model defined in the config dict and compiles it into an FMU.
+    The function searches for a simulink model defined in the config dict and
+    compiles it into an FMU. The target filename is specified within the config
 
     Parameters:
     ------
     cfg: dict
         Dictionary containing the keys 'fmuPath', 'dt' within the section specified above
         (default is 'FMU')
+    simulink_model: string
+        path to the simulink model that should be compiled to a FMU
     """
     # get current folder because we need the 'getports.m' function later
     script_folder = os.path.dirname(os.path.abspath(__file__))
 
     # start matlab engine
     eng = matlab.engine.start_matlab("-nosplash -noFigureWindows -r")
-    slxDir = os.path.dirname(cfg.get(section_names)["fmuPath"])
-    mdl = os.path.splitext(os.path.basename(cfg.get(section_names)["fmuPath"]))[0]
+    slx_dir = os.path.dirname(simulink_model)
+    slx_model = os.path.splitext(os.path.basename(simulink_model))[0]
+    target_fmu = cfg.get(section_names)["fmuPath"]
 
     # the code is also available as matlab code /Example/matlab/template/makeFMU.m
-    eng.eval(f"cd('{slxDir}')", nargout=0)
-    eng.eval(f"mdl = '{mdl}';", nargout=0)
+    if not slx_dir == '':
+        eng.eval(f"cd('{slx_dir}')", nargout=0)
+    eng.eval(f"mdl = '{slx_model}';", nargout=0)
     print(script_folder)
 
     eng.eval(f"addpath('{script_folder}')", nargout=0)
@@ -53,3 +58,5 @@ def createFMU(cfg):
     )
     eng.eval("Simulink.data.dictionary.closeAll('-discard')", nargout=0)
     eng.quit()
+
+    os.rename(slx_model + '.fmu', target_fmu)
