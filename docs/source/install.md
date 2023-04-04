@@ -1,5 +1,4 @@
-# Getting started
-
-## Installation
-
-## Dependencies
+# StableRLS
+![](../../icon.png)
+```{include} ../../README.md
+```
