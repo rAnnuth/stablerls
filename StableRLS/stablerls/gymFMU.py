@@ -264,6 +264,8 @@ class StableRLS(gym.Env):
 
         # assign actions to the action space
         for i, val in enumerate(action):
+            if val == None:
+                continue
             self.fmu.fmu.setReal([self.fmu.input[i].valueReference], [val])
 
     def _next_observation(self, steps=-1):
