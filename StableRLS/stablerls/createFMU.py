@@ -8,7 +8,7 @@ section_names = "FMU"
 # ----------------------------------------------------------------------------
 
 
-def createFMU(cfg, simulink_model):
+def createFMU(cfg, simulink_model, remove_datastore=True):
     """See https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html
     for the installation of matlab engine. The engine is required to run this function.
 
@@ -17,11 +17,14 @@ def createFMU(cfg, simulink_model):
 
     Parameters:
     ------
-    cfg: dict
-        Dictionary containing the keys 'fmuPath', 'dt' within the section specified above
+    cfg : dict
+        Dictionary containing the keys 'FMU_path', 'dt' within the section specified above
         (default is 'FMU')
-    simulink_model: string
+    simulink_model : string
         path to the simulink model that should be compiled to a FMU
+    remove_datastore : bool
+        MATLAB has to create a datastore file during compilation. We dont need it afterwards and 
+        delete it by default. Unless specified otherwise
     """
     # get current folder because we need the 'getports.m' function later
     script_folder = os.path.dirname(os.path.abspath(__file__))
@@ -30,13 +33,12 @@ def createFMU(cfg, simulink_model):
     eng = matlab.engine.start_matlab("-nosplash -noFigureWindows -r")
     slx_dir = os.path.dirname(simulink_model)
     slx_model = os.path.splitext(os.path.basename(simulink_model))[0]
-    target_fmu = cfg.get(section_names)["fmuPath"]
+    target_fmu = cfg.get(section_names)["FMU_path"]
 
     # the code is also available as matlab code /Example/matlab/template/makeFMU.m
     if not slx_dir == '':
         eng.eval(f"cd('{slx_dir}')", nargout=0)
     eng.eval(f"mdl = '{slx_model}';", nargout=0)
-    print(script_folder)
 
     eng.eval(f"addpath('{script_folder}')", nargout=0)
 
@@ -58,5 +60,10 @@ def createFMU(cfg, simulink_model):
     )
     eng.eval("Simulink.data.dictionary.closeAll('-discard')", nargout=0)
     eng.quit()
-
+    
+    # move FMU to the desired location
     os.rename(slx_model + '.fmu', target_fmu)
+
+    # remove MATLAB datastore 
+    if remove_datastore:
+        os.remove(os.path.join(slx_dir, 'BusSystem.sldd'))
