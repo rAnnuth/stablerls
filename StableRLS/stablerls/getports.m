@@ -69,7 +69,7 @@ end
 
 % we need to skip some bus connections since bus elments and
 % input ports behave differently
-%bus = skip_bus_connections(bus, path);
+bus = skip_bus_connections(bus, path);
 
 % write result to datastore
 DDName = 'BusSystem.sldd';
