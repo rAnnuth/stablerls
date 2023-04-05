@@ -46,9 +46,9 @@ class FMU:
     def readFMU(self):
         """Unzip and open FMU file"""
         logger.debug("Starting to read FMU")
-        logger.info("Using: {}".format(self.fmuPath))
-        self.description = read_model_description(self.fmuPath)
-        self.zipDir = extract(self.fmuPath)
+        logger.info("Using: {}".format(self.FMU_path))
+        self.description = read_model_description(self.FMU_path)
+        self.zipDir = extract(self.FMU_path)
         self.fmu = FMU2Slave(
             guid=self.description.guid,
             unzipDirectory=self.zipDir,
@@ -97,10 +97,10 @@ class FMU:
 
         logger.info("Found Inputs access with corresponding number:")
         for i, x in enumerate(self.input_names):
-            logger.debug("{}: {}".format(i, x))
+            logger.info(" {}: {}".format(i, x))
         logger.info("Found Outputs access with corresponding number:")
         for i, x in enumerate(self.output_names):
-            logger.debug("{}: {}".format(i, x))
+            logger.info(" {}: {}".format(i, x))
 
     def closeFMU(self):
         """Terminate FMU after simulation"""
