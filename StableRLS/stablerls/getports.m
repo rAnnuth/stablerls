@@ -33,19 +33,10 @@ top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on',...
 
 % variable to numerate busses
 num = 1;
-% keep track of analyzed busses since bus elements will have the same port
-% number
-analyzed_port_numbers = [];
 
 % looping all ports found
 for i = 1 : length(top_ports)
     portnumber = str2double(get_param(top_ports{i},'Port'));
-    % only continue if port number is new
-    if any(ismember(analyzed_port_numbers,portnumber))
-        %top_ports{i}
-    %else
-        analyzed_port_numbers(end+1) = portnumber;
-    end
 
     % we can skip the port if its not connected to a subsystem
     % we have to follow the line to the destination
