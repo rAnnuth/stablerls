@@ -16,6 +16,17 @@ bus = {{1}};
 % path will reflect the position of the iterative bus building process
 path = model;
 
+% reset all ports / not sure if this is helpful or destroys models..
+% inports = find_system(path,'LookUnderMasks','on',...
+%     'FollowLinks','on', 'BlockType','Inport');
+% outports = find_system(path,'LookUnderMasks','on',...
+%     'FollowLinks','on', 'BlockType','Outport');
+% ports = cat(1, inports, outports);
+% for i = 1 : length(ports)
+%     set_param(ports{i},'OutDataTypeStr','Inherit: auto');
+% end
+
+
 % find all inports
 top_ports = find_system(path, 'SearchDepth', 1,'LookUnderMasks','on',...
     'FollowLinks','on', 'BlockType','Inport');
@@ -31,9 +42,23 @@ for i = 1 : length(top_ports)
     portnumber = str2double(get_param(top_ports{i},'Port'));
     % only continue if port number is new
     if any(ismember(analyzed_port_numbers,portnumber))
-        continue
-    else
+        %top_ports{i}
+    %else
         analyzed_port_numbers(end+1) = portnumber;
+    end
+
+    % we can skip the port if its not connected to a subsystem
+    % we have to follow the line to the destination
+    port_handle = get_param(top_ports{i},'PortHandles');
+    port_line = get_param(port_handle.Outport,'Line');
+    handle_dest_block = get_param(port_line,'DstBlockHandle');
+    handle_dest_port = get_param(port_line,'DstportHandle');
+    dst_type = get_param(handle_dest_block,'BlockType');
+    if length(string(dst_type)) > 1
+        dst_type = dst_type{1};
+    end
+    if ~isequal(dst_type, 'SubSystem')
+        continue 
     end
 
     % check if we found a input port or bus element
@@ -46,16 +71,11 @@ for i = 1 : length(top_ports)
         % if the bus element has no element specified we have to
         % treat is like an input block
         if isempty(name)
-            increment = 2;
-        else
             increment = 1;
+        else
+            increment = 2;
         end
-        warning(['Unable to set DataType for "%s" due to Matlab ' ...
-            'limitations. Please set manually to "%s" or use normal ' ...
-            'inports at the top level\n Use hilite_system("%s") ' ...
-            'to find the block'], ...
-            top_ports{i}, ['Bus: bus' char(string(num + increment))], top_ports{i})
-        x = input('Please change the Name and press enter');
+        set_param(top_ports{i},'OutDataTypeStr',['Bus: bus' char(string(num + increment))]);
 
     else
         set_param(top_ports{i},'OutDataTypeStr',['Bus: bus' char(string(num + 2))]);
@@ -265,23 +285,25 @@ end
 end
 
 %%
-function [name, bus_port] = get_name(path)
+function [name, bus_port] = get_name(xpath)
 % get_name returns the name of a input port and
 % a boolean if its a bus element
-name = get_param(path,'Element');
+name = get_param(xpath,'Element');
 
 % if name is empty its a input port
 if isempty(name)
-    name = strsplit(path, '/');
+    name = strsplit(xpath, '/');
     name = name{end};
     bus_port = false;
 else
     bus_port = true;
 end
+name = erase(name, ' ');
 if any(ismember(name, ' .'))
-    error("Port at %s contains spaces or '.' in name or signal name.\n" + ...
-        "Please rename the port! " + ...
-        "Use hilite_system('%s') to find the block", path, path)
+
+    error(strjoin([sprintf("Port at %s contains spaces or '.' in name or signal name.\n ", xpath) ...
+        "Please rename the port! " ...
+        sprintf("Use hilite_system(%s) to find the block", xpath)]))
 end
 end
 
@@ -378,23 +400,9 @@ for i = 2 : length(bus)
     for i4 = 1 : length(top_ports)
         if isequal(get_param(top_ports{i4}, 'OutDataTypeStr'), source)
 
-            % check if we found a input port or bus element
-            % we can only set the datatype for input ports
-            % for bus elements this has to be done manually
-            if isequal(get_param(top_ports{i4},'BlockDescription'), ...
-                    ['Select elements of a bus or the entire bus, ' ...
-                    'signal, or message from the input port.'])
+            % set datatype
+            set_param(top_ports{i4},'OutDataTypeStr',target);
 
-                warning(['Sorry! I had to rename the Bus again! ' ...
-                    'Unable to set DataType for "%s" due to Matlab ' ...
-                    'limitations. Please set manually to "%s" or use normal ' ...
-                    'inports at the top level\n Use hilite_system("%s") ' ...
-                    'to find the block'], ...
-                    top_ports{i4}, target, top_ports{i4})
-                x = input('Please change the Name and press enter');
-            else
-                set_param(top_ports{i4},'OutDataTypeStr',target);
-            end
         end
     end
 end
@@ -438,23 +446,9 @@ while i < bus_len
         for i2 = 1 : length(top_ports)
             port_datatype = {get_param(top_ports{i2}, 'OutDataTypeStr')};
             if any(cellfun(@(x) isequal(x, port_datatype), removed_busses))
-                % check if we found a input port or bus element
-                % we can only set the datatype for input ports
-                % for bus elements this has to be done manually
-                if isequal(get_param(top_ports{i2},'BlockDescription'), ...
-                        ['Select elements of a bus or the entire bus, ' ...
-                        'signal, or message from the input port.'])
+                % change datatype
+                set_param(top_ports{i2},'OutDataTypeStr', replacement_bus{1}{1});
 
-                    warning(['Sorry! I had to rename the Bus again! ' ...
-                        'Unable to set DataType for "%s" due to Matlab ' ...
-                        'limitations. Please set manually to "%s" or use normal ' ...
-                        'inports at the top level\n Use hilite_system("%s") ' ...
-                        'to find the block'], ...
-                        top_ports{i2}, replacement_bus{1}{1}, top_ports{i2})
-                    x = input('Please change the Name and press enter');
-                else
-                    set_param(top_ports{i2},'OutDataTypeStr', replacement_bus{1}{1});
-                end
             end
         end
     end
