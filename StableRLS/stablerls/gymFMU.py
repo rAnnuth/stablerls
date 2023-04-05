@@ -228,6 +228,8 @@ class StableRLS(gym.Env):
             truncation and termination, however this is deprecated in favour of 
             returning terminated and truncated variables.
         """
+        # make sure we have a float32 numpy array
+        action = np.array(action).astype(np.float32)
         # assign actions to FMU input
         self.assignAction(action)
 
@@ -258,9 +260,7 @@ class StableRLS(gym.Env):
         # assign actions to inputs
         # check if actions are within action space
         if not self.action_space.contains(action):
-            logger.error("The actions are not within the action space")
-            logger.error(action)
-            logger.error(self.time)
+            logger.info(f"The actions are not within the action space. Action: {action}. Time: {self.time}")
 
         # assign actions to the action space
         for i, val in enumerate(action):
