@@ -1,4 +1,0 @@
-# create FMU
-
-
-# run simulation
