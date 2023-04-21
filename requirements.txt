@@ -11,7 +11,7 @@ Jinja2==3.1.2
 lark==1.1.5
 lxml==4.9.2
 MarkupSafe==2.1.2
-matlabengine==9.13.7
+matlabengine
 msgpack==1.0.5
 numpy==1.24.2
 packaging==23.0
