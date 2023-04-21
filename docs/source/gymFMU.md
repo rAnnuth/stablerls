@@ -1,7 +1,7 @@
 # gymFMU
 
 ```{eval-rst}
-.. autoclass:: StableRLS.gymFMU.StableRLS
+.. autoclass:: stablerls.gymFMU.StableRLS
     :show-inheritance:
     :members: 
     :noindex:

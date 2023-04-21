@@ -1,4 +1,4 @@
-# Bus structure
+# Simulink Structure
 
 One main part of this package is the generation of bus structures for the inport and outport of the MATLAB Simulink model. Sadly, this is required for the model compilation. The function iterates recursively through the model and supports the following features:
 - "Inport" and "Bus Element" support

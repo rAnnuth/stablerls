@@ -1,7 +1,7 @@
 # fmutools
 
 ```{eval-rst}
-.. autoclass:: StableRLS.fmutools.FMU
+.. autoclass:: stablerls.fmutools.FMU
     :show-inheritance:
     :members: 
 ```

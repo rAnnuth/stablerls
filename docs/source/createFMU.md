@@ -1,7 +1,7 @@
 # Create FMU
 
 ```{eval-rst}
-.. autofunction:: StableRLS.createFMU.createFMU
+.. autofunction:: stablerls.createFMU.createFMU
     :noindex:
 ```
 
