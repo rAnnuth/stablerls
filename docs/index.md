@@ -16,7 +16,10 @@ This project is under heavy development. Come back soon!
 :caption: 'Contents:'
 :maxdepth: 2
 source/install.md
+source/port_creation.md
+source/configuration.md
 source/API_Reference.md
+notebooks/overview.md
 ```
 
 %# Indices and tables
