@@ -338,17 +338,16 @@ class StableRLS(gym.Env):
         """
         return observation
 
-    def get_reward(self, observation, action):
+    def get_reward(self, action, observation):
         """The reward function depends on the specifig usecase and must be
         specified by the user.
 
         Parameters
         ----------
-        observation : ObsType
-            The modified observation by the FMU/ environment (:meth:`obs_processing`)
-
         action: ActionType
             The inital action lead to the observed state of the FMU/ environment
+        observation : ObsType
+            The modified observation by the FMU/ environment (:meth:`obs_processing`)
 
         Returns
         -------
