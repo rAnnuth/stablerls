@@ -20,6 +20,7 @@ source/port_creation.md
 source/configuration.md
 source/API_Reference.md
 notebooks/overview.md
+source/contribute.md
 ```
 
 %# Indices and tables
