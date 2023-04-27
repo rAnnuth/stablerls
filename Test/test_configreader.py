@@ -2,7 +2,7 @@
 import shutil
 import pytest
 from pathlib import Path
-import StableRLS.configreader as cfg_reader
+import stablerls.configreader as cfg_reader
 
 class Test_configreader:
     test_folder = Path('.') / 'test_files'

@@ -1,6 +1,6 @@
 #%%
-import StableRLS.gymFMU as gymFMU 
-import StableRLS.configreader as cfg
+import stablerls.gymFMU as gymFMU 
+import stablerls.configreader as cfg
 import logging
 logging.basicConfig(level=logging.DEBUG, filename='test.log', format='%(asctime)s %(levelname)s:%(message)s')
 
@@ -39,9 +39,9 @@ path = os.path.abspath(cfg.__file__)
 import pytest
 import numpy as np
 from pathlib import Path
-import StableRLS.gymFMU as gymFMU 
-import StableRLS.configreader as cfg_reader
-import StableRLS.createFMU as createFMU
+import stablerls.gymFMU as gymFMU 
+import stablerls.configreader as cfg_reader
+import stablerls.createFMU as createFMU
 
 test_folder = Path('.') / 'test_files'
 cfg = cfg_reader.configreader(test_folder / 'SimulinkModel.cfg')

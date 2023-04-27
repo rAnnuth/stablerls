@@ -2,9 +2,9 @@
 import pytest
 import numpy as np
 from pathlib import Path
-import StableRLS.gymFMU as gymFMU 
-import StableRLS.configreader as cfg_reader
-import StableRLS.createFMU as createFMU
+import stablerls.gymFMU as gymFMU 
+import stablerls.configreader as cfg_reader
+import stablerls.createFMU as createFMU
 
 
 class Test_gymFMU:
