@@ -1,4 +1,5 @@
 # Author Robert Annuth - robert.annuth@tuhh.de
+
 import types
 import contextlib
 import json
@@ -18,9 +19,9 @@ section_names = "Reinforcement Learning", "General", "FMU"
 
 
 class StableRLS(gym.Env):
-    """Custom environment for simulation of FMUs with gymnasium interface See
-    https://https://gymnasium.farama.org/ for information about API and
-    necessary functions. Instanitate this class for the RL agent.  Short Guide:
+    """Custom environment for simulation of FMUs with gymnasium interface. See
+    https://gymnasium.farama.org/ for information about API and
+    necessary functions. Instantiate this class for the RL agent.  Short Guide:
 
     1. Create Simulink FMU using the README guide
     2. Create -file-.cfg (config) with all relevant information
@@ -32,9 +33,9 @@ class StableRLS(gym.Env):
 
     Optional:
 
-    - Restrict the observation or action space
-    - You could define special observation postprocessing
-    - You can specify additional environment inputs beside the agents action
+    - Define your own, restricted observation or action spaces
+    - Define your own customized observation postprocessing
+    - Specify additional environment inputs beside the agents action
 
     - Export your results
     - Define rollback situations
@@ -56,8 +57,8 @@ class StableRLS(gym.Env):
         # make parameters of config file available as class parameters
         for name in section_names:
             self.__dict__.update(config.get(name))
-        # add missing parameters
-        # by default the agent chosses one action per timestep
+        # set missing parameters to default values
+        # by default, the agent chooses one action per timestep
         if not hasattr(self, "action_interval"):
             self.action_interval = self.dt
         # set start time of the simulation
@@ -71,17 +72,17 @@ class StableRLS(gym.Env):
         if round((self.stop_time - self.start_time) % self.dt, 9) != 0:
             self.stop_time = int(self.stop_time / self.dt) * self.dt
             logger.warning(
-                f"Incompatible sample time and stop time.\n Using {self.stop_time} as"
+                f"Incompatible timestep and stop time.\n Using {self.stop_time} as"
                 " stop time instead"
             )
         if round(self.action_interval % self.dt, 9) != 0:
             self.action_interval = int(self.action_interval / self.dt) * self.dt
             logger.warning(
-                "Incompatible sample time and action interval.\n Using"
+                "Incompatible timestep and action interval.\n Using"
                 f" {self.action_interval} as interval instead"
             )
 
-        # calculate steps of simulation
+        # calculate number of simulation steps
         self.steps_between_actions = int(self.action_interval / self.dt)
         self.steps_simulation = int((self.stop_time - self.start_time) / self.dt) + 1
 
@@ -155,7 +156,7 @@ class StableRLS(gym.Env):
         return self.reset_(seed)
 
     def _resetIO(self):
-        """Resetting lists contianing the inputs / outputs and actions of each
+        """Resetting lists containing the inputs / outputs and actions of each
         step and the internal variables."""
         self.inputs = np.empty([self.steps_simulation, self.fmu.getNumInput()])
         self.outputs = np.empty([self.steps_simulation, self.fmu.getNumOutput()])
@@ -323,7 +324,7 @@ class StableRLS(gym.Env):
         pass
 
     def obs_processing(self, observation):
-        """If the agend is supposed to observe modified values the simulated
+        """If the agent is supposed to observe modified values the simulated
         values can be modified here before the reward calculation.
 
         Parameters
@@ -339,7 +340,7 @@ class StableRLS(gym.Env):
         return observation
 
     def get_reward(self, action, observation):
-        """The reward function depends on the specifig usecase and must be
+        """The reward function depends on the specific usecase and must be
         specified by the user.
 
         Parameters
@@ -374,7 +375,7 @@ class StableRLS(gym.Env):
     def close(self):
         """Close FMU and clean up temporary data.
 
-        This sould be called after the simulation ends.
+        This should be called after the simulation ends.
         """
         self.fmu.closeFMU()
 
