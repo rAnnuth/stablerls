@@ -91,38 +91,47 @@ class StableRLS(gym.Env):
 
         # initialize FMU
         self.fmu = FMU(self.config)
-        self.observation_space = self.get_observation_space()
-        self.action_space = self.get_action_space()
+        self.observation_space = self.set_observation_space()
+        self.action_space = self.set_action_space()
 
         # dict for custom vars
         self.info = {}
 
-    def get_action_space(self):
-        """The space is defined with respect to the loaded FMU but can be
-        restricted.
+    def set_action_space(self):
+        """Setter function for the action space of the agent. As default,
+        the action space is defined with respect to the loaded FMU and 
+        uses all inputs as actions.
+        For other (restricted) action spaces, this function needs to be 
+        modified. For information about possible space definitions, see
+        https://gymnasium.farama.org/api/spaces/.
 
         Returns
         -------
         space : gymnasium.space
-            Returns the unbound action space defined by the FMU
+            Returns the unbounded action space defined by the FMU inputs
         """
-        low = np.arange(len(self.fmu.input)).astype(np.float32)
-        low[:] = np.inf
-        high = low * -1
+        high = np.arange(len(self.fmu.input)).astype(np.float32)
+        high[:] = np.inf
+        low = high * -1
         return gym.spaces.Box(low, high)
 
-    def get_observation_space(self):
-        """The space is defined with respect to the loaded FMU but can be
-        restricted.
+    def set_observation_space(self):
+        """Setter function for the observation space of the agent. As 
+        default, the action space is defined with respect to the loaded FMU 
+        and uses all ouputs as observations.
+        For other (restricted) observation spaces, this function needs to be 
+        modified. For information about possible space definitions, see
+        https://gymnasium.farama.org/api/spaces/.
 
         Returns
         -------
         space : gymnasium.space
-            Returns the unbound observation space defined by the FMU
+            Returns the unbounded observation space defined by the FMU 
+            outputs
         """
-        low = np.arange(len(self.fmu.output)).astype(np.float32)
-        low[:] = np.inf
-        high = low * -1
+        high = np.arange(len(self.fmu.output)).astype(np.float32)
+        high[:] = np.inf
+        low = high * -1
         return gym.spaces.Box(low, high)
 
     # ----------------------------------------------------------------------------
