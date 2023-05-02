@@ -62,7 +62,11 @@ def createFMU(cfg, simulink_model, remove_datastore=True):
     eng.quit()
     
     # move FMU to the desired location
-    os.rename(slx_model + '.fmu', target_fmu)
+    try:
+        os.rename(slx_model + '.fmu', target_fmu)
+    except FileExistsError:
+        os.remove(target_fmu)
+        os.rename(slx_model + '.fmu', target_fmu)
 
     # remove MATLAB datastore 
     if remove_datastore:
