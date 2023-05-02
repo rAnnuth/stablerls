@@ -86,8 +86,15 @@ class StableRLS(gym.Env):
         self.steps_between_actions = int(self.action_interval / self.dt)
         self.steps_simulation = int((self.stop_time - self.start_time) / self.dt) + 1
 
+        # change action interval to (simulation steps - 1)*dt if it leads to too many steps
+        # between actions
         if self.steps_simulation < self.steps_between_actions:
             self.steps_between_actions = self.steps_simulation - 1
+            self.action_interval = self.steps_between_actions * self.dt
+            logger.warning(
+                "Action interval inconsistent with simulation duration.\n Using"
+                f" {self.action_interval} as interval instead"
+            )
 
         # initialize FMU
         self.fmu = FMU(self.config)
