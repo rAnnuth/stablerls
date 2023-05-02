@@ -32,6 +32,10 @@ You can also clone this repository and run `pip install -e StableRLS/` from the 
 
 We decided to exclude the typical machine learning frameworks (PyTorch, Tensorflow) from the requirements, because everyone has their own preferences and we want to keep this package small. However, some of our example are based on PyTorch so you need to run `pip install torch` if you want to run them locally.
 
+# Optional Req!
+- Pandoc is required
+- sphinx autobuild not working
+
 ### Matlab Version
 The StableRLS package is able to compile a given MATLAB Simlink model to a FMU. The MATLAB engine package is a requirement for this. Before the MATLAB release R2022b it was inconvenient to install the engine see the [instructions](https://de.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html). After the release it's possible to install it as pip package. StableRLS will try to install the MATLAB engine as dependency but if your MATLAB version is too old you have to referre to the MATLAB instructions to install the engine.  
 
