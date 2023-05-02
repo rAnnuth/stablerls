@@ -254,7 +254,7 @@ class StableRLS(gym.Env):
 
         # end of simulation time reached?
         if self.time > self.stop_time + 0.5 * self.dt:
-            terminated = True
+            truncated = True
             logger.info("Simulation done")
 
         return observation, reward, terminated, truncated, info
