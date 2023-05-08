@@ -35,7 +35,6 @@ def createFMU(cfg, simulink_model, remove_datastore=True):
     slx_model = os.path.splitext(os.path.basename(simulink_model))[0]
     target_fmu = cfg.get(section_names)["FMU_path"]
 
-    # the code is also available as matlab code /Example/matlab/template/makeFMU.m
     if not slx_dir == '':
         eng.eval(f"cd('{slx_dir}')", nargout=0)
     eng.eval(f"mdl = '{slx_model}';", nargout=0)
