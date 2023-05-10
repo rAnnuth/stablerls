@@ -63,19 +63,19 @@ class StableRLS(gym.Env):
             self.action_interval = self.dt
         # set start time of the simulation
         if not hasattr(self, "start_time"):
-            self.start_time = 0
+            self.start_time = 0.0
         # specify if the inputs are set to zero at each reset() call
         if not hasattr(self, "reset_inputs"):
             self.reset_inputs = True
 
         # check config settings for simulation time
-        if round((self.stop_time - self.start_time) % self.dt, 9) != 0:
+        if not round((self.stop_time - self.start_time) / self.dt, 9).is_integer():
             self.stop_time = int(self.stop_time / self.dt) * self.dt
             logger.warning(
                 f"Incompatible timestep and stop time.\n Using {self.stop_time} as"
                 " stop time instead"
             )
-        if round(self.action_interval % self.dt, 9) != 0:
+        if not round(self.action_interval / self.dt, 9).is_integer():
             self.action_interval = int(self.action_interval / self.dt) * self.dt
             logger.warning(
                 "Incompatible timestep and action interval.\n Using"
@@ -151,8 +151,8 @@ class StableRLS(gym.Env):
         ----------
         seed : int, optional
             The seed is not used for the FMU since those calculations are 
-            eterministic but could be used by the user e.g. for weather models 
-            interacting with the FMU during the simulation
+            deterministic but could be used by the user e.g. for weather models 
+            interacting with the FMU during the simulation.
 
         Returns
         -------
@@ -187,14 +187,14 @@ class StableRLS(gym.Env):
         observation.
 
         The default behavior is to simulate the initial step and return all observed 
-        values.  However, the inputs are not reset therefore
+        values. However, the inputs are not reset therefore.
 
         Parameters
         ----------
         seed : int, optional
-            The seed is not used for the FMU since those calculations are 
+            The seed is not used for the FMU since its calculations are 
             deterministic but could be used by the user e.g. for weather models 
-            interacting with the FMU during the simulation
+            interacting with the FMU during the simulation.
         """
         if self.reset_inputs:
             # set all inputs to zero for consistent simulation results
