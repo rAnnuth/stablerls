@@ -1,0 +1,24 @@
+component shortCircuit
+% shortCircuit
+% simple connection of simscape models
+
+nodes
+    p = foundation.electrical.electrical; % +:left
+    n = foundation.electrical.electrical; % -:right
+end
+
+variables(Access=private)
+    i1 = { 0, 'A' }; % Current
+    v1 = { 0, 'V' }; % Voltage
+end
+
+branches
+    i1 : p.i -> n.i;
+end
+
+equations
+    v1 == p.v - n.v;
+    v1 == 0;
+end
+    
+end

@@ -1,0 +1,61 @@
+component Wire_2Cond
+%wire2 Conductors
+%https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470772874.app1
+% line model with resistor and inductor
+
+  nodes
+    hIn = foundation.electrical.electrical; %Hin:left
+    hOut = foundation.electrical.electrical; %Hout:right
+    lIn = foundation.electrical.electrical; %Lin:left
+    lOut = foundation.electrical.electrical; %Lout:right
+  end
+
+  nodes(Access=protected, ExternalAccess=none)
+    hx = foundation.electrical.electrical;
+    lx = foundation.electrical.electrical;
+  end
+
+  parameters
+    d = {1e-3,'1'}; %distance between wires in m
+    L = {1,'1'}; % Length in m
+    r = {1e-3,'1'}; %Radius of wires in m
+    specR = {1.68e-8,'Ohm'}; %Specific resistance in ohm*m
+  end
+
+  parameters(Access=private)
+    pi = {3.14159265359,'1'};
+    mu0 = 4 * pi * 1e-7;
+    _dx = d + 2*r; %correction of distance 
+    _hInd = mu0/(2*pi) * L * (log(2*L/r) - 3/4); % -1 for LF -3/4 for HF
+    _lInd = mu0/(2*pi) * L * (log(2*L/r) - 3/4); 
+    _M = mu0/(2*pi) * L * (log(L/_dx + sqrt(1+L^2/_dx^2)) - sqrt(1+_dx^2/L^2) +_dx/L);
+    _R = specR * L / (pi*r*r);
+  end
+
+  variables
+    Lh = {value={0,'A'},priority=priority.none};
+    Ll = {value={0,'A'},priority=priority.none};
+  end
+
+  components(ExternalAccess=observe)
+    Rh = ee.passive.instrumented_resistor(R=_R)
+    Rl = ee.passive.instrumented_resistor(R=_R)
+  end
+  
+  connections
+    connect(hIn,Rh.p);
+    connect(Rh.n,hx);
+    connect(lIn,Rl.p);
+    connect(Rl.n,lx);
+  end
+
+  branches
+    Lh: hx.i -> hOut.i;
+    Ll: lx.i -> lOut.i;
+  end
+
+  equations
+   value(hx.v-hOut.v,'V') == _hInd*value(Lh.der,'A/s'); 
+   value(lx.v-lOut.v,'V') == _lInd*value(Ll.der,'A/s'); 
+  end
+end

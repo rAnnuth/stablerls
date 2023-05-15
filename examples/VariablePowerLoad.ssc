@@ -1,0 +1,46 @@
+component VariablePowerLoad
+% Variable power load. It might be necesarry to use local simscape solver.
+
+inputs
+    Power = { 0.0, 'W' }; % P:left
+end
+
+nodes
+    p = foundation.electrical.electrical; % +:left
+    n = foundation.electrical.electrical; % -:right
+end
+
+parameters
+    Vsoll = {350, '1'}; % Nominal Voltage
+    Slope = {100, '1'}; % Slope of on/off    
+    MinV = {0.7, '1'}; %MinV relative to Vnom       
+    MaxV = {1.2,'1'}; %MaxV relative to Vnom
+end
+
+  parameters(Access=private)
+    Vconv = {1,'1/V'};
+    Wconv = {1,'W'};
+  end
+    
+variables
+    i = { 0, 'A' }; % Current
+    v = { 0, 'V' }; % Voltage
+    Psoll = {0, 'W'}; %PowerRef
+end
+
+branches
+    i : p.i -> n.i;
+    
+end
+
+equations
+        v == p.v - n.v;
+        Psoll == 0.5* Power * (tanh(Slope*(v*Vconv-MinV*Vsoll))-tanh(Slope*(v*Vconv-MaxV*Vsoll)));
+        if v * Vconv > 0
+            i == Psoll/v;
+        else
+            i == 0;
+        end
+end
+
+end
