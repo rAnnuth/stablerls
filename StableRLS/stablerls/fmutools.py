@@ -95,10 +95,10 @@ class FMU:
         self.input_names = [x.name for x in self.input]
         self.output_names = [x.name for x in self.output]
 
-        logger.info("Found Inputs access with corresponding number:")
+        logger.info("Found inputs - access them by the corresponding number:")
         for i, x in enumerate(self.input_names):
             logger.info(" {}: {}".format(i, x))
-        logger.info("Found Outputs access with corresponding number:")
+        logger.info("Found outputs - access them by the corresponding number:")
         for i, x in enumerate(self.output_names):
             logger.info(" {}: {}".format(i, x))
 
