@@ -203,7 +203,7 @@ class StableRLS(gym.Env):
 
         # get the first observation as specified by gymnaisum
         self._next_observation(steps=1)
-        return self.outputs[self.step_count, :]
+        return self.obs_processing(self.outputs[self.step_count, :])
 
     # ----------------------------------------------------------------------------
     # Step
@@ -267,7 +267,7 @@ class StableRLS(gym.Env):
         return observation, reward, terminated, truncated, info
 
     def assignAction(self, action):
-        """Assign actions to the inputs of the FMU/ environment.
+        """Assign actions to the inputs of the FMU/environment.
 
         Parameters
         ----------
