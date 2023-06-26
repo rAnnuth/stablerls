@@ -297,7 +297,6 @@ if any(ismember(name, ' .'))
 end
 end
 
-%TODO check if order is correct
 function dataWriter(DataObj,Data)
 % dataWrite helper function to write data to data store
 for i = 1 : length(Data)
