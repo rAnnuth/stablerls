@@ -14,4 +14,5 @@ The guide mentioned above contains all relevant information about the workflow, 
 3. Develop and change the code 
 4. To contribute your work change the remote repository `git remote add upstream https://github.com/rAnnuth/stablerls.git` 
 5. Create a new branch and push your code
+6. Check if everything still works as expected by running the Pytests in the ./Test folder
 6. Create a pull request where you document your changes
