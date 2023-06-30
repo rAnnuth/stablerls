@@ -38,8 +38,8 @@ component Wire_2Cond
   end
 
   components(ExternalAccess=observe)
-    Rh = ee.passive.instrumented_resistor(R=_R)
-    Rl = ee.passive.instrumented_resistor(R=_R)
+    Rh = foundation.electrical.elements.resistor(R=_R)
+    Rl = foundation.electrical.elements.resistor(R=_R)
   end
   
   connections
