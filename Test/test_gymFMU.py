@@ -10,10 +10,11 @@ import stablerls.createFMU as createFMU
 class Test_gymFMU:
     test_folder = Path('.') / 'test_files'
     cfg = cfg_reader.configreader(test_folder / 'SimulinkModel.cfg')
+    mdl = test_folder / 'SimulinkModel.slx'
 
     @pytest.mark.run(order=1)
     def test_createFMU(self):
-        createFMU.createFMU(self.cfg)
+        createFMU.createFMU(self.cfg, self.mdl )
 
 
     @pytest.mark.run(order=2)
@@ -22,7 +23,8 @@ class Test_gymFMU:
         # let the FMU simulate and check the integrated output
         fmu.reset()
         terminated = False
-        while not terminated:
+        truncated = False
+        while not (terminated or truncated):
             observation, reward, terminated, truncated, info = fmu.step(np.array([2,3]))
 
         # if this is not 50 something within the simulation went wrong

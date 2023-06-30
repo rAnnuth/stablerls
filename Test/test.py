@@ -14,25 +14,21 @@ t = np.arange(0,9,1)
 
 fmu.reset()
 terminated = False
-while not terminated:
+truncated = False
+while not (terminated or truncated):
     observation, reward, terminated, truncated, info = fmu.step(np.array([2,3]))
     if fmu.step_count == 10:
-        print('Save')
-        fmu.save_rollbackstate()
         print(fmu.step_count)
         print(fmu.outputs[fmu.step_count,:])
 
 
 round(fmu.outputs[-1,0],5)
+fmu.close()
 
 
 
 # %%
 
-fmu.close()
-
-import os
-path = os.path.abspath(cfg.__file__)
 
 
 # %%
