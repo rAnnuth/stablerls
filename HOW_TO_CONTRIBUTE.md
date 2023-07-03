@@ -1,8 +1,8 @@
 # Contribution
-We have a strong background in electrical engineering therefore this is the field of research we apply this tool. However, we are convinced that there are more subjects this tool can be used for. In general, this package can be applied to any MATLAB Simulink simulation. If you have any suggestions about improving the package or want to provide additional examples how you are using this tool we are happy to work together. Since, Reinfocement Learning has always many problem specific parts we decided a fork-and-branch git workflow is the best approach ([Guide][https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/]).
+We have a strong background in electrical engineering; therefore, this is the field of research to which we apply this tool. However, we are convinced that there are more subjects for which this tool can be used. In general, this package can be applied to any MATLAB Simulink simulation. If you have any suggestions about improving the package or want to provide additional examples of how you are using this tool, we are happy to work together. Since, Reinforcement Learning has always had many problem specific parts, we decided a fork-and-branch git workflow is the best approach ([Guide][https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/]).
 
 ## Creating Issues
-The issue should shortly point out the issue and contain all relevant information for others to understand the problem/ your idea to improve the package. The best case is to include a minimal working example. Please use the following labels to mark your issue:
+The issue should briefly point out the issue and contain all relevant information for others to understand the problem or your idea to improve the package. The best case is to include a minimal working example. Please use the following labels to mark your issue:
 
 `bug`, `feature`, `help`
 
