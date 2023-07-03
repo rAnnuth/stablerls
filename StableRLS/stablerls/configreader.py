@@ -31,7 +31,7 @@ class configreader:
 
     # get one specified section from config
     def get(self, section):
-        """Returns the paramerters of one specific section
+        """Returns the parameters of one specific section
 
         Parameters
         -------
@@ -48,7 +48,7 @@ class configreader:
     # get multiple sections from config
     # TODO this should also work for one config
     def get_sections(self, sections):
-        """Returns the paramerters of multiple sections
+        """Returns the parameters of multiple sections
 
         Parameters
         -------

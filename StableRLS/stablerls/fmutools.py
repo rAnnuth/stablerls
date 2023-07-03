@@ -13,8 +13,8 @@ section_names = "FMU", "General"
 
 class FMU:
     """
-    This class handels the interaction with the FMU object to seperate it from the gymnasium environment.
-    I should not be neccessary to modify or interact with this.
+    This class handels the interaction with the FMU object to separate it from the gymnasium environment.
+    I should not be necessary to modify or interact with this.
 
     Attributes
     ----------
@@ -103,7 +103,7 @@ class FMU:
             logger.info(" {}: {}".format(i, x))
 
     def closeFMU(self):
-        """Terminate FMU after simulation"""
+        """Terminate FMU after the simulation"""
         logger.info("Close fmu and try deleting unzipdir")
         self.fmu.terminate()
         self.fmu.freeInstance()

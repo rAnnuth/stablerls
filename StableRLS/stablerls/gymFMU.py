@@ -20,12 +20,12 @@ section_names = "Reinforcement Learning", "General", "FMU"
 
 class StableRLS(gym.Env):
     """Custom environment for simulation of FMUs with gymnasium interface. See
-    https://gymnasium.farama.org/ for information about API and
+    https://gymnasium.farama.org/ for information about the API and
     necessary functions. Instantiate this class for the RL agent.  Short Guide:
 
     1. Create Simulink FMU using the README guide
     2. Create -file-.cfg (config) with all relevant information
-    3. Create child class and let the agent do its job!
+    3. Create a child class and let the agent do its job!
 
     Required:
 
@@ -34,8 +34,8 @@ class StableRLS(gym.Env):
     Optional:
 
     - Define your own, restricted observation or action spaces
-    - Define your own customized observation postprocessing
-    - Specify additional environment inputs beside the agents action
+    - Define your own customized observation post-processing
+    - Specify additional environment inputs beside the agent's action
 
     - Export your results
     - Define rollback situations
@@ -58,7 +58,7 @@ class StableRLS(gym.Env):
         for name in section_names:
             self.__dict__.update(config.get(name))
         # set missing parameters to default values
-        # by default, the agent chooses one action per timestep
+        # by default, the agent chooses one action per time step
         if not hasattr(self, "action_interval"):
             self.action_interval = self.dt
         # set start time of the simulation
@@ -72,13 +72,13 @@ class StableRLS(gym.Env):
         if not round((self.stop_time - self.start_time) / self.dt, 9).is_integer():
             self.stop_time = int(self.stop_time / self.dt) * self.dt
             logger.warning(
-                f"Incompatible timestep and stop time.\n Using {self.stop_time} as"
+                f"Incompatible time step and stop time.\n Using {self.stop_time} as"
                 " stop time instead"
             )
         if not round(self.action_interval / self.dt, 9).is_integer():
             self.action_interval = int(self.action_interval / self.dt) * self.dt
             logger.warning(
-                "Incompatible timestep and action interval.\n Using"
+                "Incompatible time step and action interval.\n Using"
                 f" {self.action_interval} as interval instead"
             )
 
@@ -125,7 +125,7 @@ class StableRLS(gym.Env):
     def set_observation_space(self):
         """Setter function for the observation space of the agent. As 
         default, the action space is defined with respect to the loaded FMU 
-        and uses all ouputs as observations.
+        and uses all outputs as observations.
         For other (restricted) observation spaces, this function needs to be 
         modified. For information about possible space definitions, see
         https://gymnasium.farama.org/api/spaces/.
@@ -209,7 +209,7 @@ class StableRLS(gym.Env):
     # Step
     # ----------------------------------------------------------------------------
     def step(self, action):
-        """Run one timestep of the environment's dynamics using the agent
+        """Run one time step of the environment's dynamics using the agent
         actions.  (Adapted from gymnasium documentation v0.28.1)
 
         Parameters
@@ -242,7 +242,7 @@ class StableRLS(gym.Env):
             the agent's performance state, variables that are hidden from observations, 
             or individual reward terms that are combined to produce the total reward.  
             In OpenAI Gym <v26, it contains "TimeLimit.truncated" to distinguish 
-            truncation and termination, however this is deprecated in favour of 
+            truncation and termination, however this is deprecated in favor of 
             returning terminated and truncated variables.
         """
         # make sure we have a float32 numpy array
@@ -307,7 +307,7 @@ class StableRLS(gym.Env):
             # inputs of the FMU can changed independend of the agent
             self.FMU_external_input()
 
-            # simulate FMU for one timestep (dt)
+            # simulate FMU for one time step (dt)
             self._FMUstep()
 
             # save simulation step results
@@ -362,7 +362,7 @@ class StableRLS(gym.Env):
         Parameters
         ----------
         action: ActionType
-            The inital action lead to the observed state of the FMU/ environment
+            The initial action leads to the observed state of the FMU/ environment
         observation : ObsType
             The modified observation by the FMU/ environment (:meth:`obs_processing`)
 
@@ -406,7 +406,7 @@ class StableRLS(gym.Env):
 
         Therefore, the function is currently marked as private.
         """
-        logging.info(f"Creating rollback state at timestep {self.step_count}")
+        logging.info(f"Creating rollback state at time step {self.step_count}")
         # get the current state
         state = self.fmu.fmu.getFMUstate()
         # serialize the state

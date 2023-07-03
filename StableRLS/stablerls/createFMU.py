@@ -10,7 +10,7 @@ section_names = "FMU"
 
 def createFMU(cfg, simulink_model, remove_datastore=True):
     """See https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html
-    for the installation of matlab engine. The engine is required to run this function.
+    for the installation of MATLAB engine. The engine is required to run this function.
 
     The function searches for a simulink model defined in the config dict and
     compiles it into an FMU. The target filename is specified within the config
@@ -21,9 +21,9 @@ def createFMU(cfg, simulink_model, remove_datastore=True):
         Dictionary containing the keys 'FMU_path', 'dt' within the section specified above
         (default is 'FMU')
     simulink_model : string
-        path to the simulink model that should be compiled to a FMU
+        path to the Simulink model that should be compiled to a FMU
     remove_datastore : bool
-        MATLAB has to create a datastore file during compilation. We dont need it afterwards and 
+        MATLAB has to create a datastore file during compilation. We dont need it afterward and 
         delete it by default. Unless specified otherwise
     """
     # get current folder because we need the 'getports.m' function later
