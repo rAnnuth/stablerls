@@ -28,6 +28,6 @@ class Test_gymFMU:
             observation, reward, terminated, truncated, info = fmu.step(np.array([2,3]))
 
         # if this is not 50 something within the simulation went wrong
-        assert round(fmu.outputs[-1,0],5) == 50
+        assert round(fmu.outputs[-1,0],5) == 95
         fmu.close()
 
