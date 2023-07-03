@@ -1,5 +1,5 @@
 # Python Configuration
-The config is supposed to simplify the user interaction with the package by providing a central place to set all parameters. By default the config file has to contain three sections:
+The config is supposed to simplify the user's interaction with the package by providing a central place to set all parameters. By default, the config file has to contain three sections:
 
 ```
 [General]
@@ -7,7 +7,7 @@ The config is supposed to simplify the user interaction with the package by prov
 [Reinforcement Learning]
 ```
 
-The parameters within the section will be converted to the respective type and are available within the environment class.
+The parameters within the section will be converted to their respective types and are available within the environment class.
 
 ## Required Parameters
 The values are examples to show the required type.
@@ -15,7 +15,7 @@ The values are examples to show the required type.
 | Name | Value | Description|
 |---|---|---|
 | FMU_path | path/to/fmu| relative or absolute path to the file|
-| stop_time | 1 | when the time is reached the simulation ends [s]|
+| stop_time | 1 | when the time is reached, the simulation ends [s]|
 | dt | 0.5 | fixed timestep of the simulation [s]| 
 
 ## Optional Parameters
@@ -23,10 +23,10 @@ The values are examples to show the required type.
 | Name | Value | Description|
 |---|---|---|
 |action_interval|1.5|every 1.5 seconds the agent can take an action [s]|
-|reset_inputs| True | if this is True the inputs are reset to 0 between each episode|
+|reset_inputs| True | if this is true the inputs are reset to 0 between each episode|
 |start_time | 1 | specify the start time of the FMU simulation [s]|
 
-Additional parameters will be also available as `self.parameter`.
+Additional parameters will also be available as `self.parameter`.
 
 ## Example Config
 ```

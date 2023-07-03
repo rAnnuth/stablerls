@@ -5,12 +5,12 @@ One main part of this package is the generation of bus structures for the inport
 - Goto Labels
 - Connections to multiple subsystems or blocks
 
-The function is also optimized to reduce the complexity of the bus structure by removing duplicate elements. However, MATLAB seems to have introduced some strange compilation dependencies and the FMU compilation fails sometimes. To aviod this issue it is recommended to wrap your whole system inside one subsystem on the top level and connect "inports" and "outports" to the connections. Your model should look somethink like this:
+The function is also optimized to reduce the complexity of the bus structure by removing duplicate elements. However, MATLAB seems to have introduced some strange compilation dependencies, and the FMU compilation fails sometimes. To avoid this issue, it is recommended to wrap your whole system inside one subsystem on the top level and connect "inports" and "outports" to the connections. Your model should look something like this:
 ![](../../src/simulink.png)
 
 ## Troubleshoot
 
-The matlab engine has some error while running `getports`. This is related to existing bus definitions within the model. Simply run the following code to reset all signal to inherit:
+The MATLAB engine has some errors while running `getports`. This is related to existing bus definitions within the model. Simply run the following code to reset all signals to inherit:
 
 ```matlab
 path = 'your_model_name'
@@ -26,4 +26,4 @@ end
 ```
 
 ---
-During the FMU compilation the error `The specified key is not present in this container` occurs. This is related to internal MATLAB issues. Just pack your model inside a subsystem as mentioned above and this should work.
+During the FMU compilation, the error `The specified key is not present in this container` occurs. This is related to internal MATLAB issues. Just pack your model inside a subsystem as mentioned above, and this should work.
