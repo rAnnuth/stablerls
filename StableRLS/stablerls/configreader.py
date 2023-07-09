@@ -6,7 +6,7 @@ class configreader:
     """Class to read configparser files and get specific sections of the config
 
     Attributes:
-    -------
+    -----------
     config_name : string
         Path to config that should be read
     """

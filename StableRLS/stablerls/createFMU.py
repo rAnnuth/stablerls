@@ -16,7 +16,7 @@ def createFMU(cfg, simulink_model, remove_datastore=True):
     compiles it into an FMU. The target filename is specified within the config
 
     Parameters:
-    ------
+    -----------
     cfg : dict
         Dictionary containing the keys 'FMU_path', 'dt' within the section specified above
         (default is 'FMU')
