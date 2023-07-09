@@ -1,16 +1,4 @@
 # Welcome to StableRLS's documentation!
-%#```{include} ../README.md
-%#:relative-images:
-%#```
-
-```{warning}
-This project is under heavy development. Come back soon!
-```
-
-
-
-:Internal file reference: <project:source/install.md>
-
 
 ```{toctree}
 :caption: 'Contents:'
