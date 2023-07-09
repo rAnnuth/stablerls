@@ -23,7 +23,7 @@ Reinforcement Learning (RL) is a fast changing and innovative field. The main pu
 
 ## Installation
 The package is currently tested with Python 3.9.
-%TODO To install the package, run `pip install stablerls`.
+To install the package, run `pip install StableRLS`.
 
 You can also clone this repository and run `pip install -e StableRLS/` from the main directory. This will also install the main dependencies, which are included in `requirements.txt`. For active contribution, you should also install the `optional-requirements.txt`, which also includes the dependencies to build the documentation by running `pip install -r optional-requirements.txt`.
 
