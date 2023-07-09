@@ -17,9 +17,6 @@ StableRLS is a software package to use your existing MATLAB Simulink models in P
 **And the best part is** that the only thing you need to do is:
 - defining a reward function to train your agent
 
-## ToDo
-- [ ] Add Action Status, Coverage Status
-- [ ] Write paper
 
 ## General Information
 Reinforcement Learning (RL) is a fast changing and innovative field. The main purpose of this package is to bring the easy-to-use MATLAB Simulink modeling interface together with the flexible and state-of-the-art Gymnasium interface. So the RL algorithm and learning interface are out of scope for this package. However, we make the interface between Matlab and Python as easy as possible.
@@ -32,11 +29,9 @@ You can also clone this repository and run `pip install -e StableRLS/` from the 
 
 We decided to exclude the typical machine learning frameworks (PyTorch, Tensorflow) from the requirements, because everyone has their own preferences and we want to keep this package small. But some of our example are based on PyTorch, so you need to run `pip install torch` if you want to run them locally. This will also be mentioned in the examples. To compile the documentation locally, Pandoc has to be installed on your computer.
 
-### Optional Req!
-- sphinx autobuild not working
 
 ### Matlab Version
-The StableRLS package is able to compile a given MATLAB Simlink model to a FMU. The MATLAB engine Python package is a requirement for this. Before the MATLAB release R2022b it was inconvenient to install the engine, see the [instructions](https://de.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html). After the release, it's possible to install it as a pip package. StableRLS will try to install the MATLAB engine as dependency, but if your MATLAB version is too old you have to refer to the MATLAB instructions to install the engine.  
+The StableRLS package is able to compile a given MATLAB Simulink model to a FMU. The MATLAB engine Python package is a requirement for this. Before the MATLAB release R2022b it was inconvenient to install the engine, see the [instructions](https://de.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html). After the release, it's possible to install it as a pip package. StableRLS won't try to install the MATLAB engine as dependency because the pip package only supports the newest MATLAB release. Currently, you can run `pip install matlabengine` if you have MATLAB 2023a installed, if you have MATLAB 2022b installed run `pip install matlabengine==9.13.7`. For other releases refer to the documentation mentioned.
 
 ## Get Started
 Check out our examples (/examples) or the documentation, which also contains the examples.
