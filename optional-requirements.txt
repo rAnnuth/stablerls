@@ -101,3 +101,4 @@ urllib3==1.26.15
 wcwidth 
 webencodings==0.5.1
 zipp==3.15.0
+myst-parser
