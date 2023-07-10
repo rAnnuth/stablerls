@@ -15,7 +15,7 @@ authors:
     corresponding: false # (This is how to denote the corresponding author)
     affiliation: 1
 affiliations:
- - name: Technical University Hamburg, Germany
+ - name: Institute of Electrical Power and Energy Technology, Hamburg University of Technology, Germany
    index: 1
 date: 08 May 2023
 bibliography: paper.bib
