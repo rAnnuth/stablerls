@@ -45,10 +45,10 @@ StableRLS uses the internal capabilities of MATLAB to compile a Simulink model t
 
 While working on StableRLS we also put a lot of effort into comparing different methods to combine Simulink simulation models and Python Gymnasium. Namely, the TCP/IP interface and the implemented Python interface which is called MATLAB engine. In general, Simulink doesn't allow changing simulation parameters during the simulation, so the simulation has to wait for the actions of the agent at each time step. As a result, it's required to pause the Simulink simulation between each interaction of the agent. This is the case for both interface options mentioned above. The only difference is how the data between the Simulink simulation and Python is exchanged. We found that pausing and restarting (start-stop-method) the simulation mainly determines the resulting performance, and the time for data transmission can be neglected. Therefore, the performance of the MATLAB engine and the TCP/IP method is almost identical and only the performance of StableRLS package and the internal Python interface is compared in the table below. It can be seen that StableRLS is above 900 times faster because it uses the benefits of FMUs. 
 
-: Caption Performance comparison between this package and the common alternative. The simulation time was 500 seconds, with a step size of 0.2 seconds.
+: Performance comparison between this package and another common method to use reinforcement learning with Simulink models. The simulated time was 500 seconds, with a step size of 0.2 seconds.
 
 +-------------------+-----------------+
-|                   | Simulation Time | 
+|                   | Computation Time| 
 +===================+=================+
 | StableRLS         | 0.049s          |
 +-------------------+-----------------+
@@ -75,13 +75,13 @@ The RL agent can modify the voltage reference of the PV-array and the battery re
 The example in the software repository contains further details how to configure the agent, because the FMU simulation has a step size of 1 millisecond and the RL agent can interact with the environment every 10 seconds. Also, irradiance data is used for the PV-array to calculate the energy production. This data has a sampling time of 1 minute and has to be updated in the simulation.
 Additionally, to the actions of the agent, the load, irradiance and temperature of the PV-array are set internally every simulation step. However, as mentioned above, these are not observed by the agent. \autoref{fig:res_input} shows the load data and also the irradiance data of the PV-array.
 
-![Power of the constant power load and irradiance of the PV-array used for the simulation.\label{fig:res_input}](result_input.pdf){ width=1400px }
+![Power of the constant power load and irradiance of the PV-array used as input for the simulation.\label{fig:res_input}](result_input.pdf){ width=1400px }
 
 For simplicity reasons and because the training itself goes beyond the scope of the StableRLS package and this paper, we decided to run the agent with fixed actions instead of choosing an algorithm to find the optimal actions. However, this is easily possible by training e.g. an PPO agent [@schulman2017proximal] with each action, observation and reward. We run the simulation for one episode, which is 15 minutes long. [@gymnasium]
 
 For this demonstration, we chose for both action values 5. As a result, the reference voltage is always equal to the voltage nominal voltage. So, we would expect almost identical output voltages of the battery and PV-array. The output voltage is not identical, since the battery voltage deviates slightly from the nominal voltage of 48V in dependence of the SOC.
 
-![Voltages and currents of the four components within the simulated electrical grid.\label{fig:res_ui}](result_ui.pdf){ width=1400px }
+![Simulated voltages and currents of the four components within the simulated electrical grid.\label{fig:res_ui}](result_ui.pdf){ width=1400px }
 
 \autoref{fig:res_ui} shows the results of the simulation. Because the agent doesn't change the voltage reference by choosing a constant action, the voltage of the battery and the voltage source are also almost identical as expected. The power of the PV-array oscillates around the power of the load. When the power from the PV-array is lower compared to the load, additional power from the grid and the battery is used. The power is shared almost identical since, the droop reference voltage is not modified in this example and the droop curve is identical. If the PV-power exceeds the load demand, the additional power is feed back into the grid and the battery. While charging and discharging of the battery, the voltage deviates slightly from the normal voltage leading to a small difference between the current and voltage of the voltage source and the battery. Last, the droop behavior is also visible within the voltage plot. At high loads, the output voltage of all components decreases with respect to the droop coefficient.
 
