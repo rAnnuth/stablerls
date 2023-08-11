@@ -7,7 +7,7 @@ long_description = (this_directory / '..' / "README.md").read_text()
 
 setuptools.setup(
   name='StableRLS',
-  version='1.0.3',
+  version='1.0.4',
   author='Robert Annuth',
   author_email='robert.annuth@tuhh.de',
   packages= setuptools.find_packages(),
