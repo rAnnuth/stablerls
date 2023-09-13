@@ -5,7 +5,6 @@
 <p align="center">
 <a href="https://stablerls.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/stablerls/badge/?version=latest"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
-<a href="https://joss.theoj.org/papers/5d136ccade14ad7e9e1a9c8172725647"><img src="https://joss.theoj.org/papers/5d136ccade14ad7e9e1a9c8172725647/status.svg"></a>
 </p>
 
 
@@ -47,5 +46,3 @@ Run `sphinx-autobuild docs/ docs/build/html` from the main directory and open th
 ## More information
 To install clean use `pip freeze | grep -v -f requirements.txt - | grep -v '^#' | grep -v '^-e ' | xargs pip uninstall -y` to remove all packages except the one with -e flag. Afterwards `pip install -r requirements.txt` or `pip install -r optional-requirements.txt`.
 
-## Make this public
-- [ ] [https://joss.theoj.org/about](https://joss.theoj.org/about) Submit
