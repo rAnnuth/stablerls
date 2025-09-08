@@ -76,8 +76,62 @@
                 
                 
                 
-                    <li >
-                        <a href="../../getting_started.md">Getting Started</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../install/">Installation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../port_creation/">Port Creation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components & Tools <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../configreader/">Config Reader</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Create FMU</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../fmutools/">FMU Tools</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gymFMU/">Gym FMU</a>
+</li>
+
+                        
+                        </ul>
                     </li>
                 
                 
@@ -88,19 +142,7 @@
                         
                             
 <li >
-    <a href="../../example_create_grid.md">Create Grid (Symbolic)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../example_simulate_grid.md">Simulate Grid (Numerical)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../example_simulink.md">Simulink Co-Simulation</a>
+    <a href="../../notebooks/overview/">Overview</a>
 </li>
 
                         
@@ -110,48 +152,18 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../api/ODEpower.md">ODEpower</a>
+    <a href="../API_Reference/">API Reference</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../api/ODEgraph.md">ODEgraph</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEtool.md">ODEtool</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEsimulation.md">ODEsimulation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEplot.md">ODEplot</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEmatlab.md">ODEmatlab</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/connection_equations.md">Connection Equations</a>
+    <a href="../contribute/">Contributing</a>
 </li>
 
                         
@@ -165,6 +177,16 @@
                     <li>
                         <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                             <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../configreader/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../fmutools/">
+                            Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
                     <li>
@@ -181,14 +203,168 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#create-fmu">Create FMU</a></li>
+            <li class="second-level"><a href="#stableRLS.createFMU.createFMU">createFMU</a></li>
+                
+                <li class="third-level"><a href="#stableRLS.createFMU.createFMU--parameters">Parameters:</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h1 id="create-fmu">Create FMU</h1>
-<pre><code>.. autofunction:: stablerls.createFMU.createFMU
-    :noindex:
-</code></pre></div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="stableRLS.createFMU.createFMU"></a>
+    <div class="doc doc-contents first">
+
+        <p>See https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html
+for the installation of MATLAB engine. The engine is required to run this function.</p>
+<p>The function searches for a simulink model defined in the config dict and
+compiles it into an FMU. The target filename is specified within the config</p>
+<h3 id="stableRLS.createFMU.createFMU--parameters">Parameters:</h3>
+<p>cfg : dict
+    Dictionary containing the keys 'FMU_path', 'dt' within the section specified above
+    (default is 'FMU')
+simulink_model : string
+    path to the Simulink model that should be compiled to a FMU
+remove_datastore : bool
+    MATLAB has to create a datastore file during compilation. We dont need it afterward and 
+    delete it by default. Unless specified otherwise</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/createFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">createFMU</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">simulink_model</span><span class="p">,</span> <span class="n">remove_datastore</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;See https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html</span>
+<span class="sd">    for the installation of MATLAB engine. The engine is required to run this function.</span>
+
+<span class="sd">    The function searches for a simulink model defined in the config dict and</span>
+<span class="sd">    compiles it into an FMU. The target filename is specified within the config</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    cfg : dict</span>
+<span class="sd">        Dictionary containing the keys &#39;FMU_path&#39;, &#39;dt&#39; within the section specified above</span>
+<span class="sd">        (default is &#39;FMU&#39;)</span>
+<span class="sd">    simulink_model : string</span>
+<span class="sd">        path to the Simulink model that should be compiled to a FMU</span>
+<span class="sd">    remove_datastore : bool</span>
+<span class="sd">        MATLAB has to create a datastore file during compilation. We dont need it afterward and </span>
+<span class="sd">        delete it by default. Unless specified otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># get current folder because we need the &#39;getports.m&#39; function later</span>
+    <span class="n">script_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+
+    <span class="c1"># start matlab engine</span>
+    <span class="n">eng</span> <span class="o">=</span> <span class="n">matlab</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">start_matlab</span><span class="p">(</span><span class="s2">&quot;-nosplash -noFigureWindows -r&quot;</span><span class="p">)</span>
+    <span class="n">slx_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">simulink_model</span><span class="p">)</span>
+    <span class="n">slx_model</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">simulink_model</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">target_fmu</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section_names</span><span class="p">)[</span><span class="s2">&quot;FMU_path&quot;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">slx_dir</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cd(&#39;</span><span class="si">{</span><span class="n">slx_dir</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">,</span> <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mdl = &#39;</span><span class="si">{</span><span class="n">slx_model</span><span class="si">}</span><span class="s2">&#39;;&quot;</span><span class="p">,</span> <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;addpath(&#39;</span><span class="si">{</span><span class="n">script_folder</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">,</span> <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># dt specifies the step time of the FMU</span>
+    <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ts = </span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section_names</span><span class="p">)[</span><span class="s1">&#39;dt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">;&quot;</span><span class="p">,</span> <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># open the system and create bus structure</span>
+    <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;open_system(mdl)&quot;</span><span class="p">,</span> <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;set_param(mdl,&#39;DataDictionary&#39;,&#39;BusSystem.sldd&#39;);&quot;</span><span class="p">,</span> <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;getports(mdl)&quot;</span><span class="p">,</span> <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># set the solver configuration</span>
+    <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;set_param(mdl,&#39;SolverType&#39;,&#39;Fixed-step&#39;)&quot;</span><span class="p">,</span> <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;set_param(mdl,&#39;FixedStep&#39;,string(Ts))&quot;</span><span class="p">,</span> <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># start the fmu creation process and quit</span>
+    <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span>
+        <span class="s2">&quot;exportToFMU2CS(mdl, &#39;CreateModelAfterGeneratingFMU&#39;, &#39;off&#39;, &#39;AddIcon&#39;, &#39;off&#39;);&quot;</span><span class="p">,</span>
+        <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">eng</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;Simulink.data.dictionary.closeAll(&#39;-discard&#39;)&quot;</span><span class="p">,</span> <span class="n">nargout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">eng</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+
+    <span class="c1"># move FMU to the desired location</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">slx_dir</span><span class="p">,</span><span class="n">slx_model</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.fmu&#39;</span><span class="p">,</span> <span class="n">target_fmu</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">target_fmu</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">slx_dir</span><span class="p">,</span><span class="n">slx_model</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.fmu&#39;</span><span class="p">,</span> <span class="n">target_fmu</span><span class="p">)</span>
+
+    <span class="c1"># remove MATLAB datastore </span>
+    <span class="k">if</span> <span class="n">remove_datastore</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">slx_dir</span><span class="p">,</span> <span class="s1">&#39;BusSystem.sldd&#39;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div></div>
         
         
     </div>

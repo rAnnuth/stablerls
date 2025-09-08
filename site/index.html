@@ -76,8 +76,62 @@
                 
                 
                 
-                    <li >
-                        <a href="getting_started.md">Getting Started</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="source/install/">Installation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="source/port_creation/">Port Creation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="source/configuration/">Configuration</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components & Tools <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="source/configreader/">Config Reader</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="source/createFMU/">Create FMU</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="source/fmutools/">FMU Tools</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="source/gymFMU/">Gym FMU</a>
+</li>
+
+                        
+                        </ul>
                     </li>
                 
                 
@@ -88,19 +142,7 @@
                         
                             
 <li >
-    <a href="example_create_grid.md">Create Grid (Symbolic)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="example_simulate_grid.md">Simulate Grid (Numerical)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="example_simulink.md">Simulink Co-Simulation</a>
+    <a href="notebooks/overview/">Overview</a>
 </li>
 
                         
@@ -110,48 +152,18 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="api/ODEpower.md">ODEpower</a>
+    <a href="source/API_Reference/">API Reference</a>
 </li>
 
                         
                             
 <li >
-    <a href="api/ODEgraph.md">ODEgraph</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="api/ODEtool.md">ODEtool</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="api/ODEsimulation.md">ODEsimulation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="api/ODEplot.md">ODEplot</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="api/ODEmatlab.md">ODEmatlab</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="api/connection_equations.md">Connection Equations</a>
+    <a href="source/contribute/">Contributing</a>
 </li>
 
                         
@@ -165,6 +177,16 @@
                     <li>
                         <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                             <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="source/install/">
+                            Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
                     <li>
@@ -181,24 +203,42 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#welcome-to-stablerlss-documentation">Welcome to StableRLS's documentation!</a></li>
+            <li class="second-level"><a href="#getting-started">🚀 Getting Started</a></li>
+                
+            <li class="second-level"><a href="#components-tools">🔧 Components &amp; Tools</a></li>
+                
+            <li class="second-level"><a href="#examples-learning">📚 Examples &amp; Learning</a></li>
+                
+            <li class="second-level"><a href="#reference">📖 Reference</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h1 id="welcome-to-stablerlss-documentation">Welcome to StableRLS's documentation!</h1>
-<pre><code>:caption: 'Contents:'
-:maxdepth: 2
-source/install.md
-source/port_creation.md
-source/configuration.md
-source/API_Reference.md
-notebooks/overview.md
-source/contribute.md
-</code></pre>
-<p>%# Indices and tables
-%- {ref}<code>genindex</code>
-%- {ref}<code>modindex</code>
-%- {ref}<code>search</code></p></div>
+<p>StableRLS is a reinforcement learning library focused on stability and reliability in training and deployment.</p>
+<h2 id="getting-started">🚀 Getting Started</h2>
+<ul>
+<li><a href="source/install/">Installation</a> - Install StableRLS and dependencies</li>
+<li><a href="source/port_creation/">Port Creation</a> - Create communication ports</li>
+<li><a href="source/configuration/">Configuration</a> - Configure your environment</li>
+</ul>
+<h2 id="components-tools">🔧 Components &amp; Tools</h2>
+<ul>
+<li><a href="source/configreader/">Config Reader</a> - Configuration file handling</li>
+<li><a href="source/createFMU/">Create FMU</a> - Functional Mock-up Unit creation</li>
+<li><a href="source/fmutools/">FMU Tools</a> - Tools for working with FMUs</li>
+<li><a href="source/gymFMU/">Gym FMU</a> - OpenAI Gym integration</li>
+</ul>
+<h2 id="examples-learning">📚 Examples &amp; Learning</h2>
+<ul>
+<li><a href="notebooks/overview/">Tutorial Notebooks</a> - Interactive Jupyter notebooks with examples</li>
+</ul>
+<h2 id="reference">📖 Reference</h2>
+<ul>
+<li><a href="source/API_Reference/">API Reference</a> - Complete API documentation</li>
+<li><a href="source/contribute/">Contributing</a> - How to contribute to StableRLS</li>
+</ul></div>
         
         
     </div>
@@ -303,5 +343,5 @@ source/contribute.md
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-09-08 12:16:11.672559+00:00
+Build Date UTC : 2025-09-08 13:48:33.206341+00:00
 -->

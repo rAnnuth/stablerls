@@ -1,8 +1,3 @@
-# gymFMU
+# Gym FMU
 
-```{eval-rst}
-.. autoclass:: stablerls.gymFMU.StableRLS
-    :show-inheritance:
-    :members: 
-    :noindex:
-```
+::: stableRLS.gymFMU.StableRLS

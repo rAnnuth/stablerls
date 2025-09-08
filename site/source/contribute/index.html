@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Contribute - StableRLS Documentation</title>
+    <title>Contributing - StableRLS Documentation</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -76,8 +76,62 @@
                 
                 
                 
-                    <li >
-                        <a href="../../getting_started.md">Getting Started</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../install/">Installation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../port_creation/">Port Creation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components & Tools <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../configreader/">Config Reader</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../createFMU/">Create FMU</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../fmutools/">FMU Tools</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gymFMU/">Gym FMU</a>
+</li>
+
+                        
+                        </ul>
                     </li>
                 
                 
@@ -88,19 +142,7 @@
                         
                             
 <li >
-    <a href="../../example_create_grid.md">Create Grid (Symbolic)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../example_simulate_grid.md">Simulate Grid (Numerical)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../example_simulink.md">Simulink Co-Simulation</a>
+    <a href="../../notebooks/overview/">Overview</a>
 </li>
 
                         
@@ -109,49 +151,19 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API Reference <b class="caret"></b></a>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../api/ODEpower.md">ODEpower</a>
+    <a href="../API_Reference/">API Reference</a>
 </li>
 
                         
                             
-<li >
-    <a href="../../api/ODEgraph.md">ODEgraph</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEtool.md">ODEtool</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEsimulation.md">ODEsimulation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEplot.md">ODEplot</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEmatlab.md">ODEmatlab</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/connection_equations.md">Connection Equations</a>
+<li class="active">
+    <a href="./">Contributing</a>
 </li>
 
                         
@@ -167,6 +179,16 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
+                    <li >
+                        <a rel="prev" href="../API_Reference/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
                     <li>
                         <a href="https://github.com/rAnnuth/stablerls/edit/master/docs/source/contribute.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
@@ -180,11 +202,31 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#contribution">Contribution</a></li>
+            <li class="second-level"><a href="#creating-issues">Creating Issues</a></li>
+                
+            <li class="second-level"><a href="#development-workflow">Development Workflow</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<p><code>{include} ../../HOW_TO_CONTRIBUTE.md</code></p></div>
+<h1 id="contribution">Contribution</h1>
+<p>We have a strong background in electrical engineering; therefore, this is the field of research to which we apply this tool. However, we are convinced that there are more subjects for which this tool can be used. In general, this package can be applied to any MATLAB Simulink simulation. If you have any suggestions about improving the package or want to provide additional examples of how you are using this tool, we are happy to work together. Since, Reinforcement Learning has always had many problem specific parts, we decided a fork-and-branch git workflow is the best approach (<a href="https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/">Guide</a>).</p>
+<h2 id="creating-issues">Creating Issues</h2>
+<p>The issue should briefly point out the issue and contain all relevant information for others to understand the problem or your idea to improve the package. The best case is to include a minimal working example. Please use the following labels to mark your issue:</p>
+<p><code>bug</code>, <code>feature</code>, <code>help</code></p>
+<h2 id="development-workflow">Development Workflow</h2>
+<p>The guide mentioned above contains all relevant information about the workflow, however, the main steps are summarized below:</p>
+<ol>
+<li>Fork this repository after you log in</li>
+<li>Clone the forked repository. The link should contain your username</li>
+<li>Develop and change the code </li>
+<li>To contribute your work change the remote repository <code>git remote add upstream https://github.com/rAnnuth/stablerls.git</code> </li>
+<li>Create a new branch and push your code</li>
+<li>Check if everything still works as expected by running the Pytests in the ./Test folder</li>
+<li>Create a pull request where you document your changes</li>
+</ol></div>
         
         
     </div>

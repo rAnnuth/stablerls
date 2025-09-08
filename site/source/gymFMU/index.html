@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>gymFMU - StableRLS Documentation</title>
+    <title>Gym FMU - StableRLS Documentation</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -76,8 +76,62 @@
                 
                 
                 
-                    <li >
-                        <a href="../../getting_started.md">Getting Started</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../install/">Installation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../port_creation/">Port Creation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components & Tools <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../configreader/">Config Reader</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../createFMU/">Create FMU</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../fmutools/">FMU Tools</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Gym FMU</a>
+</li>
+
+                        
+                        </ul>
                     </li>
                 
                 
@@ -88,19 +142,7 @@
                         
                             
 <li >
-    <a href="../../example_create_grid.md">Create Grid (Symbolic)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../example_simulate_grid.md">Simulate Grid (Numerical)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../example_simulink.md">Simulink Co-Simulation</a>
+    <a href="../../notebooks/overview/">Overview</a>
 </li>
 
                         
@@ -110,48 +152,18 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../api/ODEpower.md">ODEpower</a>
+    <a href="../API_Reference/">API Reference</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../api/ODEgraph.md">ODEgraph</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEtool.md">ODEtool</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEsimulation.md">ODEsimulation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEplot.md">ODEplot</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEmatlab.md">ODEmatlab</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/connection_equations.md">Connection Equations</a>
+    <a href="../contribute/">Contributing</a>
 </li>
 
                         
@@ -167,6 +179,16 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
+                    <li >
+                        <a rel="prev" href="../fmutools/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../../notebooks/overview/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
                     <li>
                         <a href="https://github.com/rAnnuth/stablerls/edit/master/docs/source/gymFMU.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
@@ -180,17 +202,1869 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#gymfmu">gymFMU</a></li>
+        <li class="first-level active"><a href="#gym-fmu">Gym FMU</a></li>
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS">StableRLS</a></li>
+                
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS--attributes">Attributes</a></li>
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.FMU_external_input">FMU_external_input</a></li>
+                
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.__init__">__init__</a></li>
+                
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.assignAction">assignAction</a></li>
+                
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.assignAction--parameters">Parameters</a></li>
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.close">close</a></li>
+                
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.export_results">export_results</a></li>
+                
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.get_reward">get_reward</a></li>
+                
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.get_reward--parameters">Parameters</a></li>
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.get_reward--returns">Returns</a></li>
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.obs_processing">obs_processing</a></li>
+                
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.obs_processing--parameters">Parameters</a></li>
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.obs_processing--returns">Returns</a></li>
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.reset">reset</a></li>
+                
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.reset--parameters">Parameters</a></li>
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.reset--returns">Returns</a></li>
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.reset_">reset_</a></li>
+                
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.reset_--parameters">Parameters</a></li>
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.set_action_space">set_action_space</a></li>
+                
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.set_action_space--returns">Returns</a></li>
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.set_observation_space">set_observation_space</a></li>
+                
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.set_observation_space--returns">Returns</a></li>
+            <li class="second-level"><a href="#stableRLS.gymFMU.StableRLS.step">step</a></li>
+                
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.step--parameters">Parameters</a></li>
+                <li class="third-level"><a href="#stableRLS.gymFMU.StableRLS.step--returns">Returns</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="gymfmu">gymFMU</h1>
-<pre><code>.. autoclass:: stablerls.gymFMU.StableRLS
-    :show-inheritance:
-    :members: 
-    :noindex:
-</code></pre></div>
+<h1 id="gym-fmu">Gym FMU</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="stableRLS.gymFMU.StableRLS"></a>
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="gymnasium.Env">Env</span></code></p>
+
+
+        <p>Custom environment for simulation of FMUs with gymnasium interface. See
+https://gymnasium.farama.org/ for information about the API and
+necessary functions. Instantiate this class for the RL agent.  Short Guide:</p>
+<ol>
+<li>Create Simulink FMU using the README guide</li>
+<li>Create -file-.cfg (config) with all relevant information</li>
+<li>Create a child class and let the agent do its job!</li>
+</ol>
+<p>Required:</p>
+<ul>
+<li>Your custom reward function</li>
+</ul>
+<p>Optional:</p>
+<ul>
+<li>Define your own, restricted observation or action spaces</li>
+<li>Define your own customized observation post-processing</li>
+<li>
+<p>Specify additional environment inputs beside the agent's action</p>
+</li>
+<li>
+<p>Export your results</p>
+</li>
+<li>Define rollback situations</li>
+</ul>
+<h3 id="stableRLS.gymFMU.StableRLS--attributes">Attributes</h3>
+<p>config : dict
+    Dictionary containing all config variables.</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StableRLS</span><span class="p">(</span><span class="n">gym</span><span class="o">.</span><span class="n">Env</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Custom environment for simulation of FMUs with gymnasium interface. See</span>
+<span class="sd">    https://gymnasium.farama.org/ for information about the API and</span>
+<span class="sd">    necessary functions. Instantiate this class for the RL agent.  Short Guide:</span>
+
+<span class="sd">    1. Create Simulink FMU using the README guide</span>
+<span class="sd">    2. Create -file-.cfg (config) with all relevant information</span>
+<span class="sd">    3. Create a child class and let the agent do its job!</span>
+
+<span class="sd">    Required:</span>
+
+<span class="sd">    - Your custom reward function</span>
+
+<span class="sd">    Optional:</span>
+
+<span class="sd">    - Define your own, restricted observation or action spaces</span>
+<span class="sd">    - Define your own customized observation post-processing</span>
+<span class="sd">    - Specify additional environment inputs beside the agent&#39;s action</span>
+
+<span class="sd">    - Export your results</span>
+<span class="sd">    - Define rollback situations</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        Dictionary containing all config variables.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># ----------------------------------------------------------------------------</span>
+    <span class="c1"># Initialization</span>
+    <span class="c1"># ----------------------------------------------------------------------------</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor method.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">StableRLS</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+
+        <span class="c1"># make parameters of config file available as class parameters</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">section_names</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="c1"># set missing parameters to default values</span>
+        <span class="c1"># by default, the agent chooses one action per time step</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;action_interval&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+        <span class="c1"># set start time of the simulation</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;start_time&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="c1"># specify if the inputs are set to zero at each reset() call</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;reset_inputs&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reset_inputs</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># check config settings for simulation time</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">round</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">is_integer</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Incompatible time step and stop time.</span><span class="se">\n</span><span class="s2"> Using </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span><span class="si">}</span><span class="s2"> as&quot;</span>
+                <span class="s2">&quot; stop time instead&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">is_integer</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;Incompatible time step and action interval.</span><span class="se">\n</span><span class="s2"> Using&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span><span class="si">}</span><span class="s2"> as interval instead&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># calculate number of simulation steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps_between_actions</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps_simulation</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="c1"># change action interval to (simulation steps - 1)*dt if it leads to too many steps</span>
+        <span class="c1"># between actions</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_simulation</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_between_actions</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">steps_between_actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_simulation</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_between_actions</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;Action interval inconsistent with simulation duration.</span><span class="se">\n</span><span class="s2"> Using&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span><span class="si">}</span><span class="s2"> as interval instead&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># initialize FMU</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span> <span class="o">=</span> <span class="n">FMU</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observation_space</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_observation_space</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_space</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_action_space</span><span class="p">()</span>
+
+        <span class="c1"># dict for custom vars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_action_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter function for the action space of the agent. As default,</span>
+<span class="sd">        the action space is defined with respect to the loaded FMU and </span>
+<span class="sd">        uses all inputs as actions.</span>
+<span class="sd">        For other (restricted) action spaces, this function needs to be </span>
+<span class="sd">        modified. For information about possible space definitions, see</span>
+<span class="sd">        https://gymnasium.farama.org/api/spaces/.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        space : gymnasium.space</span>
+<span class="sd">            Returns the unbounded action space defined by the FMU inputs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">input</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">high</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="n">low</span> <span class="o">=</span> <span class="n">high</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">gym</span><span class="o">.</span><span class="n">spaces</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_observation_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter function for the observation space of the agent. As </span>
+<span class="sd">        default, the action space is defined with respect to the loaded FMU </span>
+<span class="sd">        and uses all outputs as observations.</span>
+<span class="sd">        For other (restricted) observation spaces, this function needs to be </span>
+<span class="sd">        modified. For information about possible space definitions, see</span>
+<span class="sd">        https://gymnasium.farama.org/api/spaces/.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        space : gymnasium.space</span>
+<span class="sd">            Returns the unbounded observation space defined by the FMU </span>
+<span class="sd">            outputs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">output</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">high</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="n">low</span> <span class="o">=</span> <span class="n">high</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">gym</span><span class="o">.</span><span class="n">spaces</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+
+    <span class="c1"># ----------------------------------------------------------------------------</span>
+    <span class="c1"># Reset</span>
+    <span class="c1"># ----------------------------------------------------------------------------</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Default reset function for gymnasium class.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        seed : int, optional</span>
+<span class="sd">            The seed is not used for the FMU since those calculations are </span>
+<span class="sd">            deterministic but could be used by the user e.g. for weather models </span>
+<span class="sd">            interacting with the FMU during the simulation.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        observation : gymnasium.space</span>
+<span class="sd">            Observation created during reset call (defined behavior by gym)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resetIO</span><span class="p">()</span>
+
+        <span class="c1"># reset FMU</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FMU_states</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">resetFMU</span><span class="p">()</span>
+        <span class="c1"># calling internal reset function which can be overwritten</span>
+        <span class="c1"># and allows customization</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset_</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_resetIO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Resetting lists containing the inputs / outputs and actions of each</span>
+<span class="sd">        step and the internal variables.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">steps_simulation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">getNumInput</span><span class="p">()])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">steps_simulation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">getNumOutput</span><span class="p">()])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">steps_simulation</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step_count</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This internal reset function provides an interface to modify the</span>
+<span class="sd">        environment at every reset. You can overwrite this!  The code could</span>
+<span class="sd">        also depend on the seed and it is possible to modify the returned</span>
+<span class="sd">        observation.</span>
+
+<span class="sd">        The default behavior is to simulate the initial step and return all observed </span>
+<span class="sd">        values. However, the inputs are not reset therefore.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        seed : int, optional</span>
+<span class="sd">            The seed is not used for the FMU since its calculations are </span>
+<span class="sd">            deterministic but could be used by the user e.g. for weather models </span>
+<span class="sd">            interacting with the FMU during the simulation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset_inputs</span><span class="p">:</span>
+            <span class="c1"># set all inputs to zero for consistent simulation results</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">setReal</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">valueReference</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="c1"># get the first observation as specified by gymnaisum</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_observation</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_processing</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">step_count</span><span class="p">,</span> <span class="p">:])</span>
+
+    <span class="c1"># ----------------------------------------------------------------------------</span>
+    <span class="c1"># Step</span>
+    <span class="c1"># ----------------------------------------------------------------------------</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run one time step of the environment&#39;s dynamics using the agent</span>
+<span class="sd">        actions.  (Adapted from gymnasium documentation v0.28.1)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        action : list</span>
+<span class="sd">            An action provided by the agent to update the environment state.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ----------</span>
+<span class="sd">        observation : ObsType</span>
+<span class="sd">            An element of the environment&#39;s `observation_space` as the next </span>
+<span class="sd">            observation due to the agent actions.  An example is a numpy array </span>
+<span class="sd">            containing the positions and velocities of the pole in CartPole.</span>
+<span class="sd">        reward : SupportsFloat</span>
+<span class="sd">            The reward as a result of taking the action.</span>
+<span class="sd">        terminated : bool</span>
+<span class="sd">            Whether the agent reaches the terminal state (as defined under the </span>
+<span class="sd">            MDP of the task) which can be positive or negative. An example is </span>
+<span class="sd">            reaching the goal state or moving into the lava from the Sutton and </span>
+<span class="sd">            Barton, Gridworld. If true, the user needs to call :meth:`reset`.</span>
+<span class="sd">        truncated : bool</span>
+<span class="sd">            Whether the truncation condition outside the scope of the MDP is </span>
+<span class="sd">            satisfied. Typically, this is a timelimit, but could also be used </span>
+<span class="sd">            to indicate an agent physically going out of bounds. Can be used to </span>
+<span class="sd">            end the episode prematurely before a terminal state is reached. If </span>
+<span class="sd">            true, the user needs to call :meth:`reset`.  </span>
+<span class="sd">        info : dict </span>
+<span class="sd">            Contains auxiliary diagnostic information (helpful for debugging, learning, </span>
+<span class="sd">            and logging).  This might, for instance, contain: metrics that describe </span>
+<span class="sd">            the agent&#39;s performance state, variables that are hidden from observations, </span>
+<span class="sd">            or individual reward terms that are combined to produce the total reward.  </span>
+<span class="sd">            In OpenAI Gym &lt;v26, it contains &quot;TimeLimit.truncated&quot; to distinguish </span>
+<span class="sd">            truncation and termination, however this is deprecated in favor of </span>
+<span class="sd">            returning terminated and truncated variables.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># make sure we have a float32 numpy array</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">action</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="c1"># assign actions to FMU input</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assignAction</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+
+        <span class="c1"># simulate next step(s) of the FMU</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_observation</span><span class="p">()</span>
+
+        <span class="c1"># get observation vector / outputs of the FMU</span>
+        <span class="n">observation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_processing</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">step_count</span><span class="p">,</span> <span class="p">:])</span>
+
+        <span class="c1"># calculate rewards and if needed set truncated flag</span>
+        <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_reward</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">observation</span><span class="p">)</span>
+
+        <span class="c1"># end of simulation time reached?</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span>
+            <span class="n">truncated</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Simulation done&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">observation</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">assignAction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Assign actions to the inputs of the FMU/environment.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        action : list</span>
+<span class="sd">            An action provided by the agent to update the environment state.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># assign actions to inputs</span>
+        <span class="c1"># check if actions are within action space</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">action</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The actions are not within the action space. Action: </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">. Time: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># assign actions to the action space</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">action</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">setReal</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">input</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">valueReference</span><span class="p">],</span> <span class="p">[</span><span class="n">val</span><span class="p">])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_next_observation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;It might be required to run the simulation for multiple steps</span>
+<span class="sd">        between the inteactions of the agent.  By default the agent only</span>
+<span class="sd">        observes state after the last of the simulation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        steps : int, optional</span>
+<span class="sd">            Number of steps the FMU model should run</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># simulate fmu for the specified amount of steps</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Starting simulation at simulation time </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2"> [s]&quot;</span><span class="p">)</span>
+
+        <span class="c1"># only during reset the amount of steps is set</span>
+        <span class="k">if</span> <span class="n">steps</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">steps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_between_actions</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+            <span class="c1"># inputs of the FMU can changed independend of the agent</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">FMU_external_input</span><span class="p">()</span>
+
+            <span class="c1"># simulate FMU for one time step (dt)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_FMUstep</span><span class="p">()</span>
+
+            <span class="c1"># save simulation step results</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">step_count</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">step_count</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">getReal</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">valueReference</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">input</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">step_count</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">getReal</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">valueReference</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">output</span><span class="p">]</span>
+            <span class="p">)</span>
+
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Simulation for current step done.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_FMUstep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This internal step function handles the interaction with the FMU.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">doStep</span><span class="p">(</span>
+            <span class="n">currentCommunicationPoint</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="n">communicationStepSize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">FMU_external_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This function is called before each FMU step. Here you can set FMU</span>
+<span class="sd">        inputs independent of the agent action. This could be used e.g. for</span>
+<span class="sd">        weather data influencing the FMU simulation.</span>
+
+<span class="sd">        Use the code below to access the FMU inputs.</span>
+<span class="sd">        self.fmu.fmu.setReal([self.fmu.input[0].valueReference], [value])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">obs_processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;If the agent is supposed to observe modified values the simulated</span>
+<span class="sd">        values can be modified here before the reward calculation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        observation : ObsType</span>
+<span class="sd">            The observation by the FMU/ environment</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        observation : ObsType</span>
+<span class="sd">            Per default only returns the input but by overwriting the function custom requirements can be met</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">observation</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">observation</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The reward function depends on the specific usecase and must be</span>
+<span class="sd">        specified by the user.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        action: ActionType</span>
+<span class="sd">            The initial action leads to the observed state of the FMU/ environment</span>
+<span class="sd">        observation : ObsType</span>
+<span class="sd">            The modified observation by the FMU/ environment (:meth:`obs_processing`)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        reward : float</span>
+<span class="sd">            Calculated reward for the given action and observation</span>
+<span class="sd">        terminated : bool</span>
+<span class="sd">            Set flag if episode should be terminated. It is automatically </span>
+<span class="sd">            terminated if the maximum time is reached</span>
+<span class="sd">        truncated : bool</span>
+<span class="sd">            Set flag if the agent is truncated</span>
+<span class="sd">        info : dict</span>
+<span class="sd">            Info dict which is empty by default</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">reward</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">terminated</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">truncated</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span>
+
+    <span class="c1"># ----------------------------------------------------------------------------</span>
+    <span class="c1"># Close / Export / Rollback</span>
+    <span class="c1"># ----------------------------------------------------------------------------</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close FMU and clean up temporary data.</span>
+
+<span class="sd">        This should be called after the simulation ends.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">closeFMU</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">export_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This function can be overwritten to acess and export results of the</span>
+<span class="sd">        agent.&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_save_rollbackstate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Currently matlabs limited export capabilities prevent rollbacks if</span>
+<span class="sd">        they enable this at any time this will work.</span>
+
+<span class="sd">        Therefore, the function is currently marked as private.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating rollback state at time step </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">step_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># get the current state</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">getFMUstate</span><span class="p">()</span>
+        <span class="c1"># serialize the state</span>
+        <span class="n">serialized_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">serializeFMUstate</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FMU_states</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">step_count</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">state</span><span class="p">,</span>
+            <span class="n">serialized_state</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">step_count</span><span class="p">,</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_perform_rollback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Currently matlabs limited export capabilities prevent rollbacks if</span>
+<span class="sd">        they enable this at any time this will work.</span>
+
+<span class="sd">        Therefore, the function is currently marked as private.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Performing rollback to the state at step </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s2">&quot;If MATLAB created this FMU the rollback did not affect the FMU state&quot;</span>
+        <span class="p">)</span>
+        <span class="c1"># de-serialize the state</span>
+        <span class="n">deserialized_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">deSerializeFMUstate</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">FMU_states</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">step</span><span class="p">)][</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">FMU_states</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">step</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="c1"># set the state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">setFMUstate</span><span class="p">(</span><span class="n">deserialized_state</span><span class="p">)</span>
+        <span class="c1"># free memory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">freeFMUstate</span><span class="p">(</span><span class="n">deserialized_state</span><span class="p">)</span>
+        <span class="c1"># self.fmu.fmu.setFMUstate(state=self.FMU_states[str(step)][0])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">step_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FMU_states</span><span class="p">[</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+        <span class="p">][</span><span class="mi">2</span><span class="p">:]</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.FMU_external_input" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">FMU_external_input</span><span class="p">()</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>This function is called before each FMU step. Here you can set FMU
+inputs independent of the agent action. This could be used e.g. for
+weather data influencing the FMU simulation.</p>
+<p>Use the code below to access the FMU inputs.
+self.fmu.fmu.setReal([self.fmu.input[0].valueReference], [value])</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">FMU_external_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function is called before each FMU step. Here you can set FMU</span>
+<span class="sd">    inputs independent of the agent action. This could be used e.g. for</span>
+<span class="sd">    weather data influencing the FMU simulation.</span>
+
+<span class="sd">    Use the code below to access the FMU inputs.</span>
+<span class="sd">    self.fmu.fmu.setReal([self.fmu.input[0].valueReference], [value])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Constructor method.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Constructor method.&quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">StableRLS</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+
+    <span class="c1"># make parameters of config file available as class parameters</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">section_names</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+    <span class="c1"># set missing parameters to default values</span>
+    <span class="c1"># by default, the agent chooses one action per time step</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;action_interval&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+    <span class="c1"># set start time of the simulation</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;start_time&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="c1"># specify if the inputs are set to zero at each reset() call</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;reset_inputs&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_inputs</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># check config settings for simulation time</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">round</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">is_integer</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Incompatible time step and stop time.</span><span class="se">\n</span><span class="s2"> Using </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span><span class="si">}</span><span class="s2"> as&quot;</span>
+            <span class="s2">&quot; stop time instead&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">is_integer</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="s2">&quot;Incompatible time step and action interval.</span><span class="se">\n</span><span class="s2"> Using&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span><span class="si">}</span><span class="s2"> as interval instead&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># calculate number of simulation steps</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">steps_between_actions</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">steps_simulation</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="c1"># change action interval to (simulation steps - 1)*dt if it leads to too many steps</span>
+    <span class="c1"># between actions</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_simulation</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_between_actions</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps_between_actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_simulation</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_between_actions</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="s2">&quot;Action interval inconsistent with simulation duration.</span><span class="se">\n</span><span class="s2"> Using&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">action_interval</span><span class="si">}</span><span class="s2"> as interval instead&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># initialize FMU</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span> <span class="o">=</span> <span class="n">FMU</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">observation_space</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_observation_space</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">action_space</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_action_space</span><span class="p">()</span>
+
+    <span class="c1"># dict for custom vars</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.assignAction" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">assignAction</span><span class="p">(</span><span class="n">action</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Assign actions to the inputs of the FMU/environment.</p>
+<h4 id="stableRLS.gymFMU.StableRLS.assignAction--parameters">Parameters</h4>
+<p>action : list
+    An action provided by the agent to update the environment state.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assignAction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Assign actions to the inputs of the FMU/environment.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    action : list</span>
+<span class="sd">        An action provided by the agent to update the environment state.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># assign actions to inputs</span>
+    <span class="c1"># check if actions are within action space</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">action</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The actions are not within the action space. Action: </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">. Time: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># assign actions to the action space</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">action</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">setReal</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">input</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">valueReference</span><span class="p">],</span> <span class="p">[</span><span class="n">val</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.close" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">close</span><span class="p">()</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Close FMU and clean up temporary data.</p>
+<p>This should be called after the simulation ends.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Close FMU and clean up temporary data.</span>
+
+<span class="sd">    This should be called after the simulation ends.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">closeFMU</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.export_results" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">export_results</span><span class="p">()</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>This function can be overwritten to acess and export results of the
+agent.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">export_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function can be overwritten to acess and export results of the</span>
+<span class="sd">    agent.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.get_reward" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_reward</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">observation</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>The reward function depends on the specific usecase and must be
+specified by the user.</p>
+<h4 id="stableRLS.gymFMU.StableRLS.get_reward--parameters">Parameters</h4>
+<p>action: ActionType
+    The initial action leads to the observed state of the FMU/ environment
+observation : ObsType
+    The modified observation by the FMU/ environment (:meth:<code>obs_processing</code>)</p>
+<h4 id="stableRLS.gymFMU.StableRLS.get_reward--returns">Returns</h4>
+<p>reward : float
+    Calculated reward for the given action and observation
+terminated : bool
+    Set flag if episode should be terminated. It is automatically 
+    terminated if the maximum time is reached
+truncated : bool
+    Set flag if the agent is truncated
+info : dict
+    Info dict which is empty by default</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">observation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The reward function depends on the specific usecase and must be</span>
+<span class="sd">    specified by the user.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    action: ActionType</span>
+<span class="sd">        The initial action leads to the observed state of the FMU/ environment</span>
+<span class="sd">    observation : ObsType</span>
+<span class="sd">        The modified observation by the FMU/ environment (:meth:`obs_processing`)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    reward : float</span>
+<span class="sd">        Calculated reward for the given action and observation</span>
+<span class="sd">    terminated : bool</span>
+<span class="sd">        Set flag if episode should be terminated. It is automatically </span>
+<span class="sd">        terminated if the maximum time is reached</span>
+<span class="sd">    truncated : bool</span>
+<span class="sd">        Set flag if the agent is truncated</span>
+<span class="sd">    info : dict</span>
+<span class="sd">        Info dict which is empty by default</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">reward</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">terminated</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">truncated</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.obs_processing" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">obs_processing</span><span class="p">(</span><span class="n">observation</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>If the agent is supposed to observe modified values the simulated
+values can be modified here before the reward calculation.</p>
+<h4 id="stableRLS.gymFMU.StableRLS.obs_processing--parameters">Parameters</h4>
+<p>observation : ObsType
+    The observation by the FMU/ environment</p>
+<h4 id="stableRLS.gymFMU.StableRLS.obs_processing--returns">Returns</h4>
+<p>observation : ObsType
+    Per default only returns the input but by overwriting the function custom requirements can be met</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">obs_processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;If the agent is supposed to observe modified values the simulated</span>
+<span class="sd">    values can be modified here before the reward calculation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    observation : ObsType</span>
+<span class="sd">        The observation by the FMU/ environment</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    observation : ObsType</span>
+<span class="sd">        Per default only returns the input but by overwriting the function custom requirements can be met</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">observation</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.reset" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">reset</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Default reset function for gymnasium class.</p>
+<h4 id="stableRLS.gymFMU.StableRLS.reset--parameters">Parameters</h4>
+<p>seed : int, optional
+    The seed is not used for the FMU since those calculations are 
+    deterministic but could be used by the user e.g. for weather models 
+    interacting with the FMU during the simulation.</p>
+<h4 id="stableRLS.gymFMU.StableRLS.reset--returns">Returns</h4>
+<p>observation : gymnasium.space
+    Observation created during reset call (defined behavior by gym)</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Default reset function for gymnasium class.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    seed : int, optional</span>
+<span class="sd">        The seed is not used for the FMU since those calculations are </span>
+<span class="sd">        deterministic but could be used by the user e.g. for weather models </span>
+<span class="sd">        interacting with the FMU during the simulation.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    observation : gymnasium.space</span>
+<span class="sd">        Observation created during reset call (defined behavior by gym)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">step_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_resetIO</span><span class="p">()</span>
+
+    <span class="c1"># reset FMU</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">FMU_states</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">resetFMU</span><span class="p">()</span>
+    <span class="c1"># calling internal reset function which can be overwritten</span>
+    <span class="c1"># and allows customization</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset_</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.reset_" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">reset_</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>This internal reset function provides an interface to modify the
+environment at every reset. You can overwrite this!  The code could
+also depend on the seed and it is possible to modify the returned
+observation.</p>
+<p>The default behavior is to simulate the initial step and return all observed 
+values. However, the inputs are not reset therefore.</p>
+<h4 id="stableRLS.gymFMU.StableRLS.reset_--parameters">Parameters</h4>
+<p>seed : int, optional
+    The seed is not used for the FMU since its calculations are 
+    deterministic but could be used by the user e.g. for weather models 
+    interacting with the FMU during the simulation.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">reset_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This internal reset function provides an interface to modify the</span>
+<span class="sd">    environment at every reset. You can overwrite this!  The code could</span>
+<span class="sd">    also depend on the seed and it is possible to modify the returned</span>
+<span class="sd">    observation.</span>
+
+<span class="sd">    The default behavior is to simulate the initial step and return all observed </span>
+<span class="sd">    values. However, the inputs are not reset therefore.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    seed : int, optional</span>
+<span class="sd">        The seed is not used for the FMU since its calculations are </span>
+<span class="sd">        deterministic but could be used by the user e.g. for weather models </span>
+<span class="sd">        interacting with the FMU during the simulation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset_inputs</span><span class="p">:</span>
+        <span class="c1"># set all inputs to zero for consistent simulation results</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">setReal</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">valueReference</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># get the first observation as specified by gymnaisum</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_next_observation</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_processing</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">step_count</span><span class="p">,</span> <span class="p">:])</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.set_action_space" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_action_space</span><span class="p">()</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Setter function for the action space of the agent. As default,
+the action space is defined with respect to the loaded FMU and 
+uses all inputs as actions.
+For other (restricted) action spaces, this function needs to be 
+modified. For information about possible space definitions, see
+https://gymnasium.farama.org/api/spaces/.</p>
+<h4 id="stableRLS.gymFMU.StableRLS.set_action_space--returns">Returns</h4>
+<p>space : gymnasium.space
+    Returns the unbounded action space defined by the FMU inputs</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">set_action_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Setter function for the action space of the agent. As default,</span>
+<span class="sd">    the action space is defined with respect to the loaded FMU and </span>
+<span class="sd">    uses all inputs as actions.</span>
+<span class="sd">    For other (restricted) action spaces, this function needs to be </span>
+<span class="sd">    modified. For information about possible space definitions, see</span>
+<span class="sd">    https://gymnasium.farama.org/api/spaces/.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    space : gymnasium.space</span>
+<span class="sd">        Returns the unbounded action space defined by the FMU inputs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">input</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">high</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="n">high</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">gym</span><span class="o">.</span><span class="n">spaces</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.set_observation_space" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_observation_space</span><span class="p">()</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Setter function for the observation space of the agent. As 
+default, the action space is defined with respect to the loaded FMU 
+and uses all outputs as observations.
+For other (restricted) observation spaces, this function needs to be 
+modified. For information about possible space definitions, see
+https://gymnasium.farama.org/api/spaces/.</p>
+<h4 id="stableRLS.gymFMU.StableRLS.set_observation_space--returns">Returns</h4>
+<p>space : gymnasium.space
+    Returns the unbounded observation space defined by the FMU 
+    outputs</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">set_observation_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Setter function for the observation space of the agent. As </span>
+<span class="sd">    default, the action space is defined with respect to the loaded FMU </span>
+<span class="sd">    and uses all outputs as observations.</span>
+<span class="sd">    For other (restricted) observation spaces, this function needs to be </span>
+<span class="sd">    modified. For information about possible space definitions, see</span>
+<span class="sd">    https://gymnasium.farama.org/api/spaces/.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    space : gymnasium.space</span>
+<span class="sd">        Returns the unbounded observation space defined by the FMU </span>
+<span class="sd">        outputs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmu</span><span class="o">.</span><span class="n">output</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">high</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="n">high</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">gym</span><span class="o">.</span><span class="n">spaces</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stableRLS.gymFMU.StableRLS.step" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Run one time step of the environment's dynamics using the agent
+actions.  (Adapted from gymnasium documentation v0.28.1)</p>
+<h4 id="stableRLS.gymFMU.StableRLS.step--parameters">Parameters</h4>
+<p>action : list
+    An action provided by the agent to update the environment state.</p>
+<h4 id="stableRLS.gymFMU.StableRLS.step--returns">Returns</h4>
+<p>observation : ObsType
+    An element of the environment's <code>observation_space</code> as the next 
+    observation due to the agent actions.  An example is a numpy array 
+    containing the positions and velocities of the pole in CartPole.
+reward : SupportsFloat
+    The reward as a result of taking the action.
+terminated : bool
+    Whether the agent reaches the terminal state (as defined under the 
+    MDP of the task) which can be positive or negative. An example is 
+    reaching the goal state or moving into the lava from the Sutton and 
+    Barton, Gridworld. If true, the user needs to call :meth:<code>reset</code>.
+truncated : bool
+    Whether the truncation condition outside the scope of the MDP is 
+    satisfied. Typically, this is a timelimit, but could also be used 
+    to indicate an agent physically going out of bounds. Can be used to 
+    end the episode prematurely before a terminal state is reached. If 
+    true, the user needs to call :meth:<code>reset</code>.<br />
+info : dict 
+    Contains auxiliary diagnostic information (helpful for debugging, learning, 
+    and logging).  This might, for instance, contain: metrics that describe 
+    the agent's performance state, variables that are hidden from observations, 
+    or individual reward terms that are combined to produce the total reward.<br />
+    In OpenAI Gym &lt;v26, it contains "TimeLimit.truncated" to distinguish 
+    truncation and termination, however this is deprecated in favor of 
+    returning terminated and truncated variables.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/stableRLS/gymFMU.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run one time step of the environment&#39;s dynamics using the agent</span>
+<span class="sd">    actions.  (Adapted from gymnasium documentation v0.28.1)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    action : list</span>
+<span class="sd">        An action provided by the agent to update the environment state.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    observation : ObsType</span>
+<span class="sd">        An element of the environment&#39;s `observation_space` as the next </span>
+<span class="sd">        observation due to the agent actions.  An example is a numpy array </span>
+<span class="sd">        containing the positions and velocities of the pole in CartPole.</span>
+<span class="sd">    reward : SupportsFloat</span>
+<span class="sd">        The reward as a result of taking the action.</span>
+<span class="sd">    terminated : bool</span>
+<span class="sd">        Whether the agent reaches the terminal state (as defined under the </span>
+<span class="sd">        MDP of the task) which can be positive or negative. An example is </span>
+<span class="sd">        reaching the goal state or moving into the lava from the Sutton and </span>
+<span class="sd">        Barton, Gridworld. If true, the user needs to call :meth:`reset`.</span>
+<span class="sd">    truncated : bool</span>
+<span class="sd">        Whether the truncation condition outside the scope of the MDP is </span>
+<span class="sd">        satisfied. Typically, this is a timelimit, but could also be used </span>
+<span class="sd">        to indicate an agent physically going out of bounds. Can be used to </span>
+<span class="sd">        end the episode prematurely before a terminal state is reached. If </span>
+<span class="sd">        true, the user needs to call :meth:`reset`.  </span>
+<span class="sd">    info : dict </span>
+<span class="sd">        Contains auxiliary diagnostic information (helpful for debugging, learning, </span>
+<span class="sd">        and logging).  This might, for instance, contain: metrics that describe </span>
+<span class="sd">        the agent&#39;s performance state, variables that are hidden from observations, </span>
+<span class="sd">        or individual reward terms that are combined to produce the total reward.  </span>
+<span class="sd">        In OpenAI Gym &lt;v26, it contains &quot;TimeLimit.truncated&quot; to distinguish </span>
+<span class="sd">        truncation and termination, however this is deprecated in favor of </span>
+<span class="sd">        returning terminated and truncated variables.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># make sure we have a float32 numpy array</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">action</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="c1"># assign actions to FMU input</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assignAction</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+
+    <span class="c1"># simulate next step(s) of the FMU</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_next_observation</span><span class="p">()</span>
+
+    <span class="c1"># get observation vector / outputs of the FMU</span>
+    <span class="n">observation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_processing</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">step_count</span><span class="p">,</span> <span class="p">:])</span>
+
+    <span class="c1"># calculate rewards and if needed set truncated flag</span>
+    <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_reward</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">observation</span><span class="p">)</span>
+
+    <span class="c1"># end of simulation time reached?</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_time</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span>
+        <span class="n">truncated</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Simulation done&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">observation</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div></div>
         
         
     </div>

@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Examples - StableRLS Documentation</title>
+    <title>Overview - StableRLS Documentation</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -76,31 +76,25 @@
                 
                 
                 
-                    <li >
-                        <a href="../../getting_started.md">Getting Started</a>
-                    </li>
-                
-                
-                
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Examples <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../example_create_grid.md">Create Grid (Symbolic)</a>
+    <a href="../../source/install/">Installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../example_simulate_grid.md">Simulate Grid (Numerical)</a>
+    <a href="../../source/port_creation/">Port Creation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../example_simulink.md">Simulink Co-Simulation</a>
+    <a href="../../source/configuration/">Configuration</a>
 </li>
 
                         
@@ -110,48 +104,66 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components & Tools <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../api/ODEpower.md">ODEpower</a>
+    <a href="../../source/configreader/">Config Reader</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../api/ODEgraph.md">ODEgraph</a>
+    <a href="../../source/createFMU/">Create FMU</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../api/ODEtool.md">ODEtool</a>
+    <a href="../../source/fmutools/">FMU Tools</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../api/ODEsimulation.md">ODEsimulation</a>
+    <a href="../../source/gymFMU/">Gym FMU</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Examples <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Overview</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../source/API_Reference/">API Reference</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../api/ODEplot.md">ODEplot</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEmatlab.md">ODEmatlab</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/connection_equations.md">Connection Equations</a>
+    <a href="../../source/contribute/">Contributing</a>
 </li>
 
                         
@@ -165,6 +177,16 @@
                     <li>
                         <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                             <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../source/gymFMU/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../../source/API_Reference/">
+                            Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
                     <li>
@@ -181,19 +203,55 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#examples">Examples</a></li>
+            <li class="second-level"><a href="#tutorial-notebooks">Tutorial Notebooks</a></li>
+                
+                <li class="third-level"><a href="#00-getstartedipynb">📓 00-GetStarted.ipynb</a></li>
+                <li class="third-level"><a href="#01-reward_functionipynb">📓 01-Reward_Function.ipynb</a></li>
+                <li class="third-level"><a href="#02-advanced_usageipynb">📓 02-Advanced_Usage.ipynb</a></li>
+                <li class="third-level"><a href="#03-customising_actions_observationsipynb">📓 03-Customising_Actions_Observations.ipynb</a></li>
+                <li class="third-level"><a href="#04-customising_timingipynb">📓 04-Customising_Timing.ipynb</a></li>
+            <li class="second-level"><a href="#running-the-notebooks">Running the Notebooks</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h1 id="examples">Examples</h1>
-<pre><code>:caption: 'Contents:'
-:maxdepth: 2
-00-GetStarted
-01-Reward_Function
-02-Advanced_Usage
-03-Customising_Actions_Observations
-04-Customising_Timing
-</code></pre></div>
+<h2 id="tutorial-notebooks">Tutorial Notebooks</h2>
+<p>The following Jupyter notebooks provide hands-on examples and tutorials. You can view and download them directly:</p>
+<h3 id="00-getstartedipynb"><a href="../00-GetStarted.ipynb">📓 00-GetStarted.ipynb</a></h3>
+<p><strong>Basic introduction to StableRLS</strong>
+- Learn the fundamentals of StableRLS
+- Set up your first environment
+- Run a basic simulation</p>
+<h3 id="01-reward_functionipynb"><a href="../01-Reward_Function.ipynb">📓 01-Reward_Function.ipynb</a></h3>
+<p><strong>Understanding and customizing reward functions</strong>
+- Learn how reward functions work
+- Create custom reward functions
+- Optimize training performance</p>
+<h3 id="02-advanced_usageipynb"><a href="../02-Advanced_Usage.ipynb">📓 02-Advanced_Usage.ipynb</a></h3>
+<p><strong>Advanced features and configurations</strong>
+- Explore advanced configuration options
+- Use advanced simulation features
+- Integrate with external tools</p>
+<h3 id="03-customising_actions_observationsipynb"><a href="../03-Customising_Actions_Observations.ipynb">📓 03-Customising_Actions_Observations.ipynb</a></h3>
+<p><strong>How to customize the action and observation spaces</strong>
+- Define custom action spaces
+- Configure observation spaces
+- Handle complex state representations</p>
+<h3 id="04-customising_timingipynb"><a href="../04-Customising_Timing.ipynb">📓 04-Customising_Timing.ipynb</a></h3>
+<p><strong>Timing configuration and control</strong>
+- Configure simulation timing
+- Handle time-based events
+- Synchronize with real-time systems</p>
+<h2 id="running-the-notebooks">Running the Notebooks</h2>
+<p>To run these notebooks locally:</p>
+<ol>
+<li>Ensure you have Jupyter installed: <code>pip install jupyter</code></li>
+<li>Navigate to the notebooks directory: <code>cd docs/notebooks/</code></li>
+<li>Start Jupyter: <code>jupyter notebook</code></li>
+<li>Open any notebook file (.ipynb) in the Jupyter interface</li>
+</ol></div>
         
         
     </div>

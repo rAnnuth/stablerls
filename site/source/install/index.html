@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>StableRLS - StableRLS Documentation</title>
+    <title>Installation - StableRLS Documentation</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -76,8 +76,62 @@
                 
                 
                 
-                    <li >
-                        <a href="../../getting_started.md">Getting Started</a>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Installation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../port_creation/">Port Creation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components & Tools <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../configreader/">Config Reader</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../createFMU/">Create FMU</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../fmutools/">FMU Tools</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gymFMU/">Gym FMU</a>
+</li>
+
+                        
+                        </ul>
                     </li>
                 
                 
@@ -88,19 +142,7 @@
                         
                             
 <li >
-    <a href="../../example_create_grid.md">Create Grid (Symbolic)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../example_simulate_grid.md">Simulate Grid (Numerical)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../example_simulink.md">Simulink Co-Simulation</a>
+    <a href="../../notebooks/overview/">Overview</a>
 </li>
 
                         
@@ -110,48 +152,18 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API Reference <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../api/ODEpower.md">ODEpower</a>
+    <a href="../API_Reference/">API Reference</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../api/ODEgraph.md">ODEgraph</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEtool.md">ODEtool</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEsimulation.md">ODEsimulation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEplot.md">ODEplot</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/ODEmatlab.md">ODEmatlab</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../api/connection_equations.md">Connection Equations</a>
+    <a href="../contribute/">Contributing</a>
 </li>
 
                         
@@ -167,6 +179,16 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
+                    <li >
+                        <a rel="prev" href="../..">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../port_creation/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
                     <li>
                         <a href="https://github.com/rAnnuth/stablerls/edit/master/docs/source/install.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
@@ -180,14 +202,40 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#stablerls">StableRLS</a></li>
+        <li class="first-level active"><a href="#installation">Installation</a></li>
+            <li class="second-level"><a href="#stablerls">StableRLS</a></li>
+                
+            <li class="second-level"><a href="#general-information">General Information</a></li>
+                
+            <li class="second-level"><a href="#installation-steps">Installation Steps</a></li>
+                
+                <li class="third-level"><a href="#matlab-version">Matlab Version</a></li>
+            <li class="second-level"><a href="#get-started">Get Started</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="stablerls">StableRLS</h1>
-<p><code>{include} ../../README.md
-:relative-images:</code></p></div>
+<h1 id="installation">Installation</h1>
+<h2 id="stablerls">StableRLS</h2>
+<p>StableRLS is a software package that lets you use your existing MATLAB Simulink models in Python for reinforcement learning. Basically, your simulation is wrapped in a Python <a href="https://gymnasium.farama.org/">Gymnasium</a> environment. The package provides the following features:
+- automatic generation of input and output signals for your model
+- automatic compilation of the Simulink model into a functional-mockup-unit (FMU) to enable fast simulation
+- flexible post-processing implementation
+- easy-to-read code</p>
+<p><strong>And the best part is</strong> that the only thing you need to do is:
+- define a reward function to train your agent</p>
+<h2 id="general-information">General Information</h2>
+<p>Reinforcement Learning (RL) is a rapidly changing and innovative field. The main purpose of this package is to combine the easy-to-use MATLAB Simulink modeling interface with the flexible and state-of-the-art Gymnasium interface. Therefore, the RL algorithm and the learning interface are out of scope for this package. However, we make the interface between Matlab and Python as easy as possible.</p>
+<h2 id="installation-steps">Installation Steps</h2>
+<p>This package is currently tested with Python 3.9.
+To install the package, run <code>pip install StableRLS</code>. <strong>You have to install the MATLAB engine separately</strong> because each MATLAB release has some specific requirements (see below).</p>
+<p>You can also clone this repository and run <code>pip install -e StableRLS/</code> from the main directory. This will also install the main dependencies, which are listed in <code>requirements.txt</code>. To actively contribute, you should also install the <code>optional-requirements.txt</code>, which also includes the dependencies for building the documentation, by running <code>pip install -r optional-requirements.txt</code>.</p>
+<p>We decided to exclude the typical machine learning frameworks (PyTorch, Tensorflow) from the requirements, because everyone has their own preferences and we want to keep this package small. But some of our examples are based on PyTorch, so you need to run <code>pip install torch</code> if you want to run them locally. This will also be mentioned in the examples. To compile the documentation locally, you need to have Pandoc installed on your computer.</p>
+<h3 id="matlab-version">Matlab Version</h3>
+<p>The MATLAB engine Python package is a requirement to compile a given MATLAB Simulink model. Before the MATLAB release R2022b it was inconvenient to install the engine, see the <a href="https://de.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html">instructions</a>. After the release, it's possible to install the engine as a pip package. StableRLS won't try to install the MATLAB engine as dependency because the pip package only supports the newest MATLAB release. Currently, you can run <code>pip install matlabengine</code> if you have MATLAB 2023a installed, if you have MATLAB 2022b installed run <code>pip install matlabengine==9.13.7</code>. For other releases refer to the documentation mentioned.</p>
+<h2 id="get-started">Get Started</h2>
+<p>Check out our examples (/examples) or the documentation, which also contains the examples.</p></div>
         
         
     </div>
