@@ -1,0 +1,42 @@
+site_name: StableRLS Documentation
+repo_url: https://github.com/rAnnuth/stablerls
+docs_dir: docs
+
+theme:
+  name: cinder
+
+#theme:
+#  name: material
+#  features:
+#    - navigation.tabs
+#    - navigation.sections
+#    - navigation.expand  # This keeps the navigation bar expanded
+#    - navigation.indexes
+
+docs_dir: docs
+nav:
+  - Home: index.md
+  - "Installation": source/install.md
+  - "Port Creation": source/port_creation.md
+  - "Configuration": source/configuration.md
+  - "API Reference": source/API_Reference.md
+  - "Overview": notebooks/overview.md
+  - "Contributing": source/contribute.md
+  - "Installation": source/install.md
+  - "Port Creation": source/port_creation.md
+  - "Configuration": source/configuration.md
+  - "API Reference": source/API_Reference.md
+  - "Overview": notebooks/overview.md
+  - "Contributing": source/contribute.md
+
+plugins:
+  - search
+  - include-markdown
+  - mkdocstrings:
+      default_handler: python
+
+extra:
+  mkdocstrings:
+    handlers:
+      python:
+        paths: ["ODEpower/src"]

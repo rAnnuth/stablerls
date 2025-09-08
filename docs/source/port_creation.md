@@ -6,7 +6,7 @@ One main part of this package is the generation of bus structures for the inport
 - Connections to multiple subsystems or blocks
 
 The function is also optimized to reduce the complexity of the bus structure by removing duplicate elements. However, MATLAB seems to have introduced some strange compilation dependencies, and the FMU compilation fails sometimes. To avoid this issue, it is recommended to wrap your whole system inside one subsystem on the top level and connect "inports" and "outports" to the connections. Your model should look something like this:
-![](../../src/simulink.png)
+![](../img/simulink.png)
 
 ## Troubleshoot
 
